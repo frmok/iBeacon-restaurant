@@ -21,4 +21,8 @@
 // ]);
 
 Route::get('admin', 'Admin\AdminController@login');
-Route::post('admin', 'AdminController@checkLogin');
+Route::post('admin', 'Admin\AdminController@checkLogin');
+Route::get('admin/table', 'Admin\TableController@index');
+Route::get('admin/table/detail/{id?}', 'Admin\TableController@detail');
+Route::post('admin/table/create', 'Admin\TableController@create');
+Route::post('admin/table/update', 'Admin\TableController@update');
