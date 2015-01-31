@@ -22,7 +22,41 @@
 
 Route::get('admin', 'Admin\AdminController@login');
 Route::post('admin', 'Admin\AdminController@checkLogin');
+
+//table route
 Route::get('admin/table', 'Admin\TableController@index');
 Route::get('admin/table/detail/{id?}', 'Admin\TableController@detail');
+Route::get('admin/table/delete/{id}', 'Admin\TableController@delete');
 Route::post('admin/table/create', 'Admin\TableController@create');
 Route::post('admin/table/update', 'Admin\TableController@update');
+
+//category route
+Route::get('admin/category', 'Admin\CategoryController@index');
+Route::get('admin/category/detail/{id?}', 'Admin\CategoryController@detail');
+Route::get('admin/category/delete/{id}', 'Admin\CategoryController@delete');
+Route::post('admin/category/create', 'Admin\CategoryController@create');
+Route::post('admin/category/update', 'Admin\CategoryController@update');
+
+//item route
+Route::get('admin/item', 'Admin\ItemController@index');
+Route::get('admin/item/detail/{id?}', 'Admin\ItemController@detail');
+Route::get('admin/item/delete/{id}', 'Admin\ItemController@delete');
+Route::post('admin/item/create', 'Admin\ItemController@create');
+Route::post('admin/item/update', 'Admin\ItemController@update');
+
+//bill
+Route::get('admin/bill', 'Admin\BillController@index');
+Route::get('admin/bill/detail/{id?}', 'Admin\BillController@detail');
+Route::get('admin/bill/delete/{id}', 'Admin\BillController@delete');
+
+//order
+Route::get('admin/order', 'Admin\OrderController@index');
+Route::get('admin/order/delete/{id}', 'Admin\OrderController@delete');
+Route::get('admin/order/detail/{id}', 'Admin\OrderController@detail');
+Route::post('admin/order/update', 'Admin\OrderController@update');
+
+//API
+Route::get('api/getTableByBecaon/{major}/{minor}', 'APIController@getTableByBecaon');
+Route::get('api/bill/{id}', 'APIController@billDetail');
+Route::get('api/items/', 'APIController@itemList');
+Route::get('api/item/{id}', 'APIController@itemDetail');

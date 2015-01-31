@@ -4,7 +4,7 @@
         <div class="breadcrumb">
             <span><i class="fa fa-home"></i>Home</span>
             <span>/</span>
-            <span>Table Management</span>
+            <span>Bill Management</span>
         </div>
         <div class="col-md-8 main-view">
             <div class="list_layout">
@@ -12,20 +12,22 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Table Name</th>
-                            <th>Capacity</th>
+                            <th>Table</th>
+                            <th>Amount</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($tables as $table)
+                        @foreach ($bills as $bill)
                         <tr>
-                            <td>{!! $table->id !!}</td>
-                            <td>{!! $table->table_name !!}</td>
-                            <td>{!! $table->capacity !!}</td>
+                            <td>{!! $bill->id !!}</td>
+                            <td>{!! $bill->table->table_name !!}</td>
+                            <td>${!! $bill->tempAmount() !!}</td>
+                            <td>{!! $bill->status !!}</td>
                             <td>
-                                <a href="/admin/table/detail/{!! $table->id !!}"><div class="btn">Modify</div></a>
-                                <a href="/admin/table/detail/{!! $table->id !!}"><div class="btn btn-warning">Delete</div></a>
+                                <a href="/admin/bill/detail/{!! $bill->id !!}"><div class="btn">Modify</div></a>
+                                <a href="/admin/bill/delete/{!! $bill->id !!}"><div class="btn btn-warning">Delete</div></a>
                             </td>
                         </tr>
                         @endforeach

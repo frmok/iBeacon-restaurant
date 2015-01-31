@@ -34,7 +34,9 @@ a, a:hover, a:focus {
 }
 
 .btn {
-    padding   : 5px 8px;
+    padding   : .6rem 1rem;
+    border: 0;
+    border-radius: 0;
     font-size : 1em;
     background: rgba(67, 96, 65, 0.69);
     color     : #f7f7f7;
@@ -44,6 +46,14 @@ a, a:hover, a:focus {
 .btn:hover {
     background: #034b03;
     color     : #fff;
+}
+
+.btn-warning {
+    background: rgba(234, 16, 16, 0.69);
+}
+
+.btn-warning:hover{
+    background: rgba(153, 4, 4, 0.69);
 }
 
 .bg-success {
@@ -194,15 +204,35 @@ nav.sidebar ul {
 nav.sidebar ul > li{
     font-size: 1.2em;
     font-weight: 400;
-    padding: 0.5rem 1.2rem;
+    padding: 0.7rem 1.6rem;
     color: #fff;
+    transition: all ease-in .2s;
 }
 
 nav.sidebar ul > li.cat{
     text-transform: uppercase;
     font-weight: 700;
-    padding: 1.5rem 1.2rem 0.5rem 1.2rem;
+    padding: 1.5rem 1.6rem 0.5rem 1.6rem;
     color: #A4B2CB;
+}
+
+nav.sidebar ul > li.cat:hover{
+    background: inherit;
+}
+
+nav.sidebar ul > li:hover{
+    background: #1D2128;
+}
+nav.sidebar ul > li > a{
+    display: block;
+    width: 100%;
+    color: #fff;
+}
+
+nav.sidebar ul > li > a:hover{
+    display: block;
+    width: 100%;
+    color: rgb(92, 208, 92);
 }
 
 .main{
@@ -244,6 +274,7 @@ nav.sidebar ul > li.cat{
 }
 
 .form-title{
+    font-size: 1.2rem;
     font-weight: 700;
     background: #ebebeb;
     border-bottom: 1px solid #ccc;
@@ -265,6 +296,7 @@ nav.sidebar ul > li.cat{
     position: relative;
     border: 0;
 }
+
 .form-layout input[type=text]{
     position: absolute;
     height: 3.5em;
@@ -272,6 +304,118 @@ nav.sidebar ul > li.cat{
     bottom: 0;
     margin:auto 0;
     line-height: 1em;
+}
+
+.form-layout input[type=file]{
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    opacity: 0;
+    height: 3.5rem;
+}
+
+.form-layout .upload-btn{
+    position: absolute;
+    height: 3.5em;
+    left: 25%;
+    cursor: pointer;
+    background: #666;
+    color: #fff;
+    top: 0;
+    bottom: 0;
+    margin:auto 0;
+    line-height: 1em;
+    padding: 0;
+    overflow: hidden;
+}
+.form-thumbnail{
+    width: 100%;
+    padding: 0;
+    background-size: cover !important;
+    height: 300px;
+}
+
+.upload-btn > span{
+    display: block;
+    width: 100%;
+    line-height: 3.5rem;
+    text-align: center;
+}
+
+.form-layout select{
+    height: 3.5rem;
+    position: absolute;
+    top: 0;
+    line-height: 1rem;
+    bottom: 0;
+    border-radius: 0;
+    border: 1px solid #ccc;
+    background: #fff;
+    margin: auto 0;
+}
+
+.bill-layout .bill-header > div{
+    padding: 1.6rem;
+}
+
+.bill-header{
+    padding: 2rem;
+    border-bottom: 1px solid #ccc;
+    overflow: hidden;
+}
+
+.bill-header-value{
+    color: #777;
+    font-weight: 700;
+    font-size: 2.2rem;
+}
+
+.bill-header-label{
+    font-size: 1.2rem;
+}
+
+.bill-content{
+    padding: 2rem;
+    border-bottom: 1px solid #ccc;
+    overflow: hidden;
+}
+
+.bill-content table{
+    width: 100%;
+}
+
+.bill-content th{
+    padding: 1.6rem;
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-align: right;
+}
+
+.bill-content-header{
+    padding: .5rem 1.6rem;
+    color: #777;
+    font-size: 2rem;
+}
+
+.bill-content td{
+    padding: .8rem 1.6rem;
+    font-size: 1.6rem;
+    color: #777;
+    text-align: right;
+    font-weight: 700;
+}
+
+
+.bill-footer{
+    padding: 2rem;
+    overflow: hidden;
+}
+
+.bill-footer > div{
+    text-align: right;
+    color: #777;
+    font-size: 2rem;
+    font-weight: 700;
 }
 
 .form-bottom{
@@ -308,6 +452,7 @@ nav.sidebar ul > li.cat{
 }
 
 .list_layout th{
+    font-size: 1.2rem;
     padding: 1rem;
     color: #666;
     font-weight: 700;
@@ -318,4 +463,14 @@ nav.sidebar ul > li.cat{
     background: #fff;
     color: #666;
     border-bottom: 1px solid #e0e0e0;
+}
+
+.order_list_layout tr.new td{
+    background: rgb(100, 181, 100);
+    color: #fff;
+}
+
+.order_list_layout tr.urgent td{
+    background: rgb(176, 92, 92);
+    color: #fff;
 }

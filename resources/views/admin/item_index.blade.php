@@ -4,7 +4,7 @@
         <div class="breadcrumb">
             <span><i class="fa fa-home"></i>Home</span>
             <span>/</span>
-            <span>Table Management</span>
+            <span>Item Management</span>
         </div>
         <div class="col-md-8 main-view">
             <div class="list_layout">
@@ -12,20 +12,18 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Table Name</th>
-                            <th>Capacity</th>
+                            <th>Item Name</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($tables as $table)
+                        @foreach ($items as $item)
                         <tr>
-                            <td>{!! $table->id !!}</td>
-                            <td>{!! $table->table_name !!}</td>
-                            <td>{!! $table->capacity !!}</td>
+                            <td>{!! $item->id !!}</td>
+                            <td>{!! $item->item_name !!}</td>
                             <td>
-                                <a href="/admin/table/detail/{!! $table->id !!}"><div class="btn">Modify</div></a>
-                                <a href="/admin/table/detail/{!! $table->id !!}"><div class="btn btn-warning">Delete</div></a>
+                                <a href="/admin/item/detail/{!! $item->id !!}"><div class="btn">Modify</div></a>
+                                <a href="/admin/item/delete/{!! $item->id !!}"><div class="btn btn-warning">Delete</div></a>
                             </td>
                         </tr>
                         @endforeach

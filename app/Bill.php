@@ -13,4 +13,16 @@ class Bill extends Model {
 	public function table(){
 		return $this->belongsTo('App\Table');
 	}
+
+    public function orders(){
+        return $this->hasMany('App\Order');
+    }
+
+    public function tempAmount(){
+        $amount = 0;
+        foreach($this->orders as $order){
+            $amount += $order->item->price * $order->quantity;
+        }
+        return $amount;
+    }
 }

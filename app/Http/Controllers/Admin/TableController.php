@@ -41,4 +41,12 @@ class TableController extends Controller {
         $table->save();
         return view('admin.table_detail')->with('table', $table)->with('action', 'update')->with('msg', 'Updated successfully');
     }
+
+    public function delete($id)
+    {
+        $table = Table::find($id);
+        $table->delete();
+        return redirect()->to('admin/table');
+
+    }
 }
