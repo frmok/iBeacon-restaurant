@@ -15,6 +15,7 @@ html, body {
     height     : 100%;
     font-family: 'Montserrat', sans-serif;
     font-size  : 12px !important;
+    background: #E5E5E5;
 }
 
 select {
@@ -331,6 +332,7 @@ nav.sidebar ul > li > a:hover{
 .form-thumbnail{
     width: 100%;
     padding: 0;
+    background-position: center center !important;
     background-size: cover !important;
     height: 300px;
 }
@@ -434,6 +436,84 @@ nav.sidebar ul > li > a:hover{
     background: rgb(92, 208, 92);
     padding: 1rem 1.6rem;
     color: #fff;
+}
+
+.no-empty .locked{
+    display: none !important;
+}
+
+.table-layout{
+    padding-left: 1.5rem;
+}
+
+.table-cell{
+    float: left;
+    width: 33.3333%;
+    padding-right: 1.5rem;
+    padding-bottom: 30px;
+}
+
+.table-cell .table-header{
+    background: #ebebeb;
+    font-size: 1.2rem;
+    padding: 1rem;
+    color: #666;
+    font-weight: 700;
+    border: 1px solid #ccc;
+}
+
+.table-content{
+    position: relative;
+    background: #fff;
+    text-align: center;
+    font-size: 3rem;
+    color:#333;
+    height: 150px;
+    overflow: hidden;
+}
+
+.table-content .btn{
+    font-size: 1.2rem;
+}
+
+.empty .table-content{
+    background: rgb(44, 153, 116);
+    color: #efefef;
+}
+
+.locked .table-content{
+    background: rgb(182, 72, 72);
+    color: #efefef;
+}
+
+.table-content-text{
+    padding-top: 20px;
+    position: relative;
+    z-index: 4;
+}
+
+.table-icon{
+    position: absolute;
+    font-size: 16rem;
+    right: -9px;
+    line-height: 3rem;
+    bottom: -65px;
+    z-index: 3;
+    color: rgba(205, 205, 205, 0.51);
+}
+
+.table-control{
+    width: 50%;
+    background: #ebebeb;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    margin-bottom: 1.5rem;
+}
+
+.table-control select{
+    padding: 0.5rem 2rem;
+    text-align: center;
+    border: 1px solid #ccc;
 }
 
 .list_layout{

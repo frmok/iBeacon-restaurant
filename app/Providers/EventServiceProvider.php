@@ -2,6 +2,9 @@
 
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use App\Events\OrderEventHandler;
+use App\Events\BillEventHandler;
+use App\Events\TableEventHandler;
 
 class EventServiceProvider extends ServiceProvider {
 
@@ -25,7 +28,12 @@ class EventServiceProvider extends ServiceProvider {
 	public function boot(DispatcherContract $events)
 	{
 		parent::boot($events);
-
+		$subscriber = new OrderEventHandler;
+		$events->subscribe($subscriber);
+		$subscriber = new BillEventHandler;
+		$events->subscribe($subscriber);
+		$subscriber = new TableEventHandler;
+		$events->subscribe($subscriber);
 		//
 	}
 

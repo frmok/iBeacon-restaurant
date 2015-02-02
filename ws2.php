@@ -3,8 +3,8 @@
     require_once realpath(dirname(__FILE__)).'/bootstrap/app.php';
     require realpath(dirname(__FILE__)).'/vendor/autoload.php';
 	require realpath(dirname(__FILE__)).'/src/chat.php';
-    $port = 5555;
-    $pport = 5556;
+    $port = 9999;
+    $pport = 5555;
     use Ratchet\Server\IoServer;
     use Ratchet\Http\HttpServer;
     use Ratchet\WebSocket\WsServer;

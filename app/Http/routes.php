@@ -20,6 +20,10 @@
 // 	'password' => 'Auth\PasswordController',
 // ]);
 
+Route::group(['middleware' => 'csrf'], function()
+{
+
+});
 Route::get('admin', 'Admin\AdminController@login');
 Route::post('admin', 'Admin\AdminController@checkLogin');
 
@@ -59,4 +63,10 @@ Route::post('admin/order/update', 'Admin\OrderController@update');
 Route::get('api/getTableByBecaon/{major}/{minor}', 'APIController@getTableByBecaon');
 Route::get('api/bill/{id}', 'APIController@billDetail');
 Route::get('api/items/', 'APIController@itemList');
+Route::get('api/categories/', 'APIController@categoryList');
 Route::get('api/item/{id}', 'APIController@itemDetail');
+Route::post('api/orderItem', 'APIController@orderItem');
+Route::post('api/order', 'APIController@orderUpdate');
+Route::post('api/createBillByTable', 'APIController@createBillByTable');
+
+Route::get('api/test', 'APIController@test');

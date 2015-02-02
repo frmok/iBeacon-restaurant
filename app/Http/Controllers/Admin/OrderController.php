@@ -11,7 +11,7 @@ class OrderController extends Controller {
 
     public function index()
     {
-        $orders = Order::with('item', 'bill.table')->get();
+        $orders = Order::with('item', 'bill.table')->orderBy('created_at', 'DESC')->get();
         return view('admin.order_index')->with('orders', $orders);
     }
 

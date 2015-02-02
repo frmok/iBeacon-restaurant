@@ -6,6 +6,19 @@ class Bill extends Model {
 	protected $table = 'bill';
 	protected $fillable = ['table_id', 'amount', 'user_id', 'status'];
 
+    public static function boot()
+    {
+        parent::boot();
+        static::created(function($bill)
+        {
+            \Event::fire('bill.created', array($bill));
+        });
+        static::updated(function($bill)
+        {
+            \Event::fire('bill.updated', array($bill));
+        });
+    }
+
 	public function user(){
 		return $this->belongsTo('App\User');
 	}
@@ -25,4 +38,5 @@ class Bill extends Model {
         }
         return $amount;
     }
+
 }
