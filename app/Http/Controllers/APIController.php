@@ -72,8 +72,11 @@ class APIController extends Controller {
     }
 
     public function test(){
-        $bill = Bill::find(3);
-        $bill->status = 1;
-        $bill->save();
+
+        $table = Table::find(3);
+        $table->capacity = 4;
+        $table->table_status = 1;
+        $table->save();
+        echo $table;
     }
 }

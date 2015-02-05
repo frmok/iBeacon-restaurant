@@ -4,7 +4,11 @@
     <div class="breadcrumb">
         <span><i class="fa fa-home"></i>Home</span>
         <span>/</span>
-        <span>Add Item</span>
+        <span>@if($action === 'create')
+                Add Item
+                @else
+                Modify Item
+                @endif</span>
     </div>
     <div class="col-md-6 main-view">
         <div class="form-layout">
@@ -31,16 +35,23 @@
                 {!! Form::text('item_name', $item->item_name, array('class' => 'col-lg-7')) !!}
             </div>
             <div class="form-group">
+                {!! Form::label('category_id', 'Category', array('class' => 'col-xs-3')) !!}
+                {!! Form::select('category_id', $categories, $item->category_id) !!}
+            </div>
+            <div class="form-group">
+                {!! Form::label('price', 'Price', array('class' => 'col-xs-3')) !!}
+                {!! Form::text('price', $item->price, array('class' => 'col-lg-2')) !!}
+            </div>
+            <div class="form-group">
+                {!! Form::label('description', 'Description', array('class' => 'col-xs-3')) !!}
+                {!! Form::textarea('description', $item->description, array('size' => '20x3', 'class' => 'col-lg-7')) !!}
+            </div>
+            <div class="form-group">
                 {!! Form::label('item_img', 'Item Image', array('class' => 'col-lg-3')) !!}
                 <div class="upload-btn col-lg-3">
                     <span>UPLOAD</span>
                     {!! Form::file('item_img', $attributes = array()); !!}
                 </div>
-
-            </div>
-            <div class="form-group">
-                {!! Form::label('category_id', 'Category', array('class' => 'col-xs-3')) !!}
-                {!! Form::select('category_id', $categories, $item->category_id) !!}
             </div>
             <div class="form-bottom">
                 <input class="btn" type="submit">

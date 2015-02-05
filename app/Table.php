@@ -5,6 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 class Table extends Model {
 	protected $table = 'table';
 	protected $fillable = ['table_name', 'capacity', 'major', 'minor', 'table_status'];
+
     public static function boot()
     {
         parent::boot();

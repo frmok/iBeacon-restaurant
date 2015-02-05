@@ -182,6 +182,12 @@ a, a:hover, a:focus {
     border       : 1px solid #aaa;
 }
 
+.form-group textarea{
+    line-height: 1.5rem;
+    padding: 1rem 1rem;
+    border: 1px solid #ccc;
+}
+
 .bg-success {
     padding    : 10px 20px;
     font-weight: 700;

@@ -156,11 +156,15 @@ class Chat implements MessageComponentInterface {
         // The connection is closed, remove it, as we can no longer send it messages
         foreach($this->wsBills as $wsBill){
             if($wsBill->customers->contains($conn)){
+                // echo '----DEBUG-----'."\n";
+                // echo var_dump($wsBill->customersOrders[$conn->resourceId]);
+                // echo "----DEBUG-----\n";
                 foreach($wsBill->customersOrders[$conn->resourceId] as $localOrder){
                     $ii = 0;
                     foreach($wsBill->orders as $globalOrder){
                         if($localOrder == $globalOrder){
                             unset($wsBill->orders[$ii]);
+                            $wsBill->orders = array_values($wsBill->orders);
                             echo 'Offline Release Order ID:'.$globalOrder."\n";
                             break;
                         }
