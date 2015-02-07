@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model {
 	protected $table = 'order';
 	protected $fillable = ['bill_id', 'item_id', 'quantity', 'order_status'];
-    public static $statusText = [0 => 'Ordered', 1 => 'Processing', 2 => 'Done'];
+    public static $statusText = [0 => 'Ordered', 1 => 'Processing', 2 => 'Done', 3 => 'Paid'];
 
     public static function boot()
     {

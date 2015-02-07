@@ -66,17 +66,26 @@ class APIController extends Controller {
 
 
     public function billDetail($id){
-        $bill = Bill::with('table', 'orders', 'orders.item')->find($id);
+        $bill = Bill::with(array('table', 'orders' => function($query){
+            $query->where('order_status', '!=' ,3);
+
+        }, 'orders.item'))->find($id);
         $bill->amount = $bill->tempAmount();
         echo $bill;
     }
 
-    public function test(){
+    public function payBill(Request $request){
+        $itemsArray = explode(',', $request->get('orders'));
+        foreach ($itemsArray as $item){
+            $order = Order::find($item);
+            $order->order_status = 3;
+            $order->save();
+        }
+    }
 
-        $table = Table::find(3);
-        $table->capacity = 4;
-        $table->table_status = 1;
-        $table->save();
-        echo $table;
+    public function test(){
+        $order = Order::find(1);
+        $order->order_status = 3;
+        $order->save();
     }
 }

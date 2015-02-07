@@ -5,6 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 class Bill extends Model {
 	protected $table = 'bill';
 	protected $fillable = ['table_id', 'amount', 'user_id', 'status'];
+    public static $statusText = [0 => 'Not Paid', 1 => 'Paid'];
 
     public static function boot()
     {
@@ -35,6 +36,20 @@ class Bill extends Model {
         $amount = 0;
         foreach($this->orders as $order){
             $amount += $order->item->price * $order->quantity;
+        }
+        return $amount;
+    }
+
+    public function getStatusTextAttribute(){
+        return self::$statusText[$this->status];
+    }
+
+    public function outStandingBalance(){
+        $amount = 0;
+        foreach($this->orders as $order){
+            if($order->order_status != 3){
+                $amount += $order->item->price * $order->quantity;
+            }
         }
         return $amount;
     }

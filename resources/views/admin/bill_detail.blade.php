@@ -26,7 +26,7 @@
                 </div>
                 <div class="col-xs-3">
                     <div class="bill-header-label">Status</div>
-                    <div class="bill-header-value">{!! $bill->status !!}</div>
+                    <div class="bill-header-value">{!! $bill->statusText !!}</div>
                 </div>
             </div>
             <div class="bill-content">

@@ -24,10 +24,9 @@
                         <td>{!! $bill->id !!}</td>
                         <td>{!! $bill->table->table_name !!}</td>
                         <td>${!! $bill->tempAmount() !!}</td>
-                        <td>{!! $bill->status !!}</td>
+                        <td>{!! $bill->statusText !!}</td>
                         <td>
-                            <a href="/admin/bill/detail/{!! $bill->id !!}"><div class="btn">Modify</div></a>
-                            <a href="/admin/bill/delete/{!! $bill->id !!}"><div class="btn btn-warning">Delete</div></a>
+                            <a href="/admin/bill/detail/{!! $bill->id !!}"><div class="btn">Detail</div></a>
                         </td>
                     </tr>
                     @endforeach

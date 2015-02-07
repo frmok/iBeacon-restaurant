@@ -65,8 +65,9 @@ Route::get('api/bill/{id}', 'APIController@billDetail');
 Route::get('api/items/', 'APIController@itemList');
 Route::get('api/categories/', 'APIController@categoryList');
 Route::get('api/item/{id}', 'APIController@itemDetail');
+Route::post('api/payBill', 'APIController@payBill');
 Route::post('api/orderItem', 'APIController@orderItem');
 Route::post('api/order', 'APIController@orderUpdate');
-Route::post('api/createBillByTable', 'APIController@createBillByTable');
+Route::any('api/createBillByTable', 'APIController@createBillByTable');
 
 Route::get('api/test', 'APIController@test');
