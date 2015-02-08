@@ -9,7 +9,7 @@ class BillController extends Controller {
 
     public function index()
     {
-        $bills = Bill::with('table', 'orders', 'orders.item')->get();
+        $bills = Bill::with('table', 'orders', 'orders.item')->orderBy('created_at', 'desc')->get();
         return view('admin.bill_index')->with('bills', $bills);
     }
 

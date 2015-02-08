@@ -26,9 +26,10 @@ class APIController extends Controller {
             $bill->table_id = $request->get('id');
             $bill->status = 0;
             $bill->save();
-            echo $bill;
+            $bill->id = "$bill->id";
+            echo $bill->toJson();
         }else{
-            echo $bill;
+            echo $bill->first();
         }
     }
 

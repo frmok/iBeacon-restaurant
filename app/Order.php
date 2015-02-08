@@ -32,4 +32,5 @@ class Order extends Model {
     public function getStatusTextAttribute(){
         return self::$statusText[$this->order_status];
     }
+
 }

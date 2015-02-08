@@ -11,6 +11,7 @@
     <!--jQuery 1.11.0-->
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.5.1.css">
+    <script src="/js/Chart.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
     <script src="http://cdn.oesmith.co.uk/morris-0.5.1.min.js"></script>
@@ -32,6 +33,8 @@
             <li><a href="/admin/item/detail">Add Item</a></li>
             <li><a href="/admin/category/">Category Management</a></li>
             <li><a href="/admin/item/">Item management</a></li>
+            <li class="cat">Statistics</li>
+            <li><a href="/admin/stats/">Overall Statistics</a></li>
         </ul>
     </nav>
     @yield('content')

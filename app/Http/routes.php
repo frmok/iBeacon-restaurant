@@ -59,6 +59,11 @@ Route::get('admin/order/delete/{id}', 'Admin\OrderController@delete');
 Route::get('admin/order/detail/{id}', 'Admin\OrderController@detail');
 Route::post('admin/order/update', 'Admin\OrderController@update');
 
+//stat
+Route::get('admin/stats', 'Admin\StatController@index');
+Route::get('stat/ajax_best_selling_item', 'Admin\StatController@ajax_best_selling_item');
+Route::get('stat/ajax_profit', 'Admin\StatController@ajax_profit');
+
 //API
 Route::get('api/getTableByBecaon/{major}/{minor}', 'APIController@getTableByBecaon');
 Route::get('api/bill/{id}', 'APIController@billDetail');
