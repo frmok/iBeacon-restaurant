@@ -41,6 +41,10 @@ class OrderEventHandler {
             $order->bill->status = 1;
             $order->bill->save();
             error_log('bill is paid');
+        }else{
+            $order->bill->status = 0;
+            $order->bill->save();
+            error_log('bill is not paid');
         }
     }
     

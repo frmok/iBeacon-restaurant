@@ -51,7 +51,6 @@
                             </a>
                             @endif
                             <a href="/admin/order/detail/{!! $order->id !!}"><div class="btn">Modify</div></a>
-                            <a href="/admin/order/delete/{!! $order->id !!}"><div class="btn btn-warning">Delete</div></a>
                         </td>
                     </tr>
                     @endforeach
@@ -74,7 +73,7 @@
         console.log(data);
         if(data.action === 'order.create'){
             if ($("tr"+data.order.id).length === 0){
-                $('tbody').prepend('<tr id="'+data.order.id+'" class="new"><td>'+data.order.bill.table.table_name+'</td><td>'+data.order.item.item_name+'</td><td>'+data.order.quantity+'</td><td id="status-'+data.order.id+'">Ordered</td><td>'+data.order.created_at+'</td><td><a href="#" data-id="'+data.order.id+'" id="orderUpdate"><div class="btn">Receive</div></a> <a href="/admin/order/detail/'+data.order.id+'"><div class="btn">Modify</div></a> <a href="/admin/order/delete/'+data.order.id+'"><div class="btn btn-warning">Delete</div></a></td></tr>');
+                $('tbody').prepend('<tr id="'+data.order.id+'" class="new"><td>'+data.order.bill.table.table_name+'</td><td>'+data.order.item.item_name+'</td><td>'+data.order.quantity+'</td><td id="status-'+data.order.id+'">Ordered</td><td>'+data.order.created_at+'</td><td><a href="#" data-id="'+data.order.id+'" id="orderUpdate"><div class="btn">Receive</div></a> <a href="/admin/order/detail/'+data.order.id+'"><div class="btn">Modify</div></a></td></tr>');
             }
         }else if(data.action === 'order.update'){
             var id = data.order.id;
