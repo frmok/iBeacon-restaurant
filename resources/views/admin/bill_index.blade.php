@@ -39,7 +39,7 @@
 
 @section('script')
 <script>
-    var conn = new WebSocket('ws://localhost:9999');
+    var conn = new WebSocket('ws://<?=\App\Setting::getIP()?>:<?=\App\Setting::getPort()?>');
     conn.onopen = function(e) {
         console.log("Connection established!");
     };

@@ -65,6 +65,8 @@ Route::get('stat/ajax_best_selling_item', 'Admin\StatController@ajax_best_sellin
 Route::get('stat/ajax_profit', 'Admin\StatController@ajax_profit');
 
 //API
+Route::any('api/createUser', 'APIController@createUser');
+Route::any('api/userLogin', 'APIController@userLogin');
 Route::get('api/getTableByBecaon/{major}/{minor}', 'APIController@getTableByBecaon');
 Route::get('api/bill/{id}', 'APIController@billDetail');
 Route::get('api/items/', 'APIController@itemList');
@@ -74,5 +76,7 @@ Route::post('api/payBill', 'APIController@payBill');
 Route::post('api/orderItem', 'APIController@orderItem');
 Route::post('api/order', 'APIController@orderUpdate');
 Route::any('api/createBillByTable', 'APIController@createBillByTable');
+Route::get('api/orderHistory', 'APIController@orderHistory');
 
+//test...
 Route::get('api/test', 'APIController@test');

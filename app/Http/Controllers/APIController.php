@@ -10,8 +10,37 @@ use App\Bill;
 use App\Item;
 use App\Order;
 use App\Category;
+use App\User;
 
 class APIController extends Controller {
+
+    //create user
+    public function createUser(Request $request){
+        $user = new User();
+        $user->lastname = $request->get('lastname');
+        $user->firstname = $request->get('firstname');
+        $user->email = $request->get('email');
+        $user->password = \Hash::make($request->get('password'));
+        $user->right = 3;
+        $user->save();
+        return $user;
+    }
+
+    //login user by email and password
+    public function userLogin(Request $request){
+        if(Auth::attempt(array('email' => $request->get('email'), 'password' => $request->get('password')))){
+            $packet = array();
+            $packet['status'] = 200;
+            $packet['debug'] = 'Login succeeed.';
+            $packet['user'] = Auth::user();
+            return \Response::json($packet);
+        }else{
+            $packet = array();
+            $packet['status'] = 500;
+            $packet['debug'] = 'Login fails';
+            return \Response::json($packet);
+        }
+    }
 
     public function getTableByBecaon($major, $minor){
         $table = Table::where('major',$major)->where('minor',$minor)->first();
@@ -58,6 +87,7 @@ class APIController extends Controller {
     public function orderItem(Request $request){
         if($request->get('billId') > 0){
             $order = new Order();
+            $order->user_id = $request->get('payer');
             $order->bill_id = $request->get('billId');
             $order->item_id = $request->get('itemId');
             $order->quantity = $request->get('quantity');
@@ -84,9 +114,12 @@ class APIController extends Controller {
         }
     }
 
+    public function orderHistory(Request $request){
+        return Order::with('item')->where('user_id', $request->get('memberID'))->orderBy('created_at', 'desc')->get();
+    }
+
+    //test route...no usage
     public function test(){
-        $order = Order::find(1);
-        $order->order_status = 3;
-        $order->save();
+        return Order::with('item')->where('user_id', 7)->orderBy('created_at', 'desc')->get();
     }
 }

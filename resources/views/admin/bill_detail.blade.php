@@ -39,6 +39,7 @@
                             <th>Name</th>
                             <th>Unit Price</th>
                             <th>Quantity</th>
+                            <th>Status</th>
                             <th>Total</th>
                         </tr>
                     </thead>
@@ -48,6 +49,7 @@
                             <td>{!! $order->item->item_name !!}</td>
                             <td>${!! $order->item->price !!}</td>
                             <td>{!! $order->quantity !!}</td>
+                            <td>{!! $order->statusText !!}</td>
                             <td>${!! ($order->item->price * $order->quantity) !!}</td>
                         </tr>
                         @endforeach
