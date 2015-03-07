@@ -1,0 +1,28 @@
+<div class="col-md-6 main-view">
+    <div class="form-layout">
+        <div class="form-title">
+        {{crud_action}}
+        </div>
+        <div ng-show="msg" class="msg">
+            <i class="fa fa-check"></i> {{msg}}
+        </div>
+        <form ng-submit="updateCategory()">
+            <div ng-show="category.category_img" class="form-thumbnail" style="background: url('/assets/category/{{category.category_img }}')">
+            </div>
+            <div class="form-group first-group">
+                <label for="category_name" class="col-lg-3">Category Name</label>
+                <input ng-model="category.category_name" class="col-lg-7" name="category_name" type="text" id="category_name">
+            </div>
+            <div class="form-group">
+                <label for="category_img" class="col-lg-3">Category Image</label>
+                <div class="upload-btn col-lg-3">
+                    <span>UPLOAD</span>
+                    <input ng-file-select ng-model="file" name="category_img" type="file" id="category_img">
+                </div>
+            </div>
+            <div class="form-bottom">
+                <input class="btn" type="submit">
+            </div>
+        </form>
+    </div>
+</div>

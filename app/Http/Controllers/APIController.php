@@ -11,6 +11,9 @@ use App\Item;
 use App\Order;
 use App\Category;
 use App\User;
+use App\Ticket;
+use App\QueueType;
+use App\Advertisement;
 
 class APIController extends Controller {
 
@@ -62,14 +65,67 @@ class APIController extends Controller {
         }
     }
 
+    public function order(){
+        $orders = Order::with('item', 'bill.table')->orderBy('created_at', 'DESC')->get();
+        return $orders;
+    }
+
+    public function orderDetail($id){
+        $order = Order::with('item', 'bill.table')->find($id);
+        return $order;
+    }
+
+
     public function orderUpdate(Request $request){
         $order = Order::find($request->get('id'));
         $order->fill($request->all());
         $order->save();
+        return $order;
     }
 
     public function itemList(Request $request){
-        echo Item::where('category_id', $request->get('catId'))->get();
+        $catId = $request->get('catId');
+        if(!$catId){
+            return Item::all();
+        }else{
+            echo Item::where('category_id', $request->get('catId'))->get();
+        }
+    }
+
+    public function itemDetail($id){
+        echo Item::find($id);
+    }
+
+    public function itemAdd(Request $request)
+    {
+        $item = new Item();
+        $item->fill($request->except('item_img'));
+        if ($request->hasFile('item_img') === true) {
+            $destinationPath = public_path() . Item::$img_path;
+            $request->file('item_img')->move($destinationPath, $request->file('item_img')->getClientOriginalName());
+            $item->item_img = $request->file('item_img')->getClientOriginalName();
+        }
+        $item->save();
+        return $item;
+    }
+
+    public function itemUpdate(Request $request)
+    {
+        $item = Item::find($request->get('id'));
+        $item->fill($request->except('item_img'));
+        if ($request->hasFile('item_img') === true) {
+            $destinationPath = public_path() . Item::$img_path;
+            $request->file('item_img')->move($destinationPath, $request->file('item_img')->getClientOriginalName());
+            $item->item_img = $request->file('item_img')->getClientOriginalName();
+        }
+        $item->save();
+        return $item;
+    }
+
+    public function itemDelete(Request $request)
+    {
+        $item = Item::find($request->get('id'));
+        $item->delete();
     }
 
     public function categoryList(){
@@ -80,8 +136,40 @@ class APIController extends Controller {
         echo $categories;
     }
 
-    public function itemDetail($id){
-        echo Item::find($id);
+    public function categoryDetail($id){
+        return Category::find($id);
+    }
+
+    public function categoryAdd(Request $request)
+    {
+        $category = new Category();
+        $category->fill($request->except('category_img'));
+        if ($request->hasFile('category_img') === true) {
+            $destinationPath = public_path() . Category::$img_path;
+            $request->file('category_img')->move($destinationPath, $request->file('category_img')->getClientOriginalName());
+            $category->category_img = $request->file('category_img')->getClientOriginalName();
+        }
+        $category->save();
+        return $category;
+    }
+
+    public function categoryUpdate(Request $request)
+    {
+        $category = Category::find($request->get('id'));
+        $category->fill($request->except('category_img'));
+        if ($request->hasFile('category_img') === true) {
+            $destinationPath = public_path() . Category::$img_path;
+            $request->file('category_img')->move($destinationPath, $request->file('category_img')->getClientOriginalName());
+            $category->category_img = $request->file('category_img')->getClientOriginalName();
+        }
+        $category->save();
+        return $category;
+    }
+
+    public function categoryDelete(Request $request)
+    {
+        $category = Category::find($request->get('id'));
+        $category->delete();
     }
 
     public function orderItem(Request $request){
@@ -118,8 +206,80 @@ class APIController extends Controller {
         return Order::with('item')->where('user_id', $request->get('memberID'))->orderBy('created_at', 'desc')->get();
     }
 
+
+    public function getAdvertisement(Request $request){
+        if($request->get('id')){
+            $id = $request->get('id');
+            return Advertisement::getMessage($id);
+        }else{
+            return Advertisement::getMessage();
+        }
+    }
+
+    public function QueueType(){
+        return QueueType::all();
+    }
+
+    public function QueueTypeDetail($id){
+        $queueType = QueueType::find($id);
+        $tickets = $queueType->tickets;
+        $response = array();
+        $response['queue'] = $queueType;
+        return \Response::json($response);
+    }
+
+    public function table(){
+        return Table::with(array('bills' => function ($query){
+            $query->where('status', 0);
+        }))->get();
+    }
+
+    public function tableDetail($id){
+        return Table::find($id);
+    }
+
+    public function tableAdd(Request $request){
+        $table = new Table();
+        $table->fill($request->all());
+        $table->save();
+        return $table;
+    }
+
+    public function tableUpdate(Request $request){
+        $table = Table::find($request->get('id'));
+        $table->fill($request->all());
+        $table->save();
+        return $table;
+    }
+
+    public function tableDelete(Request $request){
+        $table = Table::find($request->get('id'));
+        $table->delete();
+    }
+
+    public function bill(){
+        return $bills = Bill::with('table', 'orders', 'orders.item')->orderBy('created_at', 'desc')->get();
+    }
+
+    public function _billDetail($id){
+        $bill = Bill::with('table', 'orders', 'orders.item')->find($id);
+        $bill->formattedTime = date('d M Y', strtotime($bill->created_at));
+        return $bill;
+    }
+
+
+    public function getTicket(Request $request){
+        Ticket::enqueue(QueueType::typeByPeople($request->get('people')) ,$request->get('people'));
+    }
+
+    public function ticketUpdate(Request $request){
+        $ticket = Ticket::find($request->get('id'));
+        $ticket->fill($request->all());
+        $ticket->save();
+    }
+
     //test route...no usage
     public function test(){
-        return Order::with('item')->where('user_id', 7)->orderBy('created_at', 'desc')->get();
+        Ticket::enqueue(1,1);
     }
 }

@@ -1,0 +1,56 @@
+<div class="col-md-8 main-view">
+    <div class="form-layout bill-layout">
+        <div class="form-title">
+            Bill Detail (ID: {{ bill.id }})
+        </div>
+        <div class="bill-header">
+            <div class="col-xs-3">
+                <div class="bill-header-label">Date</div>
+                <div class="bill-header-value">{{ bill.formattedTime }}</div>
+            </div>
+            <div class="col-xs-3">
+                <div class="bill-header-label">Table</div>
+                <div class="bill-header-value">{{ bill.table.table_name }}</div>
+            </div>
+            <div class="col-xs-3">
+                <div class="bill-header-label">Amount</div>
+                <div class="bill-header-value">{{ bill.orders | tempAmount }}</div>
+            </div>
+            <div class="col-xs-3">
+                <div class="bill-header-label">Status</div>
+                <div class="bill-header-value">{{ bill.status | billStatus}}</div>
+            </div>
+        </div>
+        <div class="bill-content">
+            <div class="bill-content-header">
+                Item Summary
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Unit Price</th>
+                        <th>Quantity</th>
+                        <th>Status</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="order in bill.orders">
+                        <td>{{order.item.item_name}}</td>
+                        <td>${{order.item.price}}</td>
+                        <td>{{order.quantity}}</td>
+                        <td>{{order.status}}</td>
+                        <td>{{order.item.price * order.quantity}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="bill-footer">
+            <div class="col-xs-12">
+                Total: {{ bill.orders | tempAmount }}
+            </div>
+        </div>
+    </div>
+</div>

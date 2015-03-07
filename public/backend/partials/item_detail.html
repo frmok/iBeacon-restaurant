@@ -1,0 +1,41 @@
+<div class="col-md-6 main-view">
+    <div class="form-layout">
+        <div class="form-title">
+        {{crud_action}}
+        </div>
+        <div ng-show="msg" class="msg">
+            <i class="fa fa-check"></i> {{msg}}
+        </div>
+        <form ng-submit="updateItem()">
+            <div ng-show="item.item_img" class="form-thumbnail" style="background: url('/assets/item/{{item.item_img }}')">
+            </div>
+            <div class="form-group first-group">
+                <label for="item_name" class="col-lg-3">Item Name</label>
+                <input ng-model="item.item_name" class="col-lg-7" name="item_name" type="text" id="item_name">
+            </div>
+            <div class="form-group">
+                <label for="category_id" class="col-xs-3">Category</label>
+                <select id="category_id" ng-model="item.category_id" ng-options="category.id as category.category_name for category in categories">
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="price" class="col-xs-3">Price</label>
+                <input ng-model="item.price" class="col-lg-2" name="price" type="text" id="price">
+            </div>
+            <div class="form-group">
+                <label for="description" class="col-xs-3">Description</label>
+                <textarea ng-model="item.description" class="col-lg-7" name="description" cols="20" rows="3" id="description"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="item_img" class="col-lg-3">Item Image</label>
+                <div class="upload-btn col-lg-3">
+                    <span>UPLOAD</span>
+                    <input ng-file-select ng-model="file" name="item_img" type="file" id="item_img">
+                </div>
+            </div>
+            <div class="form-bottom">
+                <input class="btn" type="submit">
+            </div>
+        </form>
+    </div>
+</div>

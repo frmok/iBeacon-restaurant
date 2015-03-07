@@ -1,18 +1,40 @@
 <?php namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\User;
+use App\Order;
 
 class Advertisement {
 	protected $table = 'advertisement';
 	protected $fillable = []; //to be determined
 
-    public function getMessage($memberId = null){
+    public static function getMessage($memberId = null){
         if($memberId){
             //check last dining time
-            //<3 days: Would you like to try {{random order item}} again?
-            //>3 days: Long time no see, do you miss our {{random order item}}?
+            $user = User::find($memberId);
+            if(!property_exists($user->getLastOrder(), 'created_at')){
+                $lastOrderTime = date('Y-m-d H:i:s');
+            }else{
+                $lastOrderTime = $user->getLastOrder()->created_at;
+            }
+            $currentTime = date('Y-m-d H:i:s');
+            $secondDifference = abs(strtotime($lastOrderTime) - strtotime($currentTime));
+            $hourDifference = intval(round($secondDifference/3600));
+
+
+            $randomItemName = $user->randomOrderedItem()->item_name;
+            $response = array();
+            if($hourDifference >= 72){
+                $response['message'] = 'Long time no see, do you miss our '.$randomItemName.'?';
+            }else{
+                $response['message'] = 'Welcome back. Would you like to try '.$randomItemName.' again?';
+            }
+            return \Response::json($response);
         }else{
-            //randomly choose one message
+            $response = array();
+            $randomItemName = Order::orderBy(\DB::raw('RAND()'))->first()->item->item_name;
+            $response['message'] = 'I bet you will like our '.$randomItemName.'.';
+            return \Response::json($response);
         }
     }
 }

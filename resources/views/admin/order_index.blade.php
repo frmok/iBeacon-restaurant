@@ -102,10 +102,10 @@
             var to_status = 'Done';
         }
         $.ajax({
-          type: "POST",
-          url: "/api/order",
-          data: {id: id, order_status: order_status},
-      });
+            type: "POST",
+            url: "/api/order",
+            data: {id: id, order_status: order_status},
+        });
         e.preventDefault();
     });
 

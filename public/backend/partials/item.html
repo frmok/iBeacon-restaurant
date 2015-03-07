@@ -1,0 +1,25 @@
+<div class="col-md-8 main-view">
+    <div class="list_layout">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Item Name</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in items">
+                    <td>{{item.id}}</td>
+                    <td>{{item.item_name}}</td>
+                    <td>{{item.price}}</td>
+                    <td>
+                    <a href="#/item/{{item.id}}"><div class="btn">Modify</div></a>
+                    <div ng-Click="deleteItem($index)" class="btn btn-warning">Delete</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

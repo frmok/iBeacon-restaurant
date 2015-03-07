@@ -21,6 +21,10 @@
 <body>
     <nav class="sidebar">
         <ul>
+            <li class="cat">Queues</li>
+            @foreach(\App\QueueType::all() as $queue)
+            <li><a href="/admin/queueType/{!! $queue->id !!}">{!! ucfirst($queue->name) !!}</a></li>
+            @endforeach
             <li class="cat">Table</li>
             <li><a href="/admin/table/detail">Add Table</a></li>
             <li><a href="/admin/table/">Table Management</a></li>

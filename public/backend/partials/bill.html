@@ -1,0 +1,26 @@
+<div class="col-md-8 main-view">
+    <div class="list_layout">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Table</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="bill in bills">
+                    <td>{{bill.id}}</td>
+                    <td>{{bill.table.table_name}}</td>
+                    <td>{{bill.orders | tempAmount}}</td>
+                    <td>{{bill.status | billStatus}}</td>
+                    <td>
+                    <a href="#/bill/{{bill.id}}"><div class="btn">Detail</div></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -21,6 +21,9 @@ class OrderEventHandler {
         error_log('order update');
         $packet['action'] = 'order.update';
         $packet['order'] = $order;
+        $packet['order']['bill'] = $order->bill;
+        $packet['order']['bill']['table'] = $order->bill->table;
+        $packet['order']['item'] = $order->item;
         $packet['order']['status_text'] = $order->status_text;
         $context = new \ZMQContext(1, false);
         $socket = $context->getSocket(\ZMQ::SOCKET_PUSH, 'new ticket');

@@ -34,6 +34,43 @@ a, a:hover, a:focus {
     padding-top:64px;
 }
 
+.loading_bar{
+    width: 0%;
+    background: rgb(13, 204, 249);
+    height: 3px;
+    position: fixed;
+    top:0;
+    left:280px;
+}
+
+.loading{
+    width: 0%;
+    opacity: 1;
+    -webkit-animation: loading 2s forwards; /* Chrome, Safari, Opera */
+    animation: loading 2s forwards;
+}
+
+.finish{
+    width: 100%;
+    opacity: 0;
+    transition: all linear 1s,;
+    -webkit-transition: all linear 1s;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes loading {
+    0% {width: 0%;}
+    25% {width: 30%;}
+    100% {width: 80%;}
+}
+
+/* Standard syntax */
+@keyframes loading {
+    0% {width: 0%;}
+    25% {width: 30%;}
+    100% {width: 80%;}
+}
+
 .btn {
     padding   : .6rem 1rem;
     border: 0;

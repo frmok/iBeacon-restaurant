@@ -1,0 +1,32 @@
+<div class="table-layout main-view">
+    <div class="table-control">
+        Availbility: 
+        <select ng-init="availability = 'all'" ng-model="availability" id="avil_filter">
+            <option selected value="all">All</option>
+            <option value="avil">Available</option>
+        </select>
+        Capacity: 
+        <select ng-init="capacity = 0" ng-model="capacity" id="cap_filter">
+            <option value="0">All</option>
+            <option value="2">2</option>
+            <option value="4">4</option>
+            <option value="8">8</option>
+        </select>
+    </div>
+    <div ng-class="{empty: table.table_status == 0, locked: table.table_status == 1}" ng-repeat="table in tables | matachAvail:availability | matachCapacity:capacity" class="table-cell">
+        <div class="table-header"><i class="fa fa-table"></i> {{ table.table_name }}</div>
+        <div class="table-content">
+            <div class="table-icon">
+                <i class="fa fa-users"></i>
+            </div>
+            <div class="table-content-text">
+                Capacity: {{ table.capacity }}
+                <div class="table-option">
+                    <a ng-show="table.table_status == 1" class="table-option-bill" href="#/bill/{{table.bills[0].id}}"><div class="btn">Bill</div></a>
+                    <a href="#/table/{{table.id}}"><div class="btn">Modify</div></a>
+                    <div ng-click="deleteTable($index)" class="btn">Delete</div></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

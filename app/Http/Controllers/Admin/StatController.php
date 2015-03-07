@@ -29,9 +29,12 @@ class StatController extends Controller {
     public function ajax_profit(){
         $bestItems = \DB::table('order')->join('item', 'item.id', '=', 'order.item_id')
         ->select([\DB::raw('sum(quantity * price) as total'), \DB::raw('DAY(order.created_at) as day'),'order.created_at'])
+        ->where(\DB::raw('YEAR(order.created_at)'), date('Y'))
+        ->where(\DB::raw('MONTH(order.created_at)'), date('n'))
         ->groupBy(\DB::raw('YEAR(order.created_at)'))
         ->groupBy(\DB::raw('MONTH(order.created_at)'))
         ->groupBy(\DB::raw('DAY(order.created_at)'))
+        ->orderBy('order.id', 'DESC')
         ->get();
         $totalDay = date('t', strtotime($bestItems[0]->created_at));
         for($i = 1; $i <= $totalDay; $i++){

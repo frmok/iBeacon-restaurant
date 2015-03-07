@@ -5,6 +5,7 @@ use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvi
 use App\Events\OrderEventHandler;
 use App\Events\BillEventHandler;
 use App\Events\TableEventHandler;
+use App\Events\TicketEventHandler;
 
 class EventServiceProvider extends ServiceProvider {
 
@@ -33,6 +34,8 @@ class EventServiceProvider extends ServiceProvider {
 		$subscriber = new BillEventHandler;
 		$events->subscribe($subscriber);
 		$subscriber = new TableEventHandler;
+		$events->subscribe($subscriber);
+		$subscriber = new TicketEventHandler;
 		$events->subscribe($subscriber);
 		//
 	}

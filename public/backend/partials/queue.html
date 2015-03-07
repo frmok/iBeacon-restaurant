@@ -1,0 +1,22 @@
+<div class="col-md-8 main-view">
+    <div class="list_layout">
+        <table>
+            <thead>
+                <tr>
+                    <th>Number</th>
+                    <th>People</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="ticket in tickets" id="{!! $ticket.id !!}">
+                <td>{{ ticket.ticket_number }}</td>
+                <td>{{ ticket.people }}</td>
+                <td>{{ ticket.ticket_status | ticketStatus }}</td>
+                <td><div ng-show="ticket.ticket_status < 2" ng-click="updateTicket(ticket)" class="btn">{{ ticket.ticket_status | ticketAction }}</div></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>

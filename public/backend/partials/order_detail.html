@@ -1,0 +1,33 @@
+<div class="col-md-6 main-view">
+    <div class="form-layout">
+        <div class="form-title">
+            {{crud_action}}
+        </div>
+        <div ng-show="msg" class="msg">
+            <i class="fa fa-check"></i> {{msg}}
+        </div>
+        <form ng-submit="updateOrder()">
+            <div class="form-group">
+                <label for="item_id" class="col-xs-3">Item</label>
+                <select id="item_id" ng-model="order.item_id" ng-options="item.id as item.item_name for item in items">
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="quantity" class="col-xs-3">Quantity</label>
+                <input ng-model="order.quantity" class="col-lg-2" name="quantity" type="text" id="quantity">
+            </div>
+            <div class="form-group">
+                <label for="item_id" class="col-xs-3">Item</label>
+                <select ng-model="order.order_status" id="order_status" name="order_status">
+                    <option value="0">Ordered</option>
+                    <option value="1">Processing</option>
+                    <option value="2">Done</option>
+                    <option value="3">Paid</option>
+                </select>
+            </div>
+            <div class="form-bottom">
+                <input class="btn" type="submit">
+            </div>
+        </form>
+    </div>
+</div>
