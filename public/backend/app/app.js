@@ -38,42 +38,59 @@ var app = angular.module('backendApp',
                     Table.delete($scope.tables[index]);
                     $scope.tables.splice(index, 1);
                 }
-            }]
-        });
-        $stateProvider.state("backend_table_detail", 
-        {
-            templateUrl: "/backend/partials/table_detail.html",
-            url: "/table/{tid}",
-            controller: [ '$rootScope', '$scope', '$stateParams', 'WebSocket', 'Table',
-            function($rootScope, $scope, $stateParams, WebSocket, Table){
-                $scope.table = {};
-                if($stateParams.tid){
-                    Table.get($stateParams.tid).then(
-                        function(res){
-                            $scope.crud_action = $rootScope.currentAction = "Modify Table";
-                            $scope.table = res.data;
-                        })
-                }else{
-                    $scope.crud_action = $rootScope.currentAction = "Add Table";
-                }
 
-                $scope.updateTable = function(){
-                    if($scope.table.id){
-                        Table.update($scope.table).then(
-                            function(res){
-                                $scope.msg = "Successfully updated";
-                            });
-                    }else{
-                        Table.add($scope.table).then(
-                            function(res){
-                                $scope.msg = "Successfully added";
-                                $scope.crud_action = $rootScope.currentAction = "Modify Table";
-                                $scope.table.id = res.data.id;
-                            });
+                WebSocket.receive().then(null, null, function(message) {
+                    if(message.action === 'table.update'){
+                        for(var i = 0; i < $scope.tables.length; i++){
+                            if($scope.tables[i].id == message.table.id){
+                                $scope.tables[i].table_status = message.table.table_status;
+                                if(message.table.table_status == 1){
+                                    $scope.tables[i].bills[0] = message.bill;
+                                }
+                            }
+                        }
                     }
-                }
+                });
             }]
+
         });
+
+$stateProvider.state("backend_table_detail", 
+{
+    templateUrl: "/backend/partials/table_detail.html",
+    url: "/table/{tid}",
+    controller: [ '$rootScope', '$scope', '$stateParams', 'WebSocket', 'Table',
+    function($rootScope, $scope, $stateParams, WebSocket, Table){
+        $scope.table = {};
+        if($stateParams.tid){
+            Table.get($stateParams.tid).then(
+                function(res){
+                    $scope.crud_action = $rootScope.currentAction = "Modify Table";
+                    $scope.table = res.data;
+                })
+        }else{
+            $scope.crud_action = $rootScope.currentAction = "Add Table";
+        }
+
+        $scope.updateTable = function(){
+            if($scope.table.id){
+                Table.update($scope.table).then(
+                    function(res){
+                        $scope.msg = "Successfully updated";
+                    });
+            }else{
+                Table.add($scope.table).then(
+                    function(res){
+                        $scope.msg = "Successfully added";
+                        $scope.crud_action = $rootScope.currentAction = "Modify Table";
+                        $scope.table.id = res.data.id;
+                    });
+            }
+        }
+
+
+    }]
+});
 
 $stateProvider.state("backend_queue", 
 {
@@ -490,96 +507,105 @@ app.service("WebSocket", function($q, $timeout) {
     return service;
 });
 
-app.filter('ticketStatus', function(){
-    return function (status){
-        var status = parseInt(status);
-        if(status === 0){
-            return 'Waiting';
-        }else if(status === 1){
-            return 'Dequeued';
-        }else{
-            return 'Entered';
-        }
-    }
-});
-app.filter('orderStatus', function(){
-    return function (status){
-        var status = parseInt(status);
-        if(status === 0){
-            return 'Ordered';
-        }else if(status === 1){
-            return 'Processing';
-        }else if(status === 2){
-            return 'Done';
-        }else{
-            return 'Paid';
-        }
-    }
-});
-app.filter('ticketAction', function(){
-    return function (status){
-        var status = parseInt(status);
-        if(status === 0){
-            return 'Dequeue';
-        }else if(status === 1){
-            return 'Enter';
-        }
-    }
-});
-app.filter('tempAmount', function(){
-    return function (orders){
-        var tempAmount = 0;
-        orders.forEach(function (order){
-            tempAmount += order.quantity * order.item.price;
-        });
-        return '$'+tempAmount;
-    }
-});
-
-app.filter('billStatus', function(){
-    return function (status){
-        var status = parseInt(status);
-        if(status === 0){
-            return 'Not Paid';
-        }else if(status === 1){
-            return 'Paid';
-        }
-    }
-});
-app.filter('matachAvail', function() {
-  return function( tables, availability) {
-    var filtered = [];
-    angular.forEach(tables, function(table) {
-        if(availability === "all"){
-            filtered.push(table);
-        }
-        if(table.table_status == 0 && availability === "avil"){
-            filtered.push(table);
+app.filter('ticketStatus', 
+    function(){
+        return function (status){
+            var status = parseInt(status);
+            if(status === 0){
+                return 'Waiting';
+            }else if(status === 1){
+                return 'Dequeued';
+            }else{
+                return 'Entered';
+            }
         }
     });
-    return filtered;
-};
-});
-
-app.filter('matachCapacity', function() {
-  return function( tables, capacity) {
-    var filtered = [];
-    angular.forEach(tables, function(table) {
-        if(table.capacity >= capacity){
-            filtered.push(table);
+app.filter('orderStatus', 
+    function(){
+        return function (status){
+            var status = parseInt(status);
+            if(status === 0){
+                return 'Ordered';
+            }else if(status === 1){
+                return 'Processing';
+            }else if(status === 2){
+                return 'Done';
+            }else{
+                return 'Paid';
+            }
         }
     });
-    return filtered;
-};
-});
-app.filter('capitalizeFirst', function () {
-    return function (input, scope) {
-        var text = input.substring(0, 1).toUpperCase() + input.substring(1).toLowerCase();
-        return text;
-    }
-});
+app.filter('ticketAction', 
+    function(){
+        return function (status){
+            var status = parseInt(status);
+            if(status === 0){
+                return 'Dequeue';
+            }else if(status === 1){
+                return 'Enter';
+            }
+        }
+    });
+app.filter('tempAmount', 
+    function(){
+        return function (orders){
+            var tempAmount = 0;
+            orders.forEach(function (order){
+                tempAmount += order.quantity * order.item.price;
+            });
+            return '$'+tempAmount;
+        }
+    });
 
-app.controller('mainController', ['$rootScope', '$scope', '$http',
+app.filter('billStatus', 
+    function(){
+        return function (status){
+            var status = parseInt(status);
+            if(status === 0){
+                return 'Not Paid';
+            }else if(status === 1){
+                return 'Paid';
+            }
+        }
+    });
+app.filter('matachAvail', 
+    function() {
+        return function( tables, availability) {
+            var filtered = [];
+            angular.forEach(tables, function(table) {
+                if(availability === "all"){
+                    filtered.push(table);
+                }
+                if(table.table_status == 0 && availability === "avil"){
+                    filtered.push(table);
+                }
+            });
+            return filtered;
+        };
+    });
+
+app.filter('matachCapacity', 
+    function() {
+        return function( tables, capacity) {
+            var filtered = [];
+            angular.forEach(tables, function(table) {
+                if(table.capacity >= capacity){
+                    filtered.push(table);
+                }
+            });
+            return filtered;
+        };
+    });
+app.filter('capitalizeFirst', 
+    function () {
+        return function (input, scope) {
+            var text = input.substring(0, 1).toUpperCase() + input.substring(1).toLowerCase();
+            return text;
+        }
+    });
+
+app.controller('mainController', 
+    ['$rootScope', '$scope', '$http',
     function ($rootScope, $scope, $http) {
         $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
             $scope.loading = true;
@@ -589,5 +615,4 @@ app.controller('mainController', ['$rootScope', '$scope', '$http',
             $scope.loading = false;
             $scope.finish = true;
         });
-    }]
-    );
+    }]);

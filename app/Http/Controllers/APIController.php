@@ -280,6 +280,8 @@ class APIController extends Controller {
 
     //test route...no usage
     public function test(){
-        Ticket::enqueue(1,1);
+        $table = Table::find(3);
+        $table->table_status = 0;
+        $table->save();
     }
 }
