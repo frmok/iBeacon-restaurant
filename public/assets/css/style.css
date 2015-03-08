@@ -223,6 +223,7 @@ a, a:hover, a:focus {
     line-height: 1.5rem;
     padding: 1rem 1rem;
     border: 1px solid #ccc;
+    margin: 1rem 0;
 }
 
 .bg-success {
@@ -623,4 +624,21 @@ nav.sidebar ul > li > a:hover{
     padding: 1.5rem;
     width: 100%;
     height: 400px;
+}
+
+/***
+AngularJS nvd3 chart styles
+***/
+
+.nvd3 text{
+    font: normal 10px Proxima;
+}
+
+.nvtooltip{
+    font: normal 12px Proxima;
+}
+
+.nvtooltip h3{
+    font-weight: 700;
+    font-size: 1rem;
 }

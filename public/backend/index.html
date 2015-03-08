@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>iBeacon restaurant admin panel</title>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bower_components/nvd3/nv.d3.css"/>
     <link rel="stylesheet" href="/assets/css/style.css">
     <!--AngularJS-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
@@ -16,12 +16,16 @@
     <!--ng-file-upload-->
     <script src="/js/angular-file-upload-shim.min.js"></script> 
     <script src="/js/angular-file-upload.min.js"></script> 
+    <!--nvd3 chart-->
+    <script src="/bower_components/d3/d3.js"></script>
+    <script src="/bower_components/nvd3/nv.d3.js"></script>
+    <script src="/bower_components/angularjs-nvd3-directives/dist/angularjs-nvd3-directives.js"></script>
 </head>
 <body ng-controller="mainController">
     <nav class="sidebar">
         <ul>
             <li class="cat">Queue</li>
-            <li ng-repeat="queueType in queueTypes"><a href="#/queueType/{{ queueType.id}}">{{ queueType.name }}</a></li>
+            <li ng-repeat="queueType in queueTypes"><a href="#/queueType/{{ queueType.id}}">{{ queueType.name | capitalizeFirst }}</a></li>
             <li class="cat">Table</li>
             <li><a href="#/table/">Add Table</a></li>
             <li><a href="#/table">Table Management</a></li>
@@ -35,7 +39,7 @@
             <li><a href="#/category">Category Management</a></li>
             <li><a href="#/item">Item management</a></li>
             <li class="cat">Statistics</li>
-            <li><a href="/admin/stats/">Overall Statistics</a></li>
+            <li><a href="#/stat">Overall Statistics</a></li>
         </ul>
     </nav>
     <div class="main">
@@ -48,7 +52,7 @@
     </div>
 
     <div ng-class="{loading:loading,finish:finish}"class="loading_bar">
-        
+
     </div>
 </body>
 </html>

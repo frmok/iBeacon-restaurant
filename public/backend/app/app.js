@@ -3,6 +3,7 @@ var app = angular.module('backendApp',
     [
     'ui.router',
     'angularFileUpload',
+    'nvd3ChartDirectives',
     ])
 .run(['$rootScope', '$state', '$stateParams', '$http', 
     function ($rootScope, $state, $stateParams, $http) 
@@ -322,6 +323,25 @@ $stateProvider.state("backend_item_detail",
         }
     }]
 });
+
+$stateProvider.state("backend_stat", 
+{
+    templateUrl: "/backend/partials/stat.html",
+    url: "/stat",
+    controller: [ '$rootScope', '$scope', '$stateParams', 'Stat',
+    function($rootScope, $scope, $stateParams, Stat){
+        $rootScope.currentAction = 'Overall Statistics';
+        $scope.ee = [
+        {"values":[[1,0],[2,0],[3,21],[4,0],[5,0],[6,0],[7,0],[8,0],[9,0],[10,0],[11,0],[12,0],[13,0],[14,0],[15,0],[16,0],[17,0],[18,0],[19,0],[20,0],[21,0],[22,0],[23,0],[24,0],[25,0],[26,0],[27,0],[28,0],[29,0],[30,0],[31,0]],"key":"Profit of this month"}
+        ]
+        Stat.best_selling_item().then(function(res){
+            $scope.best_selling_item = [res.data];
+        });
+        Stat.profit().then(function(res){
+            $scope.profit = [res.data];
+        });
+    }]
+});
 }]
 );
 
@@ -423,6 +443,16 @@ app.factory('Order', ['$http', function ($http) {
     return factory;
 }]);
 
+app.factory('Stat', ['$http', function ($http) {
+    var factory = {};
+    factory.best_selling_item = function () {
+        return $http.get('/stat/ajax_best_selling_item');
+    };
+    factory.profit = function (id) {
+        return $http.get('/stat/ajax_profit');
+    };
+    return factory;
+}]);
 app.factory('Bill', ['$http', function ($http) {
     var factory = {};
     factory.all = function () {
@@ -542,11 +572,16 @@ app.filter('matachCapacity', function() {
     return filtered;
 };
 });
+app.filter('capitalizeFirst', function () {
+    return function (input, scope) {
+        var text = input.substring(0, 1).toUpperCase() + input.substring(1).toLowerCase();
+        return text;
+    }
+});
 
 app.controller('mainController', ['$rootScope', '$scope', '$http',
     function ($rootScope, $scope, $http) {
         $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
-            console.log("qq");
             $scope.loading = true;
             $scope.finish = false;
         });
@@ -555,4 +590,4 @@ app.controller('mainController', ['$rootScope', '$scope', '$http',
             $scope.finish = true;
         });
     }]
-);
+    );
