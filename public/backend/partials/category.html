@@ -1,23 +1,33 @@
 <div class="col-md-8 main-view">
     <div class="list_layout">
-        <table>
+        <table st-table="displayedCollection" st-safe-src="categories">
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Category Name</th>
                     <th>Action</th>
                 </tr>
+                <tr>
+                    <th colspan="3"><input st-search="" class="form-control" placeholder="Search categories" type="text"/></th>
+                </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="category in categories">
+                <tr ng-repeat="category in displayedCollection">
                     <td>{{category.id}}</td>
                     <td>{{category.category_name}}</td>
                     <td>
-                    <a href="#/category/{{category.id}}"><div class="btn">Modify</div></a>
-                    <div ng-Click="deleteCategory($index)" class="btn btn-warning">Delete</div>
+                        <a href="#/category/{{category.id}}"><div class="btn">Modify</div></a>
+                        <div ng-Click="deleteCategory($index)" class="btn btn-warning">Delete</div>
                     </td>
                 </tr>
             </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="5" class="text-center">
+                    <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="5"></div>
+                    </td>
+                </tr>
+            </tfoot>
         </table>
     </div>
 </div>

@@ -1,6 +1,6 @@
 <div class="col-md-8 main-view">
     <div class="list_layout order_list_layout">
-        <table>
+        <table st-table="displayedCollection" st-safe-src="orders">
             <thead>
                 <tr>
                     <th>Table</th>
@@ -12,7 +12,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="order in orders" ng-class="{new: order.order_status == 0}">
+                <tr ng-repeat="order in displayedCollection" ng-class="{new: order.order_status == 0}">
                     <td>{{ order.bill.table.table_name }}</td>
                     <td>{{ order.item.item_name }}</td>
                     <td>{{ order.quantity }}</td>
@@ -20,12 +20,19 @@
                     <td>{{ order.created_at }}</td>
                     <td>
                     <div ng-click="updateOrder($index)" ng-show="order.order_status == 0 || order.order_status == 1" class="btn">
-                            Receive
+                            {{order.order_status | orderAction}}
                         </div>
                         <a href="#/order/{{order.id}}"><div class="btn">Modify</div></a>
                     </td>
                 </tr>
             </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="5" class="text-center">
+                    <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="5"></div>
+                    </td>
+                </tr>
+            </tfoot>
         </table>
     </div>
 </div>

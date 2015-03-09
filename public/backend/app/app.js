@@ -4,6 +4,8 @@ var app = angular.module('backendApp',
     'ui.router',
     'angularFileUpload',
     'nvd3ChartDirectives',
+    'smart-table',
+    'ngSanitize',
     ])
 .run(['$rootScope', '$state', '$stateParams', '$http', 
     function ($rootScope, $state, $stateParams, $http) 
@@ -133,6 +135,7 @@ $stateProvider.state("backend_bill",
         Bill.all().then(
             function(res){
                 $scope.bills = res.data;
+                $scope.displayedCollection = [].concat($scope.bills);
             });
     }]
 });
@@ -160,9 +163,11 @@ $stateProvider.state("backend_category",
     controller: [ '$rootScope', '$scope', '$stateParams', 'WebSocket', 'Category',
     function($rootScope, $scope, $stateParams, WebSocket, Category){
         $rootScope.currentAction = "Category Management";
+        $scope.itemsByPage = 10;
         Category.all().then(
             function(res){
                 $scope.categories = res.data;
+                $scope.displayedCollection = [].concat($scope.categories);
             });
         $scope.deleteCategory = function(index){
             Category.delete($scope.categories[index]);
@@ -219,25 +224,26 @@ $stateProvider.state("backend_order",
     controller: [ '$rootScope', '$scope', '$stateParams', 'WebSocket', 'Order',
     function($rootScope, $scope, $stateParams, WebSocket, Order){
         $rootScope.currentAction = "Order Management";
+        $scope.itemsByPage = 10;
         Order.all().then(
             function(res){
                 $scope.orders = res.data;
             });
         $scope.updateOrder = function(index){
             var status = parseInt($scope.orders[index].order_status);
-            $scope.orders[index].order_status = ++status;
-            Order.update($scope.orders[index]);
+            $scope.master= angular.copy($scope.orders[index]);
+            $scope.master.order_status = ++status;
+            Order.update($scope.master);
         }
         WebSocket.receive().then(null, null, function(message) {
-            console.log(message);
             if(message.action === 'order.update'){
                 for(var i = 0; i < $scope.orders.length; i++){
                     if($scope.orders[i].id == message.order.id){
-                        $scope.orders[i] = message.order;
+                        $scope.orders[i].order_status = message.order.order_status;
+                        $scope.orders[i].item.item_name = message.order.item.item_name;
+                        $scope.orders[i].quantity = message.order.quantity;
                     }
                 }
-            }else if(message.action === 'ticket.create'){
-                $scope.tickets.push(message.ticket);
             }
         });
     }]
@@ -284,9 +290,11 @@ $stateProvider.state("backend_item",
     controller: [ '$rootScope', '$scope', '$stateParams', 'WebSocket', 'Item',
     function($rootScope, $scope, $stateParams, WebSocket, Item){
         $rootScope.currentAction = "Item Management";
+        $scope.itemsByPage = 10;
         Item.all().then(
             function(res){
                 $scope.items = res.data;
+                $scope.displayedCollection = [].concat($scope.items);
             });
         $scope.deleteItem = function(index){
             Item.delete($scope.items[index]);
@@ -535,6 +543,19 @@ app.filter('orderStatus',
             }
         }
     });
+app.filter('orderAction', 
+    function(){
+        return function (status){
+            var status = parseInt(status);
+            if(status === 0){
+                return 'Receive';
+            }else if(status === 1){
+                return 'Deliver';
+            }
+            return;
+        }
+    });
+
 app.filter('ticketAction', 
     function(){
         return function (status){
@@ -562,7 +583,7 @@ app.filter('billStatus',
         return function (status){
             var status = parseInt(status);
             if(status === 0){
-                return 'Not Paid';
+                return '<strong>Not Paid</strong>';
             }else if(status === 1){
                 return 'Paid';
             }

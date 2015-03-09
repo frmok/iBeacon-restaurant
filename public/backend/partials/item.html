@@ -1,6 +1,6 @@
 <div class="col-md-8 main-view">
     <div class="list_layout">
-        <table>
+        <table st-table="displayedCollection" st-safe-src="items">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -8,18 +8,28 @@
                     <th>Price</th>
                     <th>Action</th>
                 </tr>
+                <tr>
+                    <th colspan="4"><input st-search="" class="form-control" placeholder="Search items" type="text"/></th>
+                </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="item in items">
+                <tr ng-repeat="item in displayedCollection">
                     <td>{{item.id}}</td>
                     <td>{{item.item_name}}</td>
                     <td>{{item.price}}</td>
                     <td>
-                    <a href="#/item/{{item.id}}"><div class="btn">Modify</div></a>
-                    <div ng-Click="deleteItem($index)" class="btn btn-warning">Delete</div>
+                        <a href="#/item/{{item.id}}"><div class="btn">Modify</div></a>
+                        <div ng-Click="deleteItem($index)" class="btn btn-warning">Delete</div>
                     </td>
                 </tr>
             </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="5" class="text-center">
+                    <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="5"></div>
+                    </td>
+                </tr>
+            </tfoot>
         </table>
     </div>
 </div>

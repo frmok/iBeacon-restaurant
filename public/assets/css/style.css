@@ -569,6 +569,15 @@ nav.sidebar ul > li > a:hover{
     width: 100%;
 }
 
+.list_layout table tfoot{
+    background: #ebebeb;
+    border-top: 1px solid #ccc;
+}
+
+.list_layout .pagination{
+    margin: 10px 0;
+}
+
 .list_layout table thead{
     width: 100%;
     background: #ebebeb;
