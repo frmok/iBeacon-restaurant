@@ -30,6 +30,7 @@ Route::post('admin', 'Admin\AdminController@checkLogin');
 //ticket route
 Route::get('admin/queueType/{type}', 'Admin\QueueTypeController@index');
 
+
 //table route
 Route::get('admin/table', 'Admin\TableController@index');
 Route::get('admin/table/detail/{id?}', 'Admin\TableController@detail');
@@ -115,6 +116,11 @@ Route::post('api/item/delete', 'APIController@itemDelete');
 
 //Advertisement API
 Route::get('api/getAdvertisement', 'APIController@getAdvertisement');
+
+//Ticket API
+Route::get('api/currentTicket/{id}', 'APIController@currentTicket');
+Route::get('api/waitingPeople/{id}', 'APIController@waitingPeople');
+Route::get('api/avgWaitingTime/{id}', 'APIController@avgWaitingTime');
 
 //test...
 Route::get('api/test', 'APIController@test');

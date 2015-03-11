@@ -111,15 +111,43 @@ $stateProvider.state("backend_queue",
             ticket.ticket_status = ++status;
             Ticket.update(ticket);
         }
+        $scope.getWaiting = function(){
+            Ticket.getWaiting($stateParams.qid).then(
+                function(res) {
+                    $scope.waiting = res.data.waiting;
+                });
+        }
+        $scope.getCurrentNo = function(){
+            Ticket.getCurrentNo($stateParams.qid).then(
+                function(res) {
+                    $scope.currentNo = res.data.current;
+                });
+        }
+        $scope.getAvgWaitingTime = function(){
+            Ticket.getAvgWaitingTime($stateParams.qid).then(
+                function(res) {
+                    console.log(res);
+                    $scope.avgWaitingTime = res.data.value;
+                });
+        }
+        $scope.getWaiting();
+        $scope.getCurrentNo();
+        $scope.getAvgWaitingTime();
         WebSocket.receive().then(null, null, function(message) {
             if(message.action === 'ticket.update'){
                 for(var i = 0; i < $scope.tickets.length; i++){
                     if($scope.tickets[i].id == message.ticket.id){
                         $scope.tickets[i].ticket_status = message.ticket.ticket_status;
+                        $scope.getWaiting();
+                        $scope.getCurrentNo();
+                        $scope.getAvgWaitingTime();
                     }
                 }
             }else if(message.action === 'ticket.create'){
                 $scope.tickets.push(message.ticket);
+                $scope.getWaiting();
+                $scope.getCurrentNo();
+                $scope.getAvgWaitingTime();
             }
         });
     }]
@@ -244,6 +272,8 @@ $stateProvider.state("backend_order",
                         $scope.orders[i].quantity = message.order.quantity;
                     }
                 }
+            }else if(message.action === 'order.create'){
+                $scope.orders.unshift(message.order);
             }
         });
     }]
@@ -495,6 +525,15 @@ app.factory('Ticket', ['$http', function ($http) {
     };
     factory.update = function (ticket) {
         return $http.post('/api/ticket', ticket);
+    };
+    factory.getWaiting = function (type) {
+        return $http.get('/api/waitingPeople/'+type);
+    };
+    factory.getCurrentNo = function (type) {
+        return $http.get('/api/currentTicket/'+type);
+    };
+    factory.getAvgWaitingTime = function (type) {
+        return $http.get('/api/avgWaitingTime/'+type);
     };
     return factory;
 }]);

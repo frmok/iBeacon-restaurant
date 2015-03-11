@@ -1,5 +1,5 @@
 <?php namespace App;
-
+use \DB;
 use Illuminate\Database\Eloquent\Model;
 
 class Ticket extends Model{
@@ -47,5 +47,29 @@ class Ticket extends Model{
 
     public function getStatusTextAttribute(){
         return self::$statusText[$this->ticket_status];
+    }
+
+    public static function currentTicket($id){
+        return self::where('cleared', 0)
+        ->where('queue_type_id', $id)
+        ->where(
+            function ($query) {
+                $query->where('ticket_status', 1)->orWhere('ticket_status', 2);
+            })
+        ->max('ticket_number');
+    }
+
+    public static function waitingPeople($id){
+        return count(self::where('cleared', 0)
+        ->where('queue_type_id', $id)
+        ->where('ticket_status', 0)
+        ->get());
+    }
+
+    public static function avgWaitingTime($id){
+        return \DB::table('ticket')->select(DB::raw('ROUND(AVG(TIME_TO_SEC(TIMEDIFF(updated_at, created_at)))) as value'))
+        ->where('queue_type_id', $id)
+        ->where('ticket_status', 2)
+        ->get();
     }
 }

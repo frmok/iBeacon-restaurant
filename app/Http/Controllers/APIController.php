@@ -278,10 +278,23 @@ class APIController extends Controller {
         $ticket->save();
     }
 
+    public function currentTicket($id){
+        $response['current'] = Ticket::currentTicket($id);
+        return \Response::json($response);
+    }
+
+    public function waitingPeople($id){
+        $response['waiting'] = Ticket::waitingPeople($id);
+        return \Response::json($response);
+    }
+
     //test route...no usage
+    public function avgWaitingTime($id){
+        $response = Ticket::avgWaitingTime($id)[0];
+        return \Response::json($response);
+    }
+
     public function test(){
-        $table = Table::find(3);
-        $table->table_status = 0;
-        $table->save();
+        
     }
 }

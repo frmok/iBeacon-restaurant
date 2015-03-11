@@ -1,4 +1,36 @@
-<div class="col-md-8 main-view">
+<div class="col-md-9">
+    <div class="col-md-4">
+        <div class="tile tile_red">
+            <div class="tile_content">
+                {{ waiting }}
+            </div>
+            <div class="tile_text">
+                No. of tickets
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="tile tile_orange">
+            <div class="tile_content">
+                {{currentNo}}
+            </div>
+            <div class="tile_text">
+                Current ticker number
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="tile tile_blue">
+            <div class="tile_content">
+                {{avgWaitingTime}} s
+            </div>
+            <div class="tile_text">
+                Average waiting time
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-9 main-view">
     <div class="list_layout">
         <table>
             <thead>
@@ -10,13 +42,13 @@
                 </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="ticket in tickets" id="{!! $ticket.id !!}">
-                <td>{{ ticket.ticket_number }}</td>
-                <td>{{ ticket.people }}</td>
-                <td>{{ ticket.ticket_status | ticketStatus }}</td>
-                <td><div ng-show="ticket.ticket_status < 2" ng-click="updateTicket(ticket)" class="btn">{{ ticket.ticket_status | ticketAction }}</div></td>
-            </tr>
+                <tr ng-repeat="ticket in tickets" id="{!! $ticket.id !!}">
+                    <td>{{ ticket.ticket_number }}</td>
+                    <td>{{ ticket.people }}</td>
+                    <td>{{ ticket.ticket_status | ticketStatus }}</td>
+                    <td><div ng-show="ticket.ticket_status < 2" ng-click="updateTicket(ticket)" class="btn">{{ ticket.ticket_status | ticketAction }}</div></td>
+                </tr>
             </tbody>
         </table>
     </div>
-    </div>
+</div>
