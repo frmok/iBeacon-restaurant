@@ -8,7 +8,7 @@ use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller {
-
+/*
     public function index()
     {
         $orders = Order::with('item', 'bill.table')->orderBy('created_at', 'DESC')->get();
@@ -45,5 +45,23 @@ class OrderController extends Controller {
         $order->save();
         return view('admin.order_detail')->with('order', $order)->with('action', 'update')->with('itemOptions', $itemOptions)->with('statusOptions', Order::$statusText)->with('msg', 'Updated successfully');
     }
+*/
 
+    public function index(){
+        $orders = Order::with('item', 'bill.table')->orderBy('created_at', 'DESC')->get();
+        return $orders;
+    }
+
+    public function detail($id){
+        $order = Order::with('item', 'bill.table')->find($id);
+        return $order;
+    }
+
+
+    public function update(Request $request){
+        $order = Order::find($request->get('id'));
+        $order->fill($request->all());
+        $order->save();
+        return $order;
+    }
 }

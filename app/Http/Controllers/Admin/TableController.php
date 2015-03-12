@@ -7,7 +7,7 @@ use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 
 class TableController extends Controller {
-
+/*
     public function index()
     {
         $tables = Table::all();
@@ -48,5 +48,35 @@ class TableController extends Controller {
         $table->delete();
         return redirect()->to('admin/table');
 
+    }
+*/
+
+    public function index(){
+        return Table::with(array('bills' => function ($query){
+            $query->where('status', 0);
+        }))->get();
+    }
+
+    public function detail($id){
+        return Table::find($id);
+    }
+
+    public function add(Request $request){
+        $table = new Table();
+        $table->fill($request->all());
+        $table->save();
+        return $table;
+    }
+
+    public function update(Request $request){
+        $table = Table::find($request->get('id'));
+        $table->fill($request->all());
+        $table->save();
+        return $table;
+    }
+
+    public function delete(Request $request){
+        $table = Table::find($request->get('id'));
+        $table->delete();
     }
 }

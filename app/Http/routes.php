@@ -68,59 +68,69 @@ Route::get('admin/stats', 'Admin\StatController@index');
 Route::get('stat/ajax_best_selling_item', 'Admin\StatController@ajax_best_selling_item');
 Route::get('stat/ajax_profit', 'Admin\StatController@ajax_profit');
 
-//API
-Route::any('api/createUser', 'APIController@createUser');
-Route::any('api/userLogin', 'APIController@userLogin');
-Route::get('api/getTableByBecaon/{major}/{minor}', 'APIController@getTableByBecaon');
-Route::post('api/payBill', 'APIController@payBill');
-Route::post('api/orderItem', 'APIController@orderItem');
-Route::post('api/getTicket', 'APIController@getTicket');
-Route::post('api/ticket', 'APIController@ticketUpdate');
-Route::any('api/createBillByTable', 'APIController@createBillByTable');
-Route::get('api/orderHistory', 'APIController@orderHistory');
+//Mobile API
+Route::any('mobile/createUser', 'APIController@createUser');
+Route::any('mobile/userLogin', 'APIController@userLogin');
+Route::any('mobile/createBillByTable', 'APIController@createBillByTable');
+Route::get('mobile/getTableByBecaon/{major}/{minor}', 'APIController@getTableByBecaon');
+Route::get('mobile/items/', 'APIController@itemList');
+Route::get('mobile/item/{id}', 'APIController@itemDetail');
+Route::get('mobile/categories/', 'APIController@categoryList');
+Route::post('mobile/orderItem', 'APIController@orderItem');
+Route::get('mobile/bill', 'APIController@bill');
+Route::post('mobile/payBill', 'APIController@payBill');
 
-//Order API
-Route::get('api/order', 'APIController@order');
-Route::get('api/order/{id}', 'APIController@orderDetail');
-Route::post('api/order', 'APIController@orderUpdate');
-
-//Queue Type API
-Route::get('api/QueueType', 'APIController@QueueType');
-Route::get('api/QueueType/{id}', 'APIController@QueueTypeDetail');
-
-//Table API
-Route::get('api/table', 'APIController@table');
-Route::get('api/table/{id}', 'APIController@tableDetail');
-Route::post('api/table/add', 'APIController@tableAdd');
-Route::post('api/table', 'APIController@tableUpdate');
-Route::post('api/table/delete', 'APIController@tableDelete');
-
-//Bill API
-Route::get('api/bill', 'APIController@bill');
-Route::get('api/bill/{id}', 'APIController@billDetail');
-Route::get('api/bill2/{id}', 'APIController@_billDetail');
-
-//Category API
-Route::get('api/categories/', 'APIController@categoryList');
-Route::get('api/category/{id}', 'APIController@categoryDetail');
-Route::post('api/category/add', 'APIController@categoryAdd');
-Route::post('api/category', 'APIController@categoryUpdate');
-Route::post('api/category/delete', 'APIController@categoryDelete');
-
-//Item API
-Route::get('api/items/', 'APIController@itemList');
-Route::get('api/item/{id}', 'APIController@itemDetail');
-Route::post('api/item/add', 'APIController@itemAdd');
-Route::post('api/item', 'APIController@itemUpdate');
-Route::post('api/item/delete', 'APIController@itemDelete');
+Route::post('mobile/getTicket', 'APIController@getTicket');
+Route::post('mobile/ticket', 'APIController@ticketUpdate');
+Route::get('mobile/orderHistory', 'APIController@orderHistory');
 
 //Advertisement API
-Route::get('api/getAdvertisement', 'APIController@getAdvertisement');
+Route::get('mobile/getAdvertisement', 'APIController@getAdvertisement');
 
-//Ticket API
-Route::get('api/currentTicket/{id}', 'APIController@currentTicket');
-Route::get('api/waitingPeople/{id}', 'APIController@waitingPeople');
-Route::get('api/avgWaitingTime/{id}', 'APIController@avgWaitingTime');
 
-//test...
+
+//backend api
+Route::group(['middleware' => 'checkcred'], function()
+{  
+    //Queue Type API
+    Route::get('api/QueueType', 'Admin\QueueTypeController@index');
+    Route::get('api/QueueType/{id}', 'Admin\QueueTypeController@detail');
+
+    //Order API
+    Route::get('api/order', 'Admin\OrderController@index');
+    Route::get('api/order/{id}', 'Admin\OrderController@detail');
+    Route::post('api/order', 'Admin\OrderController@update');
+
+    //Table API
+    Route::get('api/table', 'Admin\TableController@index');
+    Route::get('api/table/{id}', 'Admin\TableController@detail');
+    Route::post('api/table/add', 'Admin\TableController@add');
+    Route::post('api/table', 'Admin\TableController@update');
+    Route::post('api/table/delete', 'Admin\TableController@delete');
+
+    //Bill API
+    Route::get('api/bill', 'Admin\BillController@index');
+    Route::get('api/bill/{id}', 'Admin\BillController@detail');
+
+    //Category API
+    Route::get('api/categories/', 'Admin\CategoryController@index');
+    Route::get('api/category/{id}', 'Admin\CategoryController@detail');
+    Route::post('api/category/add', 'Admin\ItemController@add');
+    Route::post('api/category', 'Admin\CategoryController@update');
+    Route::post('api/category/delete', 'Admin\CategoryController@delete');
+
+    //Item API
+    Route::get('api/items/', 'Admin\ItemController@index');
+    Route::get('api/item/{id}', 'Admin\ItemController@detail');
+    Route::post('api/item', 'Admin\ItemController@update');
+    Route::post('api/item/add', 'Admin\ItemController@add');
+    Route::post('api/item/delete', 'Admin\ItemController@delete');
+
+    //Ticket API
+    Route::get('api/waitingPeople/{id}', 'Admin\TicketController@waitingPeople');
+    Route::get('api/avgWaitingTime/{id}', 'Admin\TicketController@avgWaitingTime');
+    Route::get('api/currentTicket/{id}', 'Admin\TicketController@currentTicket');
+});
+
+
 Route::get('api/test', 'APIController@test');

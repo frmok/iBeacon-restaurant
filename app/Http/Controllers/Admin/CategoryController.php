@@ -6,7 +6,7 @@ use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller {
-
+/*
     public function index()
     {
         $categories = Category::all();
@@ -57,5 +57,49 @@ class CategoryController extends Controller {
         $category->delete();
         return redirect()->to('admin/category');
 
+    }
+*/
+    public function index(){
+        $categories = Category::all();
+        foreach($categories as $category){
+            $category['category_img'] = rawurlencode($category['category_img']);
+        }
+        return $categories;
+    }
+
+    public function detail($id){
+        return Category::find($id);
+    }
+
+    public function add(Request $request)
+    {
+        $category = new Category();
+        $category->fill($request->except('category_img'));
+        if ($request->hasFile('category_img') === true) {
+            $destinationPath = public_path() . Category::$img_path;
+            $request->file('category_img')->move($destinationPath, $request->file('category_img')->getClientOriginalName());
+            $category->category_img = $request->file('category_img')->getClientOriginalName();
+        }
+        $category->save();
+        return $category;
+    }
+
+    public function update(Request $request)
+    {
+        $category = Category::find($request->get('id'));
+        $category->fill($request->except('category_img'));
+        if ($request->hasFile('category_img') === true) {
+            $destinationPath = public_path() . Category::$img_path;
+            $request->file('category_img')->move($destinationPath, $request->file('category_img')->getClientOriginalName());
+            $category->category_img = $request->file('category_img')->getClientOriginalName();
+        }
+        $category->save();
+        return $category;
+    }
+
+    public function delete(Request $request)
+    {
+        $category = Category::find($request->get('id'));
+        $category->delete();
     }
 }

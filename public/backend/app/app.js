@@ -10,6 +10,7 @@ var app = angular.module('backendApp',
 .run(['$rootScope', '$state', '$stateParams', '$http', 
     function ($rootScope, $state, $stateParams, $http) 
     {
+        $http.defaults.headers.common.UserToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjIsImlhdCI6MTQyNjE2ODk2NywiZXhwIjoxNDI2NDI4MTY3fQ.pXa1JedOqooEJLfxim81cEkniWvi_2G51IZUYRMJcHc';
         $rootScope.$state = $state;
         $rootScope.$stateParams = $stateParams;
         $http.get('/api/QueueType').then(function (res){
@@ -429,6 +430,9 @@ app.factory('Item', ['$http','$upload', function ($http, $upload) {
     factory.add = function (item, file) {
         return $upload.upload({
             url: '/api/item/add',
+            headers: {
+                UserToken: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjIsImlhdCI6MTQyNjE2ODk2NywiZXhwIjoxNDI2NDI4MTY3fQ.pXa1JedOqooEJLfxim81cEkniWvi_2G51IZUYRMJcHc'
+            },
             file: file,
             fileFormDataName: 'item_img',
             fields: item
@@ -437,6 +441,9 @@ app.factory('Item', ['$http','$upload', function ($http, $upload) {
     factory.update = function (item, file) {
         return $upload.upload({
             url: '/api/item',
+            headers: {
+                UserToken: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjIsImlhdCI6MTQyNjE2ODk2NywiZXhwIjoxNDI2NDI4MTY3fQ.pXa1JedOqooEJLfxim81cEkniWvi_2G51IZUYRMJcHc'
+            },
             file: file,
             fileFormDataName: 'item_img',
             fields: item
@@ -514,7 +521,7 @@ app.factory('Bill', ['$http', function ($http) {
         return $http.get('/api/bill/');
     };
     factory.get = function (id) {
-        return $http.get('/api/bill2/'+id);
+        return $http.get('/api/bill/'+id);
     };
     return factory;
 }]);

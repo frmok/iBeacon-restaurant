@@ -50,13 +50,17 @@ class Ticket extends Model{
     }
 
     public static function currentTicket($id){
-        return self::where('cleared', 0)
+        $data = self::where('cleared', 0)
         ->where('queue_type_id', $id)
         ->where(
             function ($query) {
                 $query->where('ticket_status', 1)->orWhere('ticket_status', 2);
             })
         ->max('ticket_number');
+        if($data == NULL){
+            $data = 0;
+        }
+        return $data;
     }
 
     public static function waitingPeople($id){
@@ -67,9 +71,13 @@ class Ticket extends Model{
     }
 
     public static function avgWaitingTime($id){
-        return \DB::table('ticket')->select(DB::raw('ROUND(AVG(TIME_TO_SEC(TIMEDIFF(updated_at, created_at)))) as value'))
+        $data = \DB::table('ticket')->select(DB::raw('ROUND(AVG(TIME_TO_SEC(TIMEDIFF(updated_at, created_at)))) as value'))
         ->where('queue_type_id', $id)
         ->where('ticket_status', 2)
         ->get();
+        if($data[0]->value == 0){
+            $data[0]->value = 0;
+        }
+        return $data;
     }
 }

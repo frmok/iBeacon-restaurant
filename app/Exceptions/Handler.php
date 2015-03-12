@@ -42,7 +42,10 @@ class Handler extends ExceptionHandler {
 		}
 		else
 		{
-			return parent::render($request, $e);
+			$response['status'] = '500';
+            $response['debug'] = get_class($e);
+            return \Response::json($response, 500);
+			//return parent::render($request, $e);
 		}
 	}
 
