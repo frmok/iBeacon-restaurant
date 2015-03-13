@@ -1,5 +1,5 @@
 <?php namespace App\Events;
-
+use App\Bill;
 class OrderEventHandler {
 
     public function onOrderCreate($order)
@@ -41,12 +41,14 @@ class OrderEventHandler {
 
         //if the bill is paid
         if($order->bill->outStandingBalance() == 0){
-            $order->bill->status = 1;
-            $order->bill->save();
+            $bill = Bill::find($order->bill->id);
+            $bill->status = 1;
+            $bill->save();
             error_log('bill is paid');
         }else{
-            $order->bill->status = 0;
-            $order->bill->save();
+            $bill = Bill::find($order->bill->id);
+            $bill->status = 0;
+            $bill->save();
             error_log('bill is not paid');
         }
     }

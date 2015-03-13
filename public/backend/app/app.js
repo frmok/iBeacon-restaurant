@@ -266,6 +266,7 @@ $stateProvider.state("backend_order",
         }
         WebSocket.receive().then(null, null, function(message) {
             if(message.action === 'order.update'){
+            console.log(message);
                 for(var i = 0; i < $scope.orders.length; i++){
                     if($scope.orders[i].id == message.order.id){
                         $scope.orders[i].order_status = message.order.order_status;

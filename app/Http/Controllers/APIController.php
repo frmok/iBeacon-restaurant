@@ -280,6 +280,9 @@ class APIController extends Controller {
 
 
     public function test(){
-        echo Auth::user()->id;
+        $bill = Order::find(50)->bill;
+        $bill->status = 1;
+        $bill->save();
+        echo $bill->outStandingBalance();
     }
 }

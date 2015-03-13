@@ -77,7 +77,7 @@ Route::get('mobile/items/', 'APIController@itemList');
 Route::get('mobile/item/{id}', 'APIController@itemDetail');
 Route::get('mobile/categories/', 'APIController@categoryList');
 Route::post('mobile/orderItem', 'APIController@orderItem');
-Route::get('mobile/bill', 'APIController@bill');
+Route::get('mobile/bill/{id}', 'APIController@billDetail');
 Route::post('mobile/payBill', 'APIController@payBill');
 
 Route::post('mobile/getTicket', 'APIController@getTicket');
