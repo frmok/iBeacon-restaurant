@@ -7,7 +7,13 @@ use App\Order;
 class Advertisement {
 	protected $table = 'advertisement';
 	protected $fillable = []; //to be determined
-
+	
+    /**
+    * Return the advertisement message tailored for a specific member.
+    *
+    * @param  int $memberId
+    * @return Response
+    */
     public static function getMessage($memberId = null){
         if($memberId){
             //check last dining time

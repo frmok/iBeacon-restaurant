@@ -27,6 +27,11 @@ class StatController extends Controller {
     }
 
 
+    /**
+    * Return the best selling items
+    *
+    * @return Response
+    */
     public function ajax_best_selling_item(){
         $items = Stat::bestItem();
         $json["values"] = array();
@@ -35,9 +40,14 @@ class StatController extends Controller {
             array_push($json["values"], $data);
         }
         $json["key"] = "Best Selling Items";
-        echo json_encode($json);
+        return \Response::json($json);
     }
-
+    
+    /**
+    * Return the profit of this month
+    *
+    * @return Response
+    */
     public function ajax_profit(){
         $bestItems = \DB::table('order')->join('item', 'item.id', '=', 'order.item_id')
         ->select([\DB::raw('sum(quantity * price) as total'), \DB::raw('DAY(order.created_at) as day'),'order.created_at'])
@@ -67,7 +77,7 @@ class StatController extends Controller {
         }
         $json["key"] = "Profit of this month";
 
-        echo json_encode($json);
+        return \Response::json($json);
     }
 
     public function ajax_profit2(){

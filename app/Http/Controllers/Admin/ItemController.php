@@ -75,15 +75,31 @@ class ItemController extends Controller {
 
     }
 */
-
+    /**
+    * Return all items.
+    *
+    * @return array
+    */
     public function index(){
         return Item::all();
     }
-
+    
+    /**
+    * Return the data of a specific item.
+    *
+    * @param  int $id
+    * @return Item
+    */
     public function detail($id){
         echo Item::find($id);
     }
-
+    
+    /**
+    * Create a new item with the submitted data and return the new item data.
+    *
+    * @param  Request $request
+    * @return Item
+    */
     public function add(Request $request)
     {
         $item = new Item();
@@ -97,6 +113,12 @@ class ItemController extends Controller {
         return $item;
     }
 
+    /**
+    * Update the item with submitted data and return the updated data.
+    *
+    * @param  Request $request
+    * @return Item
+    */
     public function update(Request $request)
     {
         $item = Item::find($request->get('id'));
@@ -109,7 +131,13 @@ class ItemController extends Controller {
         $item->save();
         return $item;
     }
-
+    
+    /**
+    * Delete a specific item
+    *
+    * @param  Request $request
+    * @return void
+    */
     public function delete(Request $request)
     {
         $item = Item::find($request->get('id'));

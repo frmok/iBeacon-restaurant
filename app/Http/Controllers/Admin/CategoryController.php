@@ -59,6 +59,11 @@ class CategoryController extends Controller {
 
     }
 */
+    /**
+    * Return all categories.
+    *
+    * @return array
+    */
     public function index(){
         $categories = Category::all();
         foreach($categories as $category){
@@ -66,11 +71,23 @@ class CategoryController extends Controller {
         }
         return $categories;
     }
-
+    
+    /**
+    * Return the data of a specific category.
+    *
+    * @param  int $id
+    * @return Category
+    */
     public function detail($id){
         return Category::find($id);
     }
-
+    
+    /**
+    * Create a new category with the submitted data and return the new category data.
+    *
+    * @param  Request $request
+    * @return Category
+    */
     public function add(Request $request)
     {
         $category = new Category();
@@ -84,6 +101,12 @@ class CategoryController extends Controller {
         return $category;
     }
 
+    /**
+    * Update the category with submitted data and return the updated data.
+    *
+    * @param  Request $request
+    * @return Category
+    */
     public function update(Request $request)
     {
         $category = Category::find($request->get('id'));
@@ -96,7 +119,13 @@ class CategoryController extends Controller {
         $category->save();
         return $category;
     }
-
+    
+    /**
+    * Delete a specific category
+    *
+    * @param  Request $request
+    * @return void
+    */
     public function delete(Request $request)
     {
         $category = Category::find($request->get('id'));

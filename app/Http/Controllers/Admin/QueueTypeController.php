@@ -18,10 +18,21 @@ class QueueTypeController extends Controller {
     }
 */
 
+    /**
+    * Return all queue types.
+    *
+    * @return array
+    */
     public function index(){
         return QueueType::all();
     }
-
+    
+    /**
+    * Return the data of a specific queue type.
+    *
+    * @param  int $id  
+    * @return Response
+    */
     public function detail($id){
         $queueType = QueueType::find($id);
         $tickets = $queueType->tickets;

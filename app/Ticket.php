@@ -23,7 +23,14 @@ class Ticket extends Model{
     public function queueType(){
         return $this->belongsTo('App\QueueType');
     }
-
+    
+    /**
+    * Create a new ticket
+    *
+    * @param int $type
+    * @param int $people
+    * @return void
+    */
     public static function enqueue($type, $people){
         $ticket = new Ticket();
         $ticket->queue_type_id = $type;
@@ -32,13 +39,25 @@ class Ticket extends Model{
         $ticket->people = $people;
         $ticket->save();
     }
-
+    
+    /**
+    * Dequeue a ticket
+    *
+    * @param int $id
+    * @return void
+    */
     public static function dequeue($id){
         $ticket = Ticket::find($id);
         $ticket->ticket_status = 1; //dequeued;
         $ticket->save();
     }
-
+    
+    /**
+    * Mark a ticket entered.
+    *
+    * @param int $id
+    * @return void
+    */
     public static function entered($id){
         $ticket = Ticket::find($id);
         $ticket->ticket_status = 2; //dequeued;
@@ -48,7 +67,13 @@ class Ticket extends Model{
     public function getStatusTextAttribute(){
         return self::$statusText[$this->ticket_status];
     }
-
+    
+    /**
+    * Get the current ticket number for a specific queue type.
+    *
+    * @param int $id
+    * @return int
+    */
     public static function currentTicket($id){
         $data = self::where('cleared', 0)
         ->where('queue_type_id', $id)
@@ -63,6 +88,12 @@ class Ticket extends Model{
         return $data;
     }
 
+    /**
+    * Get the number of waiting people for a specific queue type.
+    *
+    * @param int $id
+    * @return int
+    */
     public static function waitingPeople($id){
         return count(self::where('cleared', 0)
         ->where('queue_type_id', $id)
@@ -70,6 +101,12 @@ class Ticket extends Model{
         ->get());
     }
 
+    /**
+    * Get the average waiting time (in second) for a specific queue type.
+    *
+    * @param int $id
+    * @return int
+    */
     public static function avgWaitingTime($id){
         $data = \DB::table('ticket')->select(DB::raw('ROUND(AVG(TIME_TO_SEC(TIMEDIFF(updated_at, created_at)))) as value'))
         ->where('queue_type_id', $id)
