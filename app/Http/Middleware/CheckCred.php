@@ -3,13 +3,12 @@ use Closure;
 class CheckCred{
     public function handle($request, Closure $next)
     {
-        $key = "19bb33194fa895a75aba8e7a7acb902dfa82347d1a2640a8b49f05b6ee8a9e545194ff042ac2185afb3e6259df6b4fd688c83f46601f04a7b37ef04b53468c29";
         $token = $request->header('UserToken');
         if(!$token){
             $token = $request->get('token');
         }
         if($token){
-            $decoded = \JWT::decode($token, $key);
+            $decoded = \JWT::decode($token, env('JWT_KEY'));
             \Auth::loginUsingId($decoded->uid);
             return $next($request);
         }else{

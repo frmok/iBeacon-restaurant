@@ -15,7 +15,7 @@
                     <td>{{bill.id}}</td>
                     <td>{{bill.table.table_name}}</td>
                     <td>{{bill.orders | tempAmount}}</td>
-                    <td ng-bind-html="bill.status"></td>
+                    <td ng-bind-html="bill.status | billStatus"></td>
                     <td>
                     <a href="#/bill/{{bill.id}}"><div class="btn">Detail</div></a>
                     </td>

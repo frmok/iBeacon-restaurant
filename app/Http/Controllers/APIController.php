@@ -32,16 +32,24 @@ class APIController extends Controller {
     //login user by email and password
     public function userLogin(Request $request){
         if(Auth::attempt(array('email' => $request->get('email'), 'password' => $request->get('password')))){
+            //generate new token!!!
+            $token = array(
+                "iat" => time(),
+                "exp" => time()+3600*24*3,
+                "uid" => intVal(Auth::id())
+                );
+            $jwt = \JWT::encode($token, env('JWT_KEY'));
             $packet = array();
             $packet['status'] = 200;
             $packet['debug'] = 'Login succeeed.';
             $packet['user'] = Auth::user();
+            $packet['token'] = $jwt;
             return \Response::json($packet);
         }else{
             $packet = array();
-            $packet['status'] = 500;
+            $packet['status'] = 401;
             $packet['debug'] = 'Login fails';
-            return \Response::json($packet);
+            return \Response::json($packet, 401);
         }
     }
 
@@ -173,9 +181,16 @@ class APIController extends Controller {
     }
 
     public function orderItem(Request $request){
+        $payer = 0; //by default
+        $token = $request->get('token');
+        if($token){
+            $decoded = \JWT::decode($token, env('JWT_KEY'));
+            \Auth::loginUsingId($decoded->uid);
+            $payer = Auth::id(); //set the payer to the user id of the token
+        }
         if($request->get('billId') > 0){
             $order = new Order();
-            $order->user_id = $request->get('payer');
+            $order->user_id = $payer;
             $order->bill_id = $request->get('billId');
             $order->item_id = $request->get('itemId');
             $order->quantity = $request->get('quantity');
@@ -203,7 +218,8 @@ class APIController extends Controller {
     }
 
     public function orderHistory(Request $request){
-        return Order::with('item')->where('user_id', $request->get('memberID'))->orderBy('created_at', 'desc')->get();
+        return User::with(['orders.item', 'orders' => function($query){ $query->orderBy('created_at', 'DESC'); }])
+        ->find($request->get('memberID'));
     }
 
 
@@ -267,7 +283,6 @@ class APIController extends Controller {
         return $bill;
     }
 
-
     public function getTicket(Request $request){
         Ticket::enqueue(QueueType::typeByPeople($request->get('people')) ,$request->get('people'));
     }
@@ -277,7 +292,6 @@ class APIController extends Controller {
         $ticket->fill($request->all());
         $ticket->save();
     }
-
 
     public function test(){
         $bill = Order::find(50)->bill;

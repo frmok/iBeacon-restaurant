@@ -10,7 +10,7 @@ var app = angular.module('backendApp',
 .run(['$rootScope', '$state', '$stateParams', '$http', 
     function ($rootScope, $state, $stateParams, $http) 
     {
-        $http.defaults.headers.common.UserToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjIsImlhdCI6MTQyNjE2ODk2NywiZXhwIjoxNDI2NDI4MTY3fQ.pXa1JedOqooEJLfxim81cEkniWvi_2G51IZUYRMJcHc';
+        $http.defaults.headers.common.UserToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0MjYyNjQ4MDEsImV4cCI6MTQyNjUyNDAwMSwidWlkIjoyfQ.z3matkkDuSw64FbF8moUWJqHQ1rySHDZDqR3dD-Yl_I';
         $rootScope.$state = $state;
         $rootScope.$stateParams = $stateParams;
         $http.get('/api/QueueType').then(function (res){
@@ -266,7 +266,6 @@ $stateProvider.state("backend_order",
         }
         WebSocket.receive().then(null, null, function(message) {
             if(message.action === 'order.update'){
-            console.log(message);
                 for(var i = 0; i < $scope.orders.length; i++){
                     if($scope.orders[i].id == message.order.id){
                         $scope.orders[i].order_status = message.order.order_status;
