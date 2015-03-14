@@ -226,22 +226,18 @@ class APIController extends Controller {
     public function getAdvertisement(Request $request){
         if($request->get('id')){
             $id = $request->get('id');
-            return Advertisement::getMessage($id);
+            $message = Advertisement::getMessage($id);
         }else{
-            return Advertisement::getMessage();
+            $message = Advertisement::getMessage();
         }
+        $response = [];
+        $response['status'] = 200;
+        $response['message'] = $message;
+        return \Response::json($response);
     }
 
     public function QueueType(){
         return QueueType::all();
-    }
-
-    public function QueueTypeDetail($id){
-        $queueType = QueueType::find($id);
-        $tickets = $queueType->tickets;
-        $response = array();
-        $response['queue'] = $queueType;
-        return \Response::json($response);
     }
 
     public function table(){
@@ -293,10 +289,30 @@ class APIController extends Controller {
         $ticket->save();
     }
 
+    public function queues(){
+        $queues = QueueType::all();
+        foreach ($queues as $queue) {
+            $queue['current'] = Ticket::currentTicket($queue->id);
+            $queue['waiting'] = Ticket::waitingPeople($queue->id);
+        }
+        return $queues;
+    }
+
+    public function amountToPay($id){
+        $bill = Bill::find($id);
+        $response = [];
+        $response['status'] = 200;
+        $response['balance'] = $bill->outStandingBalance($id);
+        return \Response::json($response);
+    }
+
+    public function enqueue($people){
+        $type = QueueType::typeByPeople($people);
+        $ticket = Ticket::enqueue($type, $people);
+        return $ticket;
+    }
+
     public function test(){
-        $bill = Order::find(50)->bill;
-        $bill->status = 1;
-        $bill->save();
-        echo $bill->outStandingBalance();
+        Ticket::where('queue_type_id', 1)->update(array('cleared' => 1));
     }
 }

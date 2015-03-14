@@ -39,4 +39,17 @@ class TicketController extends Controller {
         return \Response::json($response);
     }
 
+    /**
+    * Update the ticket with submitted data and return the updated data.
+    *
+    * @param int $id
+    * @return Response
+    */
+    public function ticketUpdate(Request $request){
+        $ticket = Ticket::find($request->get('id'));
+        $ticket->fill($request->all());
+        $ticket->save();
+        return $ticket;
+    }
+
 }

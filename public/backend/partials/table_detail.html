@@ -8,20 +8,20 @@
         </div>
         <form ng-submit="updateTable()">
         <div class="form-group first-group">
-            <label for="table_name" class="col-lg-3">Table Name</label>
-            <input class="col-lg-7" ng-model="table.table_name" name="table_name" type="text" id="table_name">
+            <label for="name" class="col-lg-3">Table Name</label>
+            <input required id="name" class="col-lg-7" ng-model="table.table_name" name="table_name" type="text" id="table_name">
         </div>
         <div class="form-group">
             <label for="capacity" class="col-lg-3">Capacity</label>
-            <input id="capacity" type="text" ng-model="table.capacity" name="capacity" class="col-lg-7">
+            <input required id="capacity" type="text" ng-model="table.capacity" name="capacity" class="col-lg-7">
         </div>
         <div class="form-group">
             <label for="major" class="col-lg-3">iBeacon Major</label>
-            <input id="major" type="text" ng-model="table.major" name="major" class="col-lg-7">
+            <input required id="major" type="text" ng-model="table.major" name="major" class="col-lg-7">
         </div>
         <div class="form-group">
             <label for="minor" class="col-lg-3">iBeacon Minor</label>
-            <input id="minor" type="text" ng-model="table.minor" name="minor" class="col-lg-7">
+            <input required id="minor" type="text" ng-model="table.minor" name="minor" class="col-lg-7">
         </div>
         <div class="form-bottom">
             <input class="btn" type="submit">

@@ -20,12 +20,7 @@ var app = angular.module('backendApp',
 .config(['$stateProvider', '$urlRouterProvider',
     function ($stateProvider, $urlRouterProvider) 
     {
-        $urlRouterProvider.otherwise('/');
-        $stateProvider.state("home", 
-        {
-            url: "/",
-            template: '<b>asa</b>'
-        });
+        $urlRouterProvider.otherwise('/table');
         $stateProvider.state("backend_table", 
         {
             templateUrl: "/backend/partials/table.html",
@@ -62,15 +57,20 @@ $stateProvider.state("backend_table_detail",
 {
     templateUrl: "/backend/partials/table_detail.html",
     url: "/table/{tid}",
-    controller: [ '$rootScope', '$scope', '$stateParams', 'WebSocket', 'Table',
-    function($rootScope, $scope, $stateParams, WebSocket, Table){
+    resolve:{
+        table: ['Table', '$stateParams', function(Table, $stateParams){
+            if($stateParams.tid){
+                return Table.get($stateParams.tid);
+            }
+            return;
+        }]
+    },
+    controller: [ '$rootScope', '$scope', '$stateParams', 'WebSocket', 'Table', 'table',
+    function($rootScope, $scope, $stateParams, WebSocket, Table, table){
         $scope.table = {};
         if($stateParams.tid){
-            Table.get($stateParams.tid).then(
-                function(res){
-                    $scope.crud_action = $rootScope.currentAction = "Modify Table";
-                    $scope.table = res.data;
-                })
+            $scope.crud_action = $rootScope.currentAction = "Modify Table";
+            $scope.table = table.data;
         }else{
             $scope.crud_action = $rootScope.currentAction = "Add Table";
         }
@@ -515,6 +515,7 @@ app.factory('Stat', ['$http', function ($http) {
     };
     return factory;
 }]);
+
 app.factory('Bill', ['$http', function ($http) {
     var factory = {};
     factory.all = function () {
@@ -525,6 +526,7 @@ app.factory('Bill', ['$http', function ($http) {
     };
     return factory;
 }]);
+
 app.factory('Ticket', ['$http', function ($http) {
     var factory = {};
     factory.all = function (type) {
@@ -544,6 +546,7 @@ app.factory('Ticket', ['$http', function ($http) {
     };
     return factory;
 }]);
+
 app.service("WebSocket", function($q, $timeout) {
     var service = {}, conn, listener = $q.defer();
     var initialize = function() {
@@ -574,6 +577,7 @@ app.filter('ticketStatus',
             }
         }
     });
+
 app.filter('orderStatus', 
     function(){
         return function (status){
@@ -589,6 +593,7 @@ app.filter('orderStatus',
             }
         }
     });
+
 app.filter('orderAction', 
     function(){
         return function (status){
@@ -613,6 +618,7 @@ app.filter('ticketAction',
             }
         }
     });
+
 app.filter('tempAmount', 
     function(){
         return function (orders){
@@ -663,6 +669,7 @@ app.filter('matachCapacity',
             return filtered;
         };
     });
+
 app.filter('capitalizeFirst', 
     function () {
         return function (input, scope) {

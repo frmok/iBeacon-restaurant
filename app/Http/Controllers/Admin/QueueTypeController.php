@@ -28,16 +28,29 @@ class QueueTypeController extends Controller {
     }
     
     /**
-    * Return the data of a specific queue type.
+    * Return the data of a specific queue type (with tickets that are not cleared).
     *
     * @param  int $id  
     * @return Response
     */
     public function detail($id){
-        $queueType = QueueType::find($id);
-        $tickets = $queueType->tickets;
+        $queueType = QueueType::with(['tickets' => 
+            function($query){ 
+                $query->where('cleared',0);
+            }])
+        ->find($id);
         $response = array();
         $response['queue'] = $queueType;
         return \Response::json($response);
+    }
+
+    /**
+    * Clear all the tickets of a particular queue
+    *
+    * @param  int $id  
+    * @return void
+    */
+    public function clearQueue($id){
+        Ticket::where('queue_type_id', $id)->update(array('cleared' => 1));
     }
 }

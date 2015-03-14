@@ -1,7 +1,7 @@
 <?php 
 namespace App\Services;
 class Push{
-    public function sendNotification(){
+    public function sendNotification($data){
         $data = json_decode($data);
         if (!isset($data->message)) {
             $response = array();
@@ -28,7 +28,7 @@ class Push{
             );
         $payload = json_encode($body);
         if(count($identifiers) > 0){
-            $tokens = DB::table('pushmessage')
+            $tokens = \DB::table('pushmessage')
             ->whereIn('identifier', $identifiers)->get();
             foreach ($tokens as $token) {
                 $msg = chr(0) . pack('n', 32) . pack('H*', $token->token) . pack('n', strlen($payload)) . $payload;

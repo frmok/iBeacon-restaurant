@@ -6,6 +6,20 @@ class QueueType extends Model{
     protected $table = 'queue_type';
     protected $fillable = []; //to be determined
 
+    public function getIdAttribute($value)
+    {
+        return intval($value);
+    }
+    public function getCapacityAttribute($value)
+    {
+        return intval($value);
+    }
+    
+    public function getDisabledAttribute($value)
+    {
+        return intval($value);
+    }
+
     public function tickets(){
         return $this->hasMany('App\Ticket');
     }

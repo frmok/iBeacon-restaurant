@@ -79,6 +79,10 @@ Route::get('mobile/categories/', 'APIController@categoryList');
 Route::post('mobile/orderItem', 'APIController@orderItem');
 Route::get('mobile/bill/{id}', 'APIController@billDetail');
 Route::post('mobile/payBill', 'APIController@payBill');
+Route::get('mobile/queues', 'APIController@queues');
+Route::get('mobile/amountToPay/{id}', 'APIController@amountToPay');
+Route::get('mobile/enqueue/{people}', 'APIController@enqueue');
+
 
 Route::post('mobile/getTicket', 'APIController@getTicket');
 Route::post('mobile/ticket', 'APIController@ticketUpdate');
@@ -92,9 +96,13 @@ Route::get('mobile/getAdvertisement', 'APIController@getAdvertisement');
 //backend api
 Route::group(['middleware' => 'checkcred'], function()
 {  
+    //Ticket API
+    Route::post('api/ticket', 'Admin\TicketController@ticketUpdate');
+
     //Queue Type API
     Route::get('api/QueueType', 'Admin\QueueTypeController@index');
     Route::get('api/QueueType/{id}', 'Admin\QueueTypeController@detail');
+    Route::get('api/clearQueue/{id}', 'Admin\QueueTypeController@clearQueue');
 
     //Order API
     Route::get('api/order', 'Admin\OrderController@index');

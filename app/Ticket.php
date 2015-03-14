@@ -25,11 +25,11 @@ class Ticket extends Model{
     }
     
     /**
-    * Create a new ticket
+    * Create a new ticket and return the data.
     *
     * @param int $type
     * @param int $people
-    * @return void
+    * @return Ticket
     */
     public static function enqueue($type, $people){
         $ticket = new Ticket();
@@ -38,6 +38,7 @@ class Ticket extends Model{
         $ticket->ticket_status = 0;
         $ticket->people = $people;
         $ticket->save();
+        return $ticket;
     }
     
     /**
@@ -85,7 +86,7 @@ class Ticket extends Model{
         if($data == NULL){
             $data = 0;
         }
-        return $data;
+        return intVal($data);
     }
 
     /**
@@ -95,17 +96,17 @@ class Ticket extends Model{
     * @return int
     */
     public static function waitingPeople($id){
-        return count(self::where('cleared', 0)
+        return intVal(count(self::where('cleared', 0)
         ->where('queue_type_id', $id)
         ->where('ticket_status', 0)
-        ->get());
+        ->get()));
     }
 
     /**
     * Get the average waiting time (in second) for a specific queue type.
     *
     * @param int $id
-    * @return int
+    * @return array
     */
     public static function avgWaitingTime($id){
         $data = \DB::table('ticket')->select(DB::raw('ROUND(AVG(TIME_TO_SEC(TIMEDIFF(updated_at, created_at)))) as value'))

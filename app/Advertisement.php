@@ -12,7 +12,7 @@ class Advertisement {
     * Return the advertisement message tailored for a specific member.
     *
     * @param  int $memberId
-    * @return Response
+    * @return string
     */
     public static function getMessage($memberId = null){
         if($memberId){
@@ -29,18 +29,16 @@ class Advertisement {
 
 
             $randomItemName = $user->randomOrderedItem()->item_name;
-            $response = array();
             if($hourDifference >= 72){
-                $response['message'] = 'Long time no see, do you miss our '.$randomItemName.'?';
+                $message = 'Long time no see, do you miss our '.$randomItemName.'?';
             }else{
-                $response['message'] = 'Welcome back. Would you like to try '.$randomItemName.' again?';
+                $message = 'Welcome back. Would you like to try '.$randomItemName.' again?';
             }
-            return \Response::json($response);
+            return $message;
         }else{
-            $response = array();
             $randomItemName = Order::orderBy(\DB::raw('RAND()'))->first()->item->item_name;
-            $response['message'] = 'I bet you will like our '.$randomItemName.'.';
-            return \Response::json($response);
+            $message = 'I bet you will like our '.$randomItemName.'.';
+            return $message;
         }
     }
 }
