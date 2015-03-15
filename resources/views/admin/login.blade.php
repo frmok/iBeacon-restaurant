@@ -10,32 +10,45 @@
     <link rel="stylesheet" href="/assets/css/style.css">
     <!--jQuery 1.11.0-->
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.5.1.css">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-    <script src="http://cdn.oesmith.co.uk/morris-0.5.1.min.js"></script>
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </head>
 <body>
     <div class="login">
-        {!! Form::open(array('url' => 'admin/')) !!}
+        {!! Form::open(array('id' => 'adminLogin')) !!}
         <h1>iBeacon Restaurant</h1>
         @if(isset($wrong))
         <div class="warning"><i class="fa fa-exclamation-triangle"></i>&nbsp;Wrong Credentials</div>
         @endif
         <div class="form-group">
             <label for="email"><i class="fa fa-envelope"></i></label>
-            {!! Form::text('email', '', array('placeholder' => 'Email', 'class' => 'col-xs-3')) !!}
+            {!! Form::text('email', '', array('id' => 'email', 'placeholder' => 'Email', 'class' => 'col-xs-3')) !!}
         </div>
         <div class="form-group">
             <label for="password"><i class="fa fa-key"></i></label>
-            {!! Form::password('password', array('placeholder' => 'Password', 'class' => 'col-xs-3')) !!}
+            {!! Form::password('password', array('id' => 'password', 'placeholder' => 'Password', 'class' => 'col-xs-3')) !!}
         </div>
         <div class="form-group">
             {!! Form::submit('LOGIN', array('class' => 'btn')) !!}
         </div>
         {!! Form::close() !!}
     </div>
+    <script>
+        $(document).ready(function(){
+            $('#adminLogin').submit(function(e){
+                e.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: '/mobile/userLogin',
+                    data: {
+                        email: $('#email').val(),
+                        password: $('#password').val()
+                    },
+                    success: function(data){
+                        localStorage.setItem('token', data.token);
+                        window.location.replace("/backend");
+                    },
+                });
+            });
+        });
+    </script>
 </body>
 </html>

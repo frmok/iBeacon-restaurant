@@ -25,7 +25,6 @@ Route::group(['middleware' => 'csrf'], function()
 
 });
 Route::get('admin', 'Admin\AdminController@login');
-Route::post('admin', 'Admin\AdminController@checkLogin');
 
 //ticket route
 Route::get('admin/queueType/{type}', 'Admin\QueueTypeController@index');

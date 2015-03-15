@@ -8,15 +8,7 @@ class AdminController extends Controller {
 
     public function login()
     {
-        if (Auth::check())
-        {
-            if(Auth::user()->right == 1){
-                return redirect()->to('admin/table');
-            }
-        }else{
-            return view('admin.login');
-        }
-
+        return view('admin.login');
     }
 
     public function checkLogin(Request $request)
