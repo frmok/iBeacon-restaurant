@@ -33,6 +33,11 @@ class Order extends Model {
         return $this->belongsTo('App\User', 'user_id');
     }
 
+    /**
+    * Return the status in text.
+    *
+    * @return string
+    */
     public function getStatusTextAttribute(){
         return self::$statusText[$this->order_status];
     }

@@ -35,6 +35,12 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 		return $this->hasMany('App\Order');
 	}
 
+    /**
+    * Return one randomly chosen order made by the user
+    *
+    * @param  int $people
+    * @return Order
+    */
 	public function scopeRandomOrderedItem(){
 		$randomOrder = \DB::table('order')->where('user_id', $this->id)->orderBy(\DB::raw('RAND()'))->first();
 		if(!$randomOrder){
@@ -46,6 +52,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 		}
 	}
 
+    /**
+    * Get the last order that the user made
+    *
+    * @return Order
+    */
 	public function scopeGetLastOrder(){
 		return Order::where('user_id', $this->id)->orderBy('created_at', 'DESC')->first();
 	}

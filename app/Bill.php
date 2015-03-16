@@ -32,6 +32,11 @@ class Bill extends Model {
         return $this->hasMany('App\Order');
     }
 
+    /**
+    * Get outstanding balance
+    *
+    * @return int
+    */
     public function tempAmount(){
         $amount = 0;
         foreach($this->orders as $order){
@@ -40,10 +45,20 @@ class Bill extends Model {
         return $amount;
     }
 
+    /**
+    * Return the status in text
+    *
+    * @return string
+    */
     public function getStatusTextAttribute(){
         return self::$statusText[$this->status];
     }
 
+    /**
+    * Get the outstanding balance
+    *
+    * @return int
+    */
     public function outStandingBalance(){
         $amount = 0;
         foreach($this->orders as $order){

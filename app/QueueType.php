@@ -24,6 +24,12 @@ class QueueType extends Model{
         return $this->hasMany('App\Ticket');
     }
 
+    /**
+    * Return the ID of the queue type according to number of people
+    *
+    * @param  int $people
+    * @return int
+    */
     public static function typeByPeople($people){
         return self::where('capacity', '>=', $people)->orderBy('capacity', 'ASC')->first()->id;
     }
