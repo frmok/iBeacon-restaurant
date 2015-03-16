@@ -20,10 +20,6 @@
 // 	'password' => 'Auth\PasswordController',
 // ]);
 
-Route::group(['middleware' => 'csrf'], function()
-{
-
-});
 Route::get('admin', 'Admin\AdminController@login');
 
 //ticket route
@@ -82,8 +78,6 @@ Route::get('mobile/queues', 'APIController@queues');
 Route::get('mobile/amountToPay/{id}', 'APIController@amountToPay');
 Route::get('mobile/enqueue/{people}', 'APIController@enqueue');
 
-
-Route::post('mobile/getTicket', 'APIController@getTicket');
 Route::post('mobile/ticket', 'APIController@ticketUpdate');
 Route::get('mobile/orderHistory', 'APIController@orderHistory');
 

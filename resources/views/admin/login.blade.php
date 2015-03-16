@@ -46,6 +46,9 @@
                         localStorage.setItem('token', data.token);
                         window.location.replace("/backend");
                     },
+                    error: function(data){
+                        alert('Wrong password.');
+                    }
                 });
             });
         });

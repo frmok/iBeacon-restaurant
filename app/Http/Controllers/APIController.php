@@ -17,8 +17,20 @@ use App\Advertisement;
 
 class APIController extends Controller {
 
-    //create user
+    /**
+    * Create a user with the submitted data
+    *
+    * @param  Request $request
+    * @return User
+    */
     public function createUser(Request $request){
+        $user = User::where('email', $request->get('email'))->get();
+        if(count($user) > 0){
+            $packet = array();
+            $packet['status'] = 500;
+            $packet['debug'] = 'Duplicated username';
+            return \Response::json($packet, 401);
+        }
         $user = new User();
         $user->lastname = $request->get('lastname');
         $user->firstname = $request->get('firstname');
@@ -29,7 +41,12 @@ class APIController extends Controller {
         return $user;
     }
 
-    //login user by email and password
+    /**
+    * Login a user by email and password
+    *
+    * @param  Request $request
+    * @return Response
+    */
     public function userLogin(Request $request){
         if(Auth::attempt(array('email' => $request->get('email'), 'password' => $request->get('password')))){
             //generate new token!!!
@@ -53,11 +70,24 @@ class APIController extends Controller {
         }
     }
 
+    /**
+    * Find a table by iBeacon major and minor
+    *
+    * @param  int $major
+    * @param  int $minor
+    * @return Table
+    */
     public function getTableByBecaon($major, $minor){
         $table = Table::where('major',$major)->where('minor',$minor)->first();
-        echo $table;
+        return $table;
     }
 
+    /**
+    * Create a bill (if not exist) and return it.
+    *
+    * @param  Request $request
+    * @return Bill
+    */
     public function createBillByTable(Request $request){
         $bill = Bill::where('table_id', $request->get('id'))->where('status', 0)->get();
         if(count($bill) === 0){
@@ -73,24 +103,12 @@ class APIController extends Controller {
         }
     }
 
-    public function order(){
-        $orders = Order::with('item', 'bill.table')->orderBy('created_at', 'DESC')->get();
-        return $orders;
-    }
-
-    public function orderDetail($id){
-        $order = Order::with('item', 'bill.table')->find($id);
-        return $order;
-    }
-
-
-    public function orderUpdate(Request $request){
-        $order = Order::find($request->get('id'));
-        $order->fill($request->all());
-        $order->save();
-        return $order;
-    }
-
+    /**
+    * Return a list of items of a particular category
+    *
+    * @param  Request $request
+    * @return array
+    */
     public function itemList(Request $request){
         $catId = $request->get('catId');
         if(!$catId){
@@ -100,86 +118,35 @@ class APIController extends Controller {
         }
     }
 
+    /**
+    * Return the data of a particular item
+    *
+    * @param  int $id
+    * @return Item
+    */
     public function itemDetail($id){
-        echo Item::find($id);
+        return Item::find($id);
     }
 
-    public function itemAdd(Request $request)
-    {
-        $item = new Item();
-        $item->fill($request->except('item_img'));
-        if ($request->hasFile('item_img') === true) {
-            $destinationPath = public_path() . Item::$img_path;
-            $request->file('item_img')->move($destinationPath, $request->file('item_img')->getClientOriginalName());
-            $item->item_img = $request->file('item_img')->getClientOriginalName();
-        }
-        $item->save();
-        return $item;
-    }
-
-    public function itemUpdate(Request $request)
-    {
-        $item = Item::find($request->get('id'));
-        $item->fill($request->except('item_img'));
-        if ($request->hasFile('item_img') === true) {
-            $destinationPath = public_path() . Item::$img_path;
-            $request->file('item_img')->move($destinationPath, $request->file('item_img')->getClientOriginalName());
-            $item->item_img = $request->file('item_img')->getClientOriginalName();
-        }
-        $item->save();
-        return $item;
-    }
-
-    public function itemDelete(Request $request)
-    {
-        $item = Item::find($request->get('id'));
-        $item->delete();
-    }
-
+    /**
+    * Return all the categories
+    *
+    * @return array
+    */
     public function categoryList(){
         $categories = Category::all();
         foreach($categories as $category){
             $category['category_img'] = rawurlencode($category['category_img']);
         }
-        echo $categories;
+        return $categories;
     }
 
-    public function categoryDetail($id){
-        return Category::find($id);
-    }
-
-    public function categoryAdd(Request $request)
-    {
-        $category = new Category();
-        $category->fill($request->except('category_img'));
-        if ($request->hasFile('category_img') === true) {
-            $destinationPath = public_path() . Category::$img_path;
-            $request->file('category_img')->move($destinationPath, $request->file('category_img')->getClientOriginalName());
-            $category->category_img = $request->file('category_img')->getClientOriginalName();
-        }
-        $category->save();
-        return $category;
-    }
-
-    public function categoryUpdate(Request $request)
-    {
-        $category = Category::find($request->get('id'));
-        $category->fill($request->except('category_img'));
-        if ($request->hasFile('category_img') === true) {
-            $destinationPath = public_path() . Category::$img_path;
-            $request->file('category_img')->move($destinationPath, $request->file('category_img')->getClientOriginalName());
-            $category->category_img = $request->file('category_img')->getClientOriginalName();
-        }
-        $category->save();
-        return $category;
-    }
-
-    public function categoryDelete(Request $request)
-    {
-        $category = Category::find($request->get('id'));
-        $category->delete();
-    }
-
+    /**
+    * Place a order according to the submitted data
+    *
+    * @param  Request $request
+    * @return void
+    */
     public function orderItem(Request $request){
         $payer = 0; //by default
         $token = $request->get('token');
@@ -198,16 +165,27 @@ class APIController extends Controller {
         }
     }
 
-
+    /**
+    * Get the detail of a particular bill.
+    *
+    * @param  int $id
+    * @return Bill
+    */
     public function billDetail($id){
         $bill = Bill::with(array('table', 'orders' => function($query){
             $query->where('order_status', '!=' ,3);
 
         }, 'orders.item'))->find($id);
         $bill->amount = $bill->tempAmount();
-        echo $bill;
+        return $bill;
     }
 
+    /**
+    * Mark a item as paid according to the request
+    *
+    * @param  Request $request
+    * @return void
+    */
     public function payBill(Request $request){
         $itemsArray = explode(',', $request->get('orders'));
         foreach ($itemsArray as $item){
@@ -217,12 +195,23 @@ class APIController extends Controller {
         }
     }
 
+    /**
+    * Return the items that a user ordered before
+    *
+    * @param  Request $request
+    * @return array
+    */
     public function orderHistory(Request $request){
         return User::with(['orders.item', 'orders' => function($query){ $query->orderBy('created_at', 'DESC'); }])
         ->find($request->get('memberID'));
     }
 
-
+    /**
+    * Return a welcome message according to the member ID.
+    *
+    * @param  Request $request
+    * @return Response
+    */
     public function getAdvertisement(Request $request){
         if($request->get('id')){
             $id = $request->get('id');
@@ -236,59 +225,17 @@ class APIController extends Controller {
         return \Response::json($response);
     }
 
-    public function QueueType(){
-        return QueueType::all();
-    }
-
-    public function table(){
-        return Table::with(array('bills' => function ($query){
-            $query->where('status', 0);
-        }))->get();
-    }
-
-    public function tableDetail($id){
-        return Table::find($id);
-    }
-
-    public function tableAdd(Request $request){
-        $table = new Table();
-        $table->fill($request->all());
-        $table->save();
-        return $table;
-    }
-
-    public function tableUpdate(Request $request){
-        $table = Table::find($request->get('id'));
-        $table->fill($request->all());
-        $table->save();
-        return $table;
-    }
-
-    public function tableDelete(Request $request){
-        $table = Table::find($request->get('id'));
-        $table->delete();
-    }
-
-    public function bill(){
-        return $bills = Bill::with('table', 'orders', 'orders.item')->orderBy('created_at', 'desc')->get();
-    }
-
-    public function _billDetail($id){
-        $bill = Bill::with('table', 'orders', 'orders.item')->find($id);
-        $bill->formattedTime = date('d M Y', strtotime($bill->created_at));
-        return $bill;
-    }
-
-    public function getTicket(Request $request){
-        Ticket::enqueue(QueueType::typeByPeople($request->get('people')) ,$request->get('people'));
-    }
-
     public function ticketUpdate(Request $request){
         $ticket = Ticket::find($request->get('id'));
         $ticket->fill($request->all());
         $ticket->save();
     }
 
+    /**
+    * Return all queue types information
+    *
+    * @return array
+    */
     public function queues(){
         $queues = QueueType::all();
         foreach ($queues as $queue) {
@@ -298,6 +245,12 @@ class APIController extends Controller {
         return $queues;
     }
 
+    /**
+    * Get the outstanding balance of a bill a particular bill.
+    *
+    * @param  int $id
+    * @return Response
+    */
     public function amountToPay($id){
         $bill = Bill::find($id);
         $response = [];
@@ -306,6 +259,12 @@ class APIController extends Controller {
         return \Response::json($response);
     }
 
+    /**
+    * Create a ticket of a particular queue
+    *
+    * @param  int $people
+    * @return Response
+    */
     public function enqueue($people){
         $type = QueueType::typeByPeople($people);
         $ticket = Ticket::enqueue($type, $people);
