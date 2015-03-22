@@ -127,7 +127,6 @@ $stateProvider.state("backend_queue",
         $scope.getAvgWaitingTime = function(){
             Ticket.getAvgWaitingTime($stateParams.qid).then(
                 function(res) {
-                    console.log(res);
                     $scope.avgWaitingTime = res.data.value;
                 });
         }
@@ -197,10 +196,16 @@ $stateProvider.state("backend_category",
             function(res){
                 $scope.categories = res.data;
                 $scope.displayedCollection = [].concat($scope.categories);
+                angular.forEach($scope.categories, function(value, key) {
+                    $scope.categories[key]._index = key;
+                });
             });
         $scope.deleteCategory = function(index){
             Category.delete($scope.categories[index]);
             $scope.categories.splice(index, 1);
+            angular.forEach($scope.categories, function(value, key) {
+                $scope.categories[key]._index = key;
+            });
         }
     }]
 });
@@ -257,10 +262,13 @@ $stateProvider.state("backend_order",
         Order.all().then(
             function(res){
                 $scope.orders = res.data;
+                angular.forEach($scope.orders, function(value, key) {
+                    $scope.orders[key]._index = key;
+                });
             });
         $scope.updateOrder = function(index){
             var status = parseInt($scope.orders[index].order_status);
-            $scope.master= angular.copy($scope.orders[index]);
+            $scope.master = angular.copy($scope.orders[index]);
             $scope.master.order_status = ++status;
             Order.update($scope.master);
         }
@@ -275,6 +283,9 @@ $stateProvider.state("backend_order",
                 }
             }else if(message.action === 'order.create'){
                 $scope.orders.unshift(message.order);
+                angular.forEach($scope.orders, function(value, key) {
+                    $scope.orders[key]._index = key;
+                });
             }
         });
     }]
@@ -326,10 +337,16 @@ $stateProvider.state("backend_item",
             function(res){
                 $scope.items = res.data;
                 $scope.displayedCollection = [].concat($scope.items);
+                angular.forEach($scope.items, function(value, key) {
+                    $scope.items[key]._index = key;
+                });
             });
         $scope.deleteItem = function(index){
             Item.delete($scope.items[index]);
             $scope.items.splice(index, 1);
+            angular.forEach($scope.items, function(value, key) {
+                $scope.items[key]._index = key;
+            });
         }
     }]
 });

@@ -292,6 +292,8 @@ nav.sidebar ul > li > a:hover{
     background: #E5E5E5;
     position: relative;
     padding-left: 280px;
+    overflow: auto;
+    padding-bottom: 1.5rem;
 }
 
 .breadcrumb{
@@ -355,6 +357,7 @@ nav.sidebar ul > li > a:hover{
     bottom: 0;
     margin:auto 0;
     line-height: 1em;
+    border: 1px solid #ccc;
 }
 
 .form-layout input[type=file]{
@@ -550,6 +553,18 @@ nav.sidebar ul > li > a:hover{
     bottom: -65px;
     z-index: 3;
     color: rgba(205, 205, 205, 0.51);
+}
+
+.page-controller{
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #666;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
 }
 
 .table-control{

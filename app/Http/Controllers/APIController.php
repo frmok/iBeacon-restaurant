@@ -236,13 +236,20 @@ class APIController extends Controller {
     *
     * @return array
     */
-    public function queues(){
-        $queues = QueueType::all();
-        foreach ($queues as $queue) {
+    public function queues($id = NULL){
+        if($id){
+            $queue = QueueType::find($id);
             $queue['current'] = Ticket::currentTicket($queue->id);
             $queue['waiting'] = Ticket::waitingPeople($queue->id);
+            return $queue;
+        }else{
+            $queues = QueueType::all();
+            foreach ($queues as $queue) {
+                $queue['current'] = Ticket::currentTicket($queue->id);
+                $queue['waiting'] = Ticket::waitingPeople($queue->id);
+            }
+            return $queues;
         }
-        return $queues;
     }
 
     /**

@@ -10,6 +10,7 @@ class QueueType extends Model{
     {
         return intval($value);
     }
+    
     public function getCapacityAttribute($value)
     {
         return intval($value);

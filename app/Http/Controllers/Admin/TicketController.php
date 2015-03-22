@@ -5,7 +5,6 @@ use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 
 class TicketController extends Controller {
-
     /**
     * Return the current ticket number of a particular queue type
     *

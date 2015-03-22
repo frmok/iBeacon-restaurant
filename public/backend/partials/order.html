@@ -19,7 +19,7 @@
                     <td>{{ order.order_status | orderStatus }}</td>
                     <td>{{ order.created_at }}</td>
                     <td>
-                    <div ng-click="updateOrder($index)" ng-show="order.order_status == 0 || order.order_status == 1" class="btn">
+                        <div ng-click="updateOrder(order._index)" ng-show="order.order_status == 0 || order.order_status == 1" class="btn">
                             {{order.order_status | orderAction}}
                         </div>
                         <a href="#/order/{{order.id}}"><div class="btn">Modify</div></a>
@@ -29,7 +29,7 @@
             <tfoot>
                 <tr>
                     <td colspan="6" class="text-center">
-                    <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="5"></div>
+                        <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="5"></div>
                     </td>
                 </tr>
             </tfoot>

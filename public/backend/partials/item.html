@@ -19,7 +19,7 @@
                     <td>{{item.price}}</td>
                     <td>
                         <a href="#/item/{{item.id}}"><div class="btn">Modify</div></a>
-                        <div ng-Click="deleteItem($index)" class="btn btn-warning">Delete</div>
+                        <div ng-Click="deleteItem(item._index)" class="btn btn-warning">Delete</div>
                     </td>
                 </tr>
             </tbody>

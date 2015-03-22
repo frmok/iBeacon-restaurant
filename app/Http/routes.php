@@ -66,17 +66,24 @@ Route::get('stat/ajax_profit', 'Admin\StatController@ajax_profit');
 //Mobile API
 Route::any('mobile/createUser', 'APIController@createUser');
 Route::any('mobile/userLogin', 'APIController@userLogin');
+
+
 Route::any('mobile/createBillByTable', 'APIController@createBillByTable');
 Route::get('mobile/getTableByBecaon/{major}/{minor}', 'APIController@getTableByBecaon');
+
 Route::get('mobile/items/', 'APIController@itemList');
 Route::get('mobile/item/{id}', 'APIController@itemDetail');
+
 Route::get('mobile/categories/', 'APIController@categoryList');
+
 Route::post('mobile/orderItem', 'APIController@orderItem');
 Route::get('mobile/bill/{id}', 'APIController@billDetail');
 Route::post('mobile/payBill', 'APIController@payBill');
-Route::get('mobile/queues', 'APIController@queues');
+
+Route::get('mobile/queues/{id?}', 'APIController@queues');
+Route::any('mobile/enqueue/{people}', 'APIController@enqueue');
+
 Route::get('mobile/amountToPay/{id}', 'APIController@amountToPay');
-Route::get('mobile/enqueue/{people}', 'APIController@enqueue');
 
 Route::post('mobile/ticket', 'APIController@ticketUpdate');
 Route::get('mobile/orderHistory', 'APIController@orderHistory');
@@ -116,7 +123,7 @@ Route::group(['middleware' => 'checkcred'], function()
     //Category API
     Route::get('api/categories/', 'Admin\CategoryController@index');
     Route::get('api/category/{id}', 'Admin\CategoryController@detail');
-    Route::post('api/category/add', 'Admin\ItemController@add');
+    Route::post('api/category/add', 'Admin\CategoryController@add');
     Route::post('api/category', 'Admin\CategoryController@update');
     Route::post('api/category/delete', 'Admin\CategoryController@delete');
 

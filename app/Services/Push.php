@@ -10,9 +10,10 @@ class Push{
             $response['debug']  = 'Wrong parameters';
             return Response::json($response);
         }
-        $passphrase = '123456';
         $message = $data->message;
         $identifiers = $data->identifiers;
+        $type = $data->type;
+        $passphrase = '123456';
         $ctx = stream_context_create();
         stream_context_set_option($ctx, 'ssl', 'local_cert', 'qk.pem');
         stream_context_set_option($ctx, 'ssl', 'passphrase', $passphrase);
@@ -24,7 +25,8 @@ class Push{
         echo 'Connected to APNS' . PHP_EOL;
         $body['aps'] = array(
             'alert' => $message,
-            'sound' => 'default'
+            'sound' => 'default',
+            'type' => $type,
             );
         $payload = json_encode($body);
         if(count($identifiers) > 0){

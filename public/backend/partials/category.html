@@ -17,7 +17,7 @@
                     <td>{{category.category_name}}</td>
                     <td>
                         <a href="#/category/{{category.id}}"><div class="btn">Modify</div></a>
-                        <div ng-Click="deleteCategory($index)" class="btn btn-warning">Delete</div>
+                        <div ng-Click="deleteCategory(category._index)" class="btn btn-warning">Delete</div>
                     </td>
                 </tr>
             </tbody>
