@@ -272,13 +272,21 @@ class APIController extends Controller {
     * @param  int $people
     * @return Response
     */
-    public function enqueue($people){
-        $type = QueueType::typeByPeople($people);
-        $ticket = Ticket::enqueue($type, $people);
+    public function enqueue(Request $request){
+        $type = QueueType::typeByPeople($request->get('people'));
+        $identifier = str_replace(' ', '', $request->get('identifier'));
+        $identifier = str_replace('<', '', $identifier);
+        $identifier = str_replace('>', '', $identifier);
+        $ticket = Ticket::enqueue($type, $request->get('people'), $identifier);
         return $ticket;
     }
 
     public function test(){
-        Ticket::where('queue_type_id', 1)->update(array('cleared' => 1));
+        $data = [];
+        $data['message'] = "sas";
+        $data['identifiers'] = ['bbe8a5c7d5418a6a25110dc7b159075d0f3c4ba3a13040317e9defa740231ce4'];
+        $data['type'] = 'xxx';
+        $data = json_encode($data);
+        \Push::sendNotification($data);
     }
 }

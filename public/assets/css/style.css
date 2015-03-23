@@ -235,17 +235,24 @@ a, a:hover, a:focus {
 nav.sidebar{
     position: fixed;
     height: 100%;
+    width: 280px;
     z-index: 2;
     overflow-y: auto;
     overflow-x: hidden;
     background: #303641;
+}
+
+nav.sidebar > img{
+    padding: 2rem 0;
+    max-width: 70%;
+    margin: auto;
+    display: block;
 }
 nav.sidebar ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
     width: 280px;
-    height: 100%;
 }
 
 nav.sidebar ul > li{
@@ -257,7 +264,7 @@ nav.sidebar ul > li{
 }
 
 nav.sidebar ul > li:last-child{
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 nav.sidebar ul > li.cat{

@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ticket extends Model{
     protected $table = 'ticket';
-    protected $fillable = ['people', 'number', 'ticket_status', 'queue_type_id']; //to be determined
+    protected $fillable = ['people', 'number', 'ticket_status', 'queue_type_id', 'identifier']; //to be determined
     public static $statusText = [0 => 'Waiting', 1 => 'Dequeued', 2 => 'Entered'];
 
     public static function boot()
@@ -31,12 +31,13 @@ class Ticket extends Model{
     * @param int $people
     * @return Ticket
     */
-    public static function enqueue($type, $people){
+    public static function enqueue($type, $people, $identifier){
         $ticket = new Ticket();
         $ticket->queue_type_id = $type;
         $ticket->ticket_number = self::where('queue_type_id', $type)->where('cleared', 0)->max('ticket_number') + 1;
         $ticket->ticket_status = 0;
         $ticket->people = $people;
+        $ticket->identifier = $identifier;
         $ticket->save();
         return $ticket;
     }

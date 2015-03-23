@@ -27,6 +27,7 @@
 </head>
 <body ng-controller="mainController">
     <nav class="sidebar">
+        <img src="/assets/lobster.png">
         <ul>
             <li class="cat">Queue</li>
             <li ng-repeat="queueType in queueTypes"><a href="#/queueType/{{ queueType.id}}">{{ queueType.name | capitalizeFirst }}</a></li>

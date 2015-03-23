@@ -81,7 +81,7 @@ Route::get('mobile/bill/{id}', 'APIController@billDetail');
 Route::post('mobile/payBill', 'APIController@payBill');
 
 Route::get('mobile/queues/{id?}', 'APIController@queues');
-Route::any('mobile/enqueue/{people}', 'APIController@enqueue');
+Route::any('mobile/enqueue', 'APIController@enqueue');
 
 Route::get('mobile/amountToPay/{id}', 'APIController@amountToPay');
 

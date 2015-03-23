@@ -30,10 +30,8 @@ class Push{
             );
         $payload = json_encode($body);
         if(count($identifiers) > 0){
-            $tokens = \DB::table('pushmessage')
-            ->whereIn('identifier', $identifiers)->get();
-            foreach ($tokens as $token) {
-                $msg = chr(0) . pack('n', 32) . pack('H*', $token->token) . pack('n', strlen($payload)) . $payload;
+            foreach ($identifiers as $token) {
+                $msg = chr(0) . pack('n', 32) . pack('H*', $token) . pack('n', strlen($payload)) . $payload;
                 $result = fwrite($fp, $msg, strlen($msg));
             }
         }
