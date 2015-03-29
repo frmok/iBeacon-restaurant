@@ -145,6 +145,7 @@ var app = angular.module('backendApp', [
             $scope.getAvgWaitingTime();
             WebSocket.receive().then(null, null, function(message) {
               if (message.action === 'ticket.update') {
+                console.log(message);
                 for (var i = 0; i < $scope.tickets.length; i++) {
                   if ($scope.tickets[i].id == message.ticket.id) {
                     $scope.tickets[i].ticket_status = message.ticket.ticket_status;

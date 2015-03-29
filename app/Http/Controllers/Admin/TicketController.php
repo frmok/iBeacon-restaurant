@@ -47,6 +47,8 @@ class TicketController extends Controller {
     public function ticketUpdate(Request $request){
         $ticket = Ticket::find($request->get('id'));
         $ticket->fill($request->all());
+        //ticet save should be done before sending notificaitons
+        $ticket->save();
         //send notification if status is changed to 'dequeued' state
         if($request->get('ticket_status') == 1){
             //send notification to the next five numbers
@@ -69,7 +71,6 @@ class TicketController extends Controller {
             $data = json_encode($data);
             \Push::sendNotification($data);
         }
-        $ticket->save();
         return $ticket;
     }
 
