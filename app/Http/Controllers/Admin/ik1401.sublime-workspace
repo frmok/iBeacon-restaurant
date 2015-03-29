@@ -4,6 +4,42 @@
 		"selected_items":
 		[
 			[
+				"trans",
+				"transition"
+			],
+			[
+				"locat",
+				"location_id"
+			],
+			[
+				"tran",
+				"transition"
+			],
+			[
+				"tra",
+				"transitions〔argument〕"
+			],
+			[
+				"curr",
+				"currentAction"
+			],
+			[
+				"ident",
+				"identifiers〔variable〕"
+			],
+			[
+				"iden",
+				"identifiers"
+			],
+			[
+				"updat",
+				"updateLocationList"
+			],
+			[
+				"beac",
+				"beacons"
+			],
+			[
 				"parse",
 				"parseJSON〔function〕"
 			],
@@ -130,10 +166,6 @@
 			[
 				"anim",
 				"animate	.animate()"
-			],
-			[
-				"curr",
-				"currentIndicator2"
 			],
 			[
 				"curre",
@@ -391,23 +423,56 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "/Users/frmok26/Documents/ik1401/config/bootstrap.js",
+			"settings":
+			{
+				"buffer_size": 2949,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/frmok26/Documents/ik1401/api/controllers/AgendaController.js",
+			"settings":
+			{
+				"buffer_size": 3552,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
 	"command_palette":
 	{
 		"height": 400.0,
+		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"sublime",
+				"Preferences: SublimeLinter Settings – User"
+			],
+			[
+				"sublimelin",
+				"SublimeLinter: Choose Lint Mode"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
 			[
 				"Package Control: ",
 				"Package Control: Install Package"
 			],
 			[
 				"packag",
-				"Package Control: Install Package"
-			],
-			[
-				"ins",
 				"Package Control: Install Package"
 			],
 			[
@@ -435,15 +500,11 @@
 				"Package Control: Install Package"
 			],
 			[
-				"install",
-				"Package Control: Install Package"
-			],
-			[
 				"package",
 				"Package Control: Install Package"
 			]
 		],
-		"width": 914.0
+		"width": 601.0
 	},
 	"console":
 	{
@@ -464,10 +525,77 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/frmok26/Documents/ik1401"
+		"/Users/frmok26/Documents/ik1401",
+		"/Users/frmok26/Documents/ik1401/api",
+		"/Users/frmok26/Documents/ik1401/api/controllers",
+		"/Users/frmok26/Documents/ik1401/api/models",
+		"/Users/frmok26/Documents/ik1401/api/policies",
+		"/Users/frmok26/Documents/ik1401/api/responses",
+		"/Users/frmok26/Documents/ik1401/api/services",
+		"/Users/frmok26/Documents/ik1401/assets",
+		"/Users/frmok26/Documents/ik1401/assets/admin",
+		"/Users/frmok26/Documents/ik1401/assets/partials",
+		"/Users/frmok26/Documents/ik1401/config"
 	],
 	"file_history":
 	[
+		"/Users/frmok26/Documents/ik1401/config/myconf.js",
+		"/Users/frmok26/Documents/ik1401/assets/app/app.js",
+		"/Users/frmok26/Documents/ik1401/package.json",
+		"/Users/frmok26/Documents/ik1401/.gitignore",
+		"/Users/frmok26/Documents/ik1401/config/routes.js",
+		"/Users/frmok26/Documents/ik1401/assets/partials/job_detail.html",
+		"/Users/frmok26/Documents/ik1401/api/controllers/UserController.js",
+		"/Users/frmok26/Documents/ik1401/assets/admin/login/index.html",
+		"/Users/frmok26/Documents/ik1401/config/models.js",
+		"/Users/frmok26/Documents/ik1401/assets/partials/location.html",
+		"/Users/frmok26/Documents/ik1401/api/controllers/AgendaController.js",
+		"/Users/frmok26/Documents/ik1401/assets/partials/location_log.html",
+		"/Users/frmok26/Documents/ik1401/assets/partials/job_list.html",
+		"/Users/frmok26/Documents/ik1401/assets/admin/index.html",
+		"/Users/frmok26/Documents/ik1401/api/controllers/RecordController.js",
+		"/Users/frmok26/Documents/ik1401/api/models/Record.js",
+		"/Users/frmok26/Documents/ik1401/config/bootstrap.js",
+		"/Users/frmok26/Documents/ik1401/assets/partials/location_detail.html",
+		"/Users/frmok26/Documents/ik1401/config/connections.js",
+		"/Users/frmok26/Documents/ik1401/assets/styles/style.css",
+		"/Users/frmok26/Documents/ik1401/api/models/Location.js",
+		"/Users/frmok26/Documents/ik1401/api/controllers/LocationController.js",
+		"/Users/frmok26/Documents/ik1401/api/controllers/TransitionController.js",
+		"/Users/frmok26/Documents/ik1401/api/controllers/BeaconController.js",
+		"/Users/frmok26/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/frmok26/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/frmok26/Documents/ik1401/api/services/Push.js",
+		"/Users/frmok26/Documents/ik1401/assets/partials/location_monitor.html",
+		"/Users/frmok26/Documents/ik1401/api/models/Transition.js",
+		"/Users/frmok26/Documents/ik1401/api/models/User.js",
+		"/Users/frmok26/Documents/ik1401/TransitionController.js",
+		"/Users/frmok26/Documents/ik1401/api/policies/adminAuth.js",
+		"/Users/frmok26/Documents/ik1401/api/policies/sessionAuth.js",
+		"/Users/frmok26/Documents/ik1401/api/models/Beacon.js",
+		"/Users/frmok26/Documents/ik1401/app.js",
+		"/Users/frmok26/Documents/ik1401/config/policies.js",
+		"/Users/frmok26/Documents/ik1401/node_modules/grunt-contrib-less/node_modules/less/test/less/errors/import-no-semi.less",
+		"/Users/frmok26/Documents/ik1401/config/i18n.js",
+		"/Users/frmok26/Documents/ik1401/README.md",
+		"/Users/frmok26/Documents/ik1401/api/controllers/PushController.js",
+		"/Users/frmok26/Library/Application Support/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
+		"/Users/frmok26/Documents/ik1401/node_modules/grunt/node_modules/minimatch/test/brace-expand.js",
+		"/Users/frmok26/Documents/ik1401/config/blueprints.js",
+		"/Users/frmok26/Documents/ik1401/config/local.js",
+		"/Users/frmok26/Documents/ik1401/node_modules/grunt-contrib-uglify/node_modules/uglify-js/node_modules/optimist/example/line_count_options.js",
+		"/Users/frmok26/Documents/ik1401/node_modules/grunt-sails-linker/test/scriptlinker_test.js",
+		"/Users/frmok26/Documents/ik1401/config/session.js",
+		"/Users/frmok26/Documents/ik1401/node_modules/grunt-contrib-less/node_modules/less/test/browser/test-runner-template.tmpl",
+		"/Users/frmok26/Documents/ik1401/node_modules/sails/node_modules/captains-log/test/fixtures/_record-all.js",
+		"/Users/frmok26/Documents/ik1401/config/http.js",
+		"/Users/frmok26/Documents/ik1401/node_modules/grunt-contrib-clean/docs/clean-options.md",
+		"/Users/frmok26/Documents/ik1401/node_modules/sails/node_modules/waterline/example/raw/raw-example.js",
+		"/Users/frmok26/Documents/keep/.env",
+		"/Users/frmok26/Documents/ik1401/assets/styles/importer.less",
+		"/Users/frmok26/Documents/ik1401/node_modules/zmq/build/config.gypi",
+		"/Users/frmok26/Desktop/key/mallcert.pem",
+		"/Users/frmok26/Documents/ik1401/node_modules/grunt-contrib-less/node_modules/less/test/browser/runner-browser-options.js",
 		"/Users/frmok26/Documents/iBeacon-restaurant/app/Ticket.php",
 		"/Users/frmok26/Documents/iBeacon-restaurant/app/Http/Controllers/APIController.php",
 		"/Users/frmok26/Documents/iBeacon-restaurant/app/Http/Controllers/Admin/TicketController.php",
@@ -538,68 +666,11 @@
 		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/monolog/monolog/src/Monolog/Handler/PsrHandler.php",
 		"/Users/frmok26/Documents/iBeacon-restaurant/package.json",
 		"/Users/frmok26/Documents/iBeacon-restaurant/config/view.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/symfony/finder/Symfony/Component/Finder/Expression/ValueInterface.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/app/Events/OrderEventHandler.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/laravel/framework/src/Illuminate/Database/Eloquent/QueueEntityResolver.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/guzzle/http/Guzzle/Http/QueryString.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/jeremeamia/SuperClosure/src/Exception/ClosureUnserializationException.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/ws2.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/public/bower_components/angularjs-nvd3-directives/examples/lineChart.tickValue.html",
-		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/league/flysystem/src/Exception.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/symfony/http-kernel/Symfony/Component/HttpKernel/UriSigner.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/phpspec/phpspec/src/PhpSpec/Wrapper/Subject/Expectation/UnwrapDecorator.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/symfony/http-foundation/Symfony/Component/HttpFoundation/File/Exception/UploadException.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/resources/views/admin/bill_index.blade.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/phpunit/phpunit/src/Framework/Constraint/ClassHasAttribute.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/sebastian/recursion-context/src/Exception.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/sebastian/global-state/src/Exception.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/phpunit/phpunit/src/Exception.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/psy/psysh/src/Psy/Command/ExitCommand.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/phpspec/phpspec/src/PhpSpec/Runner/ExampleRunner.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/nikic/php-parser/lib/PhpParser/Error.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/gulpfile.js",
-		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/monolog/monolog/tests/Monolog/Handler/GelfHandlerLegacyTest.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/phpunit/phpunit/src/Util/GlobalState.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/symfony/finder/Symfony/Component/Finder/Glob.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/nikic/php-parser/lib/PhpParser/Node/Stmt/Global_.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/symfony/console/Symfony/Component/Console/Tests/Fixtures/application_gethelp.txt",
-		"/Users/frmok26/Documents/iBeacon-restaurant/app/Http/Kernel.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/app/Setting.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/app/Services/Registrar.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/app/Http/Controllers/Admin/StatController.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/app/Http/Controllers/Admin/ItemController.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/resources/views/admin/item_detail.blade.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/public/backend/partials/bill_detail.html",
-		"/Users/frmok26/Documents/iBeacon-restaurant/public/bower_components/angularjs-nvd3-directives/examples/lineChart.with.ngRepeat.html",
-		"/Users/frmok26/Documents/iBeacon-restaurant/public/backend/partials/order.html",
-		"/Users/frmok26/Documents/iBeacon-restaurant/resources/views/admin/bill_detail.blade.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/resources/assets/less/bootstrap/mixins/background-variant.less",
-		"/Users/frmok26/Documents/iBeacon-restaurant/resources/assets/less/bootstrap/mixins/responsive-visibility.less",
-		"/Users/frmok26/Documents/iBeacon-restaurant/public/backend/partials/order_detail.html",
-		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/symfony/http-kernel/Symfony/Component/HttpKernel/Exception/ConflictHttpException.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/guzzle/http/Guzzle/Http/Curl/CurlHandle.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/phpunit/phpunit-mock-objects/tests/_fixture/StaticMockTestClass.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/laravel/framework/src/Illuminate/Foundation/Console/KeyGenerateCommand.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/phpunit/phpunit-mock-objects/src/Framework/MockObject/Matcher/InvokedAtMostCount.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/league/flysystem/src/ReadInterface.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/config/app.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/app/Services/PushFacade.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/app/Providers/AppServiceProvider.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/storage/framework/views/41a5aa7de9ed9d94f87b8cf29461a782",
-		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/phpunit/phpunit/tests/Regression/GitHub/433.phpt",
-		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/phpunit/phpunit/tests/Regression/GitHub/433/Issue433Test.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/phpunit/phpunit/tests/Regression/GitHub/445.phpt",
-		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/CheckForMaintenanceMode.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/laravel/framework/src/Illuminate/Http/Middleware/FrameGuard.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/laravel/framework/src/Illuminate/Auth/Middleware/AuthenticateWithBasicAuth.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php"
+		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/symfony/finder/Symfony/Component/Finder/Expression/ValueInterface.php"
 	],
 	"find":
 	{
-		"height": 31.0
+		"height": 43.0
 	},
 	"find_in_files":
 	{
@@ -614,6 +685,27 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"sails",
+			"console.log",
+			"$scope.msg",
+			"ng-show",
+			"people",
+			"relative-time",
+			"delete",
+			");\n",
+			"sendqu",
+			"sendque",
+			"transitiio",
+			"transitiion",
+			"bootstrap",
+			"'));\n",
+			"location",
+			"btn",
+			"input[type",
+			"proxima",
+			"main",
+			"location",
+			"'\n",
 			"itemsByPage",
 			"model",
 			"foreach",
@@ -720,28 +812,7 @@
 			"';\n",
 			"billDetail",
 			"bill",
-			"8",
-			"$order",
-			"                                ",
-			"fireModel",
-			"saved",
-			"fireModelEvent",
-			"});\n",
-			"created",
-			"event",
-			"created",
-			"save",
-			"event",
-			"ZMQ",
-			"zmq",
-			"zero",
-			"Item",
-			"item",
-			"bill",
-			"Bill",
-			"category",
-			"Category",
-			"cate"
+			"8"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -802,8 +873,189 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "/Users/frmok26/Documents/ik1401/config/bootstrap.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2949,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								606,
+								606
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete": false,
+							"bh_regions":
+							[
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 8.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/frmok26/Documents/ik1401/api/controllers/AgendaController.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3552,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								290,
+								290
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete": false,
+							"bh_regions":
+							[
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -842,17 +1094,191 @@
 	{
 		"height": 0.0
 	},
+	"pinned_build_system": "",
 	"project": "/Users/frmok26/Desktop/dine.sublime-project",
 	"replace":
 	{
-		"height": 58.0
+		"height": 82.0
 	},
 	"save_all_on_build": true,
 	"select_file":
 	{
 		"height": 0.0,
+		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"myc",
+				"config/myconf.js"
+			],
+			[
+				"boots",
+				"config/bootstrap.js"
+			],
+			[
+				"conn",
+				"config/connections.js"
+			],
+			[
+				"agen",
+				"api/controllers/AgendaController.js"
+			],
+			[
+				"admin/login",
+				"assets/admin/login/index.html"
+			],
+			[
+				"userc",
+				"api/controllers/UserController.js"
+			],
+			[
+				"conne",
+				"config/connections.js"
+			],
+			[
+				".giti",
+				".gitignore"
+			],
+			[
+				"packa",
+				"package.json"
+			],
+			[
+				"boostr",
+				"config/bootstrap.js"
+			],
+			[
+				"location_lo",
+				"assets/partials/location_log.html"
+			],
+			[
+				"location",
+				"assets/partials/location.html"
+			],
+			[
+				"loca",
+				"api/controllers/LocationController.js"
+			],
+			[
+				"locat",
+				"api/controllers/LocationController.js"
+			],
+			[
+				"routes",
+				"config/routes.js"
+			],
+			[
+				"location_m",
+				"assets/partials/location_monitor.html"
+			],
+			[
+				"trans",
+				"api/controllers/TransitionController.js"
+			],
+			[
+				"locationco",
+				"api/controllers/LocationController.js"
+			],
+			[
+				"index",
+				"assets/admin/index.html"
+			],
+			[
+				"job",
+				"assets/partials/job_list.html"
+			],
+			[
+				"location_d",
+				"assets/partials/location_detail.html"
+			],
+			[
+				"styl",
+				"assets/styles/style.css"
+			],
+			[
+				"location_l",
+				"assets/partials/location_log.html"
+			],
+			[
+				"job_d",
+				"assets/partials/job_detail.html"
+			],
+			[
+				"app.j",
+				"assets/app/app.js"
+			],
+			[
+				"app.",
+				"assets/app/app.js"
+			],
+			[
+				"userco",
+				"api/controllers/UserController.js"
+			],
+			[
+				"user",
+				"api/models/User.js"
+			],
+			[
+				"model",
+				"config/models.js"
+			],
+			[
+				"connec",
+				"config/connections.js"
+			],
+			[
+				"tran",
+				"api/controllers/TransitionController.js"
+			],
+			[
+				"route",
+				"config/routes.js"
+			],
+			[
+				"packag",
+				"package.json"
+			],
+			[
+				"location_de",
+				"assets/partials/location_detail.html"
+			],
+			[
+				"beaconc",
+				"api/controllers/BeaconController.js"
+			],
+			[
+				"style",
+				"assets/styles/style.css"
+			],
+			[
+				"inde",
+				"assets/admin/index.html"
+			],
+			[
+				"locationc",
+				"api/controllers/LocationController.js"
+			],
+			[
+				"polic",
+				"config/policies.js"
+			],
+			[
+				"tra",
+				"api/controllers/TransitionController.js"
+			],
+			[
+				"read",
+				"README.md"
+			],
+			[
+				"rea",
+				"README.md"
+			],
+			[
+				"config/htt",
+				"config/http.js"
+			],
 			[
 				"api",
 				"app/Http/Controllers/APIController.php"
@@ -870,10 +1296,6 @@
 				"app/Http/Controllers/Admin/TicketController.php"
 			],
 			[
-				"route",
-				"app/Http/routes.php"
-			],
-			[
 				"apic",
 				"app/Http/Controllers/APIController.php"
 			],
@@ -884,10 +1306,6 @@
 			[
 				"queue",
 				"config/queue.php"
-			],
-			[
-				"style",
-				"public/assets/css/style.css"
 			],
 			[
 				"smart",
@@ -902,20 +1320,12 @@
 				"app/Http/routes.php"
 			],
 			[
-				"routes",
-				"app/Providers/RouteServiceProvider.php"
-			],
-			[
 				"categor",
 				"public/backend/partials/category.html"
 			],
 			[
 				"item.h",
 				"public/backend/partials/item.html"
-			],
-			[
-				"app.j",
-				"public/backend/app/app.js"
 			],
 			[
 				"order.",
@@ -932,14 +1342,6 @@
 			[
 				"ticket",
 				"app/Ticket.php"
-			],
-			[
-				"styl",
-				"public/assets/css/style.css"
-			],
-			[
-				"app.",
-				"public/backend/app/app.js"
 			],
 			[
 				"app.js",
@@ -1024,10 +1426,6 @@
 			[
 				"handler",
 				"app/Exceptions/Handler.php"
-			],
-			[
-				"user",
-				"app/User.php"
 			],
 			[
 				"order",
@@ -1130,10 +1528,6 @@
 				"app/Http/Controllers/Admin/StatController.php"
 			],
 			[
-				"index",
-				"public/backend/index.html"
-			],
-			[
 				"stat.blad",
 				"resources/views/admin/stat_index.blade.php"
 			],
@@ -1224,146 +1618,6 @@
 			[
 				"table_i",
 				"resources/views/admin/table_index.blade.php"
-			],
-			[
-				"statco",
-				"app/Http/Controllers/Admin/StatController.php"
-			],
-			[
-				"stat_b",
-				"resources/views/admin/stat_index.blade.php"
-			],
-			[
-				"queuet",
-				"app/QueueType.php"
-			],
-			[
-				"layout",
-				"resources/views/admin/layout.blade.php"
-			],
-			[
-				".en",
-				".env"
-			],
-			[
-				"us",
-				"vendor/symfony/http-kernel/Symfony/Component/HttpKernel/UriSigner.php"
-			],
-			[
-				"advertisemen",
-				"app/Advertisement.php"
-			],
-			[
-				"ordereve",
-				"app/Events/OrderEventHandler.php"
-			],
-			[
-				"admincon",
-				"app/Http/Controllers/Admin/AdminController.php"
-			],
-			[
-				"apicon",
-				"app/Http/Controllers/APIController.php"
-			],
-			[
-				"bill_i",
-				"resources/views/admin/bill_index.blade.php"
-			],
-			[
-				"config/cac",
-				"config/cache.php"
-			],
-			[
-				"apico",
-				"app/Http/Controllers/APIController.php"
-			],
-			[
-				"lay",
-				"resources/views/admin/layout.blade.php"
-			],
-			[
-				"queue_type",
-				"resources/views/admin/queue_type.blade.php"
-			],
-			[
-				"queue.bl",
-				"resources/views/admin/queue.blade.php"
-			],
-			[
-				"queueeve",
-				"app/Events/QueuesEventHandler.php"
-			],
-			[
-				"queueco",
-				"app/Http/Controllers/QueueController.php"
-			],
-			[
-				"queuec",
-				"app/Http/Controllers/QueueController.php"
-			],
-			[
-				"orde",
-				"app/Order.php"
-			],
-			[
-				"billeve",
-				"app/Events/BillEventHandler.php"
-			],
-			[
-				"queuecont",
-				"app/Http/Controllers/QueueController.php"
-			],
-			[
-				"queuecon",
-				"app/Http/Controllers/QueueController.php"
-			],
-			[
-				".",
-				".env"
-			],
-			[
-				"layout.bl",
-				"resources/views/admin/layout.blade.php"
-			],
-			[
-				"style.css",
-				"public/assets/css/style.css"
-			],
-			[
-				"category_",
-				"resources/views/admin/category_detail.blade.php"
-			],
-			[
-				"queuetype",
-				"app/Http/Controllers/QueueTypeController.php"
-			],
-			[
-				"eventser",
-				"app/Providers/EventServiceProvider.php"
-			],
-			[
-				"ordevent",
-				"app/Events/OrderEventHandler.php"
-			],
-			[
-				"tableev",
-				"app/Events/TableEventHandler.php"
-			],
-			[
-				"table.ph",
-				"app/Table.php"
-			],
-			[
-				"tableevent",
-				"app/Events/TableEventHandler.php"
-			],
-			[
-				"order_",
-				"resources/views/admin/order_index.blade.php"
-			],
-			[
-				"bill_in",
-				"resources/views/admin/bill_index.blade.php"
 			]
 		],
 		"width": 0.0
@@ -1371,6 +1625,7 @@
 	"select_project":
 	{
 		"height": 500.0,
+		"last_filter": "",
 		"selected_items":
 		[
 		],
@@ -1379,6 +1634,7 @@
 	"select_symbol":
 	{
 		"height": 0.0,
+		"last_filter": "",
 		"selected_items":
 		[
 		],

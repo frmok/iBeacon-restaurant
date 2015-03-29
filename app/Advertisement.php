@@ -18,16 +18,15 @@ class Advertisement {
         if($memberId){
             //check last dining time
             $user = User::find($memberId);
-            if(!property_exists($user->getLastOrder(), 'created_at')){
-                $lastOrderTime = date('Y-m-d H:i:s');
+            if(!isset($user->getLastOrder()->id)){
+                $message = 'Come and get 10% discount for your first time.';
+                return $message;
             }else{
                 $lastOrderTime = $user->getLastOrder()->created_at;
             }
             $currentTime = date('Y-m-d H:i:s');
             $secondDifference = abs(strtotime($lastOrderTime) - strtotime($currentTime));
             $hourDifference = intval(round($secondDifference/3600));
-
-
             $randomItemName = $user->randomOrderedItem()->item_name;
             if($hourDifference >= 72){
                 $message = 'Long time no see, do you miss our '.$randomItemName.'?';
@@ -36,8 +35,7 @@ class Advertisement {
             }
             return $message;
         }else{
-            $randomItemName = Order::orderBy(\DB::raw('RAND()'))->first()->item->item_name;
-            $message = 'I bet you will like our '.$randomItemName.'.';
+            $message = 'Come and get 10% discount for your first time.';
             return $message;
         }
     }

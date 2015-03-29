@@ -3,6 +3,9 @@ use Closure;
 class CheckCred{
     public function handle($request, Closure $next)
     {
+        //There are two ways to retrieve the token
+        //1. From header
+        //2. From query string
         $token = $request->header('UserToken');
         if(!$token){
             $token = $request->get('token');
@@ -16,8 +19,6 @@ class CheckCred{
             $response['debug'] = 'Not Authorized';
             return \Response::json($response, 401);
         }
-        
-        //eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjIsImlhdCI6MTQyNjE2ODk2NywiZXhwIjoxNDI2NDI4MTY3fQ.pXa1JedOqooEJLfxim81cEkniWvi_2G51IZUYRMJcHc
     }
 }
 ?>

@@ -8,32 +8,32 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
-	use Authenticatable, CanResetPassword;
+    use Authenticatable, CanResetPassword;
 
-	/**
-	 * The database table used by the model.
-	 *
-	 * @var string
-	 */
-	protected $table = 'user';
+    /**
+     * The database table used by the model.
+     *
+     * @var string
+     */
+    protected $table = 'user';
 
-	/**
-	 * The attributes that are mass assignable.
-	 *
-	 * @var array
-	 */
-	protected $fillable = ['name', 'email', 'password'];
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['name', 'email', 'password'];
 
-	/**
-	 * The attributes excluded from the model's JSON form.
-	 *
-	 * @var array
-	 */
-	protected $hidden = ['password', 'remember_token'];
+    /**
+     * The attributes excluded from the model's JSON form.
+     *
+     * @var array
+     */
+    protected $hidden = ['password', 'remember_token'];
 
-	public function orders(){
-		return $this->hasMany('App\Order');
-	}
+    public function orders(){
+        return $this->hasMany('App\Order');
+    }
 
     /**
     * Return one randomly chosen order made by the user
@@ -41,24 +41,24 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     * @param  int $people
     * @return Order
     */
-	public function scopeRandomOrderedItem(){
-		$randomOrder = \DB::table('order')->where('user_id', $this->id)->orderBy(\DB::raw('RAND()'))->first();
-		if(!$randomOrder){
-			//if the user has not ordered anything, just random one item from all items
-			return Order::orderBy(\DB::raw('RAND()'))->first()->item;
-		}else{
-			//random one item from the items he ordered before
-			return Order::find($randomOrder->id)->item;
-		}
-	}
+    public function scopeRandomOrderedItem(){
+        $randomOrder = \DB::table('order')->where('user_id', $this->id)->orderBy(\DB::raw('RAND()'))->first();
+        if(!$randomOrder){
+            //if the user has not ordered anything, just random one item from all items
+            return Order::orderBy(\DB::raw('RAND()'))->first()->item;
+        }else{
+            //random one item from the items he ordered before
+            return Order::find($randomOrder->id)->item;
+        }
+    }
 
     /**
     * Get the last order that the user made
     *
     * @return Order
     */
-	public function scopeGetLastOrder(){
-		return Order::where('user_id', $this->id)->orderBy('created_at', 'DESC')->first();
-	}
+    public function scopeGetLastOrder(){
+        return Order::where('user_id', $this->id)->orderBy('created_at', 'DESC')->first();
+    }
 
 }

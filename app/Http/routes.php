@@ -11,15 +11,6 @@
 |
 */
 
-// Route::get('/', 'WelcomeController@index');
-
-// Route::get('home', 'HomeController@index');
-
-// Route::controllers([
-// 	'auth' => 'Auth\AuthController',
-// 	'password' => 'Auth\PasswordController',
-// ]);
-
 Route::get('admin', 'Admin\AdminController@login');
 
 //ticket route
@@ -94,7 +85,7 @@ Route::get('mobile/getAdvertisement', 'APIController@getAdvertisement');
 
 
 //backend api
-Route::group(['middleware' => 'checkcred'], function()
+Route::group([], function()
 {  
     //Ticket API
     Route::post('api/ticket', 'Admin\TicketController@ticketUpdate');

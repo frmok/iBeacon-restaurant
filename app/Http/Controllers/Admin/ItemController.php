@@ -7,6 +7,7 @@ use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 
 class ItemController extends Controller {
+    
     /**
     * Return all items.
     *

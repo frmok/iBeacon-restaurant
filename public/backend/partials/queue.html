@@ -1,5 +1,5 @@
-<div class="col-md-9">
-    <div class="col-md-4">
+<div class="col-md-12">
+    <div class="col-md-3">
         <div class="tile tile_red">
             <div class="tile_content">
                 {{ waiting }}
@@ -9,7 +9,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
         <div class="tile tile_orange">
             <div class="tile_content">
                 {{currentNo}}
@@ -19,7 +19,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
         <div class="tile tile_blue">
             <div class="tile_content">
                 {{avgWaitingTime}} s
@@ -29,8 +29,18 @@
             </div>
         </div>
     </div>
+    <div ng-click="clearQueue()" class="col-md-3 pointer">
+        <div class="tile tile_green">
+            <div class="tile_content">
+                Clear Queue
+            </div>
+            <div class="tile_text">
+                Remove all tickets
+            </div>
+        </div>
+    </div>
 </div>
-<div class="col-md-9 main-view">
+<div class="col-md-12 main-view">
     <div class="list_layout">
         <table>
             <thead>
@@ -38,6 +48,7 @@
                     <th>Number</th>
                     <th>People</th>
                     <th>Status</th>
+                    <th>Entered</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -46,6 +57,7 @@
                     <td>{{ ticket.ticket_number }}</td>
                     <td>{{ ticket.people }}</td>
                     <td>{{ ticket.ticket_status | ticketStatus }}</td>
+                    <td>{{ ticket.created_at }}</td>
                     <td><div ng-show="ticket.ticket_status < 2" ng-click="updateTicket(ticket)" class="btn">{{ ticket.ticket_status | ticketAction }}</div></td>
                 </tr>
             </tbody>

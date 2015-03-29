@@ -34,6 +34,10 @@ a, a:hover, a:focus {
     padding-top:64px;
 }
 
+.pointer{
+    cursor: pointer;
+}
+
 .loading_bar{
     width: 0%;
     background: rgb(13, 204, 249);
@@ -687,6 +691,11 @@ nav.sidebar ul > li > a:hover{
 
 .tile_blue {
   background: rgb(100, 162, 244);
+  color: #efefef;
+}
+
+.tile_green {
+  background: #31BE43;
   color: #efefef;
 }
 

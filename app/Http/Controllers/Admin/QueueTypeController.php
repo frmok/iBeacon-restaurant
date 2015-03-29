@@ -40,6 +40,8 @@ class QueueTypeController extends Controller {
     * @return void
     */
     public function clearQueue($id){
-        Ticket::where('queue_type_id', $id)->update(array('cleared' => 1));
+        //we do a dirty way of updating here
+        \DB::table('ticket')
+        ->update(['cleared' => 1]);
     }
 }
