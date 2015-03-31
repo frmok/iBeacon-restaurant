@@ -7,6 +7,7 @@ use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 
 class QueueTypeController extends Controller {
+    
     /**
     * Return all queue types.
     *
@@ -34,6 +35,36 @@ class QueueTypeController extends Controller {
     }
 
     /**
+    * Create a new queue type with the submitted data and return the new queue type data.
+    *
+    * @param  Request $request
+    * @return QueueType
+    */
+    public function add(Request $request){
+        $queueType = new QueueType();
+        $queueType->fill($request->all());
+        $queueType->save();
+        $response = array();
+        $response['queue'] = $queueType;
+        return \Response::json($response);
+    }
+
+    /**
+    * Update the queue type with submitted data and return the updated data.
+    *
+    * @param  Request $request
+    * @return Item
+    */
+    public function update(Request $request){
+        $queueType = QueueType::find($request->get('id'));
+        $queueType->fill($request->all());
+        $queueType->save();
+        $response = array();
+        $response['queue'] = $queueType;
+        return \Response::json($response);
+    }
+
+    /**
     * Clear all the tickets of a particular queue
     *
     * @param  int $id  
@@ -43,5 +74,17 @@ class QueueTypeController extends Controller {
         //we do a dirty way of updating here
         \DB::table('ticket')
         ->update(['cleared' => 1]);
+    }
+
+    /**
+    * Delete a specific queue type
+    *
+    * @param  Request $request
+    * @return void
+    */
+    public function delete(Request $request)
+    {
+        $queueType = QueueType::find($request->get('id'));
+        $queueType->delete();
     }
 }

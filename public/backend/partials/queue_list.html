@@ -1,0 +1,25 @@
+<div class="col-md-8 main-view">
+    <div class="list_layout">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="queue in queues">
+                    <td>{{queue.id}}</td>
+                    <td>{{queue.name | capitalizeFirst}}</td>
+                    <td>{{queue.disabled | queueDisabled}}</td>
+                    <td>
+                    <a href="#/queueType/detail/{{queue.id}}"><div class="btn">Modify</div></a>
+                    <div ng-click="deleteQueue($index)" class="btn btn-warning">Delete</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

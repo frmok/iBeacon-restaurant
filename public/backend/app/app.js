@@ -11,9 +11,12 @@ var app = angular.module('backendApp', [
       $http.defaults.headers.common.UserToken = localStorage.getItem('token');
       $rootScope.$state = $state;
       $rootScope.$stateParams = $stateParams;
-      $http.get('/api/QueueType').then(function(res) {
-        $rootScope.queueTypes = res.data;
-      });
+      $rootScope.updateQueue = function() {
+        $http.get('/api/QueueType').then(function(res) {
+          $rootScope.queueTypes = res.data;
+        });
+      }
+      $rootScope.updateQueue();
     }
   ])
   .config(['$stateProvider', '$urlRouterProvider',
@@ -87,12 +90,72 @@ var app = angular.module('backendApp', [
                   });
               }
             }
-
-
           }
         ]
       });
-
+      $stateProvider.state("backend_queue_list", {
+        templateUrl: "/backend/partials/queue_list.html",
+        url: "/queueType",
+        resolve: {
+          queues: ['QueueType', function(QueueType) {
+            return QueueType.all();
+          }]
+        },
+        controller: ['$rootScope', '$scope', '$stateParams', 'WebSocket', 'QueueType', 'queues',
+          function($rootScope, $scope, $stateParams, WebSocket, QueueType, queues) {
+            $rootScope.currentAction = "Queue Management";
+            $scope.queues = queues.data;
+            $scope.deleteQueue = function(index) {
+              QueueType.delete($scope.queues[index]);
+              $scope.queues.splice(index, 1);
+              $rootScope.updateQueue();
+            }
+          }
+        ]
+      });
+      $stateProvider.state("backend_queue_detail", {
+        templateUrl: "/backend/partials/queue_detail.html",
+        url: "/queueType/detail/{qid}",
+        resolve: {
+          queue: ['QueueType', '$stateParams', function(QueueType, $stateParams) {
+            if ($stateParams.qid) {
+              return QueueType.get($stateParams.qid);
+            }
+            return;
+          }]
+        },
+        controller: ['$rootScope', '$scope', '$stateParams', 'WebSocket', 'QueueType', 'queue',
+          function($rootScope, $scope, $stateParams, WebSocket, QueueType, queue) {
+            $scope.queue = {};
+            if ($stateParams.qid) {
+              $scope.queue = queue.data.queue;
+              $rootScope.currentAction = $scope.crud_action = "Modify Queue";
+            } else {
+              $rootScope.currentAction = $scope.crud_action = "Add Queue";
+              $scope.queue.disabled = 0;
+            }
+            console.log($scope.queue);
+            $scope.updateQueue = function() {
+              if ($scope.queue.id) {
+                QueueType.update($scope.queue).then(
+                  function(res) {
+                    $scope.msg = "Successfully updated";
+                    $scope.queue = res.data.queue;
+                    $rootScope.updateQueue();
+                  });
+              } else {
+                QueueType.add($scope.queue).then(
+                  function(res) {
+                    $scope.msg = "Successfully added";
+                    $scope.crud_action = $rootScope.currentAction = "Modify Queue";
+                    $scope.queue.id = res.data.queue.id;
+                    $rootScope.updateQueue();
+                  });
+              }
+            }
+          }
+        ]
+      });
       $stateProvider.state("backend_queue", {
         templateUrl: "/backend/partials/queue.html",
         url: "/queueType/{qid}",
@@ -418,42 +481,6 @@ var app = angular.module('backendApp', [
         controller: ['$rootScope', '$scope', '$stateParams', 'Stat',
           function($rootScope, $scope, $stateParams, Stat) {
             $rootScope.currentAction = 'Overall Statistics';
-            $scope.ee = [{
-              "values": [
-                [1, 0],
-                [2, 0],
-                [3, 21],
-                [4, 0],
-                [5, 0],
-                [6, 0],
-                [7, 0],
-                [8, 0],
-                [9, 0],
-                [10, 0],
-                [11, 0],
-                [12, 0],
-                [13, 0],
-                [14, 0],
-                [15, 0],
-                [16, 0],
-                [17, 0],
-                [18, 0],
-                [19, 0],
-                [20, 0],
-                [21, 0],
-                [22, 0],
-                [23, 0],
-                [24, 0],
-                [25, 0],
-                [26, 0],
-                [27, 0],
-                [28, 0],
-                [29, 0],
-                [30, 0],
-                [31, 0]
-              ],
-              "key": "Profit of this month"
-            }]
             Stat.best_selling_item().then(function(res) {
               $scope.best_selling_item = [res.data];
             });
@@ -614,17 +641,32 @@ app.factory('Ticket', ['$http', function($http) {
 
 app.factory('QueueType', ['$http', function($http) {
   var factory = {};
+  factory.all = function() {
+    return $http.get('/api/QueueType');
+  }
   factory.clear = function(id) {
     return $http.get('/api/clearQueue/' + id);
   }
-  return factory
+  factory.get = function(type) {
+    return $http.get('/api/QueueType/' + type);
+  };
+  factory.add = function(queueType) {
+    return $http.post('/api/QueueType/add', queueType);
+  };
+  factory.update = function(queueType) {
+    return $http.post('/api/QueueType', queueType);
+  };
+  factory.delete = function(queueType) {
+    return $http.post('/api/QueueType/delete', queueType);
+  };
+  return factory;
 }]);
 
 app.service("WebSocket", function($q, $timeout) {
   var service = {},
     conn, listener = $q.defer();
   var initialize = function() {
-    conn = new WebSocket('ws://localhost:9999');
+    conn = new WebSocket('ws://direct.andymok.me:9999');
   };
   initialize();
   conn.onmessage = function(e) {
@@ -688,6 +730,18 @@ app.filter('ticketAction',
         return 'Dequeue';
       } else if (status === 1) {
         return 'Enter';
+      }
+    }
+  });
+
+app.filter('queueDisabled',
+  function() {
+    return function(status) {
+      var status = parseInt(status);
+      if (status === 0) {
+        return 'Enabled';
+      } else if (status === 1) {
+        return 'Disabled';
       }
     }
   });

@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class QueueType extends Model{
     protected $table = 'queue_type';
-    protected $fillable = []; //to be determined
+    protected $fillable = ['name', 'capacity', 'disabled']; //to be determined
 
     public function getIdAttribute($value)
     {

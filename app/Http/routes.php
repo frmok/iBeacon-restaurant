@@ -93,7 +93,10 @@ Route::group([], function()
     //Queue Type API
     Route::get('api/QueueType', 'Admin\QueueTypeController@index');
     Route::get('api/QueueType/{id}', 'Admin\QueueTypeController@detail');
+    Route::post('api/QueueType/add', 'Admin\QueueTypeController@add');
+    Route::post('api/QueueType', 'Admin\QueueTypeController@update');
     Route::get('api/clearQueue/{id}', 'Admin\QueueTypeController@clearQueue');
+    Route::post('api/QueueType/delete', 'Admin\QueueTypeController@delete');
 
     //Order API
     Route::get('api/order', 'Admin\OrderController@index');

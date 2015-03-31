@@ -1,0 +1,30 @@
+<div class="col-md-6 main-view">
+    <div class="form-layout">
+        <div class="form-title">
+        {{crud_action}}
+        </div>
+        <div ng-show="msg" class="msg">
+            <i class="fa fa-check"></i> {{msg}}
+        </div>
+        <form ng-submit="updateQueue()">
+            <div class="form-group first-group">
+                <label for="queue_name" class="col-lg-3">Queue Name</label>
+                <input required ng-model="queue.name" class="col-lg-7" name="queue_name" type="text" id="queue_name">
+            </div>
+            <div class="form-group">
+                <label for="queue_capacity" class="col-lg-3">Capacity</label>
+                <input required ng-model="queue.capacity" class="col-lg-7" name="queue_capacity" type="text" id="queue_capacity">
+            </div>
+            <div class="form-group">
+                <label for="queue_disabled" class="col-lg-3">Status</label>
+                <select id="queue_disabled" ng-model="queue.disabled">
+                    <option value='0'>Enabled</option>
+                    <option value='1'>Disabled</option>
+                </select>
+            </div>
+            <div class="form-bottom">
+                <input class="btn" type="submit">
+            </div>
+        </form>
+    </div>
+</div>
