@@ -13,7 +13,7 @@ class QueueTypeController extends Controller {
     * @return array
     */
     public function index(){
-        return QueueType::all();
+        return QueueType::orderBy('capacity')->get();
     }
     
     /**

@@ -5,7 +5,7 @@
 		[
 			[
 				"trans",
-				"transition"
+				"transitions〔argument〕"
 			],
 			[
 				"locat",
@@ -438,6 +438,62 @@
 				"buffer_size": 3552,
 				"line_ending": "Unix"
 			}
+		},
+		{
+			"file": "/Users/frmok26/Documents/ik1401/api/controllers/LocationController.js",
+			"settings":
+			{
+				"buffer_size": 5313,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/frmok26/Documents/ik1401/assets/styles/style.css",
+			"settings":
+			{
+				"buffer_size": 14580,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/frmok26/Documents/ik1401/api/controllers/TransitionController.js",
+			"settings":
+			{
+				"buffer_size": 7843,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/frmok26/Documents/ik1401/assets/app/app.js",
+			"settings":
+			{
+				"buffer_size": 18057,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/frmok26/Documents/ik1401/assets/admin/index.html",
+			"settings":
+			{
+				"buffer_size": 2351,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/frmok26/Documents/ik1401/assets/partials/location_monitor.html",
+			"settings":
+			{
+				"buffer_size": 2221,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/frmok26/Documents/ik1401/config/routes.js",
+			"settings":
+			{
+				"buffer_size": 2812,
+				"line_ending": "Unix"
+			}
 		}
 	],
 	"build_system": "",
@@ -527,18 +583,12 @@
 	[
 		"/Users/frmok26/Documents/ik1401",
 		"/Users/frmok26/Documents/ik1401/api",
-		"/Users/frmok26/Documents/ik1401/api/controllers",
-		"/Users/frmok26/Documents/ik1401/api/models",
-		"/Users/frmok26/Documents/ik1401/api/policies",
-		"/Users/frmok26/Documents/ik1401/api/responses",
-		"/Users/frmok26/Documents/ik1401/api/services",
-		"/Users/frmok26/Documents/ik1401/assets",
-		"/Users/frmok26/Documents/ik1401/assets/admin",
-		"/Users/frmok26/Documents/ik1401/assets/partials",
-		"/Users/frmok26/Documents/ik1401/config"
+		"/Users/frmok26/Documents/ik1401/api/controllers"
 	],
 	"file_history":
 	[
+		"/Users/frmok26/Downloads/Dockerfile.jpg",
+		"/Users/frmok26/Documents/ik1401/app.js",
 		"/Users/frmok26/Documents/ik1401/config/myconf.js",
 		"/Users/frmok26/Documents/ik1401/assets/app/app.js",
 		"/Users/frmok26/Documents/ik1401/package.json",
@@ -573,7 +623,6 @@
 		"/Users/frmok26/Documents/ik1401/api/policies/adminAuth.js",
 		"/Users/frmok26/Documents/ik1401/api/policies/sessionAuth.js",
 		"/Users/frmok26/Documents/ik1401/api/models/Beacon.js",
-		"/Users/frmok26/Documents/ik1401/app.js",
 		"/Users/frmok26/Documents/ik1401/config/policies.js",
 		"/Users/frmok26/Documents/ik1401/node_modules/grunt-contrib-less/node_modules/less/test/less/errors/import-no-semi.less",
 		"/Users/frmok26/Documents/ik1401/config/i18n.js",
@@ -665,8 +714,7 @@
 		"/Users/frmok26/Documents/iBeacon-restaurant/phpspec.yml",
 		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/monolog/monolog/src/Monolog/Handler/PsrHandler.php",
 		"/Users/frmok26/Documents/iBeacon-restaurant/package.json",
-		"/Users/frmok26/Documents/iBeacon-restaurant/config/view.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/symfony/finder/Symfony/Component/Finder/Expression/ValueInterface.php"
+		"/Users/frmok26/Documents/iBeacon-restaurant/config/view.php"
 	],
 	"find":
 	{
@@ -685,6 +733,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"mongodb",
+			"null",
 			"sails",
 			"console.log",
 			"$scope.msg",
@@ -810,9 +860,7 @@
 			";\n",
 			"billId",
 			"';\n",
-			"billDetail",
-			"bill",
-			"8"
+			"billDetail"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -960,10 +1008,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 8.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
@@ -979,8 +1027,98 @@
 						"selection":
 						[
 							[
-								290,
-								290
+								900,
+								739
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete": false,
+							"bh_regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 146.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/Users/frmok26/Documents/ik1401/api/controllers/LocationController.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5313,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2201,
+								2201
 							]
 						],
 						"settings":
@@ -1050,10 +1188,548 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
+						"translation.y": 1884.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/Users/frmok26/Documents/ik1401/assets/styles/style.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 14580,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								12808,
+								12808
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 16378.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/Users/frmok26/Documents/ik1401/api/controllers/TransitionController.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7843,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6495,
+								6510
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete": false,
+							"bh_regions":
+							[
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 5033.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/Users/frmok26/Documents/ik1401/assets/app/app.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 18057,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								11094,
+								11094
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete": false,
+							"bh_regions":
+							[
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 6165.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/Users/frmok26/Documents/ik1401/assets/admin/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2351,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								679,
+								679
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete": false,
+							"bh_regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/Users/frmok26/Documents/ik1401/assets/partials/location_monitor.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2221,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								214,
+								213
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/Users/frmok26/Documents/ik1401/config/routes.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2812,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								933,
+								933
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete": false,
+							"bh_regions":
+							[
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 506.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
 					"type": "text"
 				}
 			]
@@ -1107,6 +1783,34 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"style",
+				"assets/styles/style.css"
+			],
+			[
+				"",
+				"api/controllers/AgendaController.js"
+			],
+			[
+				"index",
+				"assets/admin/index.html"
+			],
+			[
+				"location_n",
+				"assets/partials/location_monitor.html"
+			],
+			[
+				"route",
+				"config/routes.js"
+			],
+			[
+				"app",
+				"assets/app/app.js"
+			],
+			[
+				"app.js",
+				"app.js"
+			],
 			[
 				"myc",
 				"config/myconf.js"
@@ -1180,10 +1884,6 @@
 				"api/controllers/LocationController.js"
 			],
 			[
-				"index",
-				"assets/admin/index.html"
-			],
-			[
 				"job",
 				"assets/partials/job_list.html"
 			],
@@ -1232,10 +1932,6 @@
 				"api/controllers/TransitionController.js"
 			],
 			[
-				"route",
-				"config/routes.js"
-			],
-			[
 				"packag",
 				"package.json"
 			],
@@ -1246,10 +1942,6 @@
 			[
 				"beaconc",
 				"api/controllers/BeaconController.js"
-			],
-			[
-				"style",
-				"assets/styles/style.css"
 			],
 			[
 				"inde",
@@ -1336,16 +2028,8 @@
 				"resources/views/admin/order_index.blade.php"
 			],
 			[
-				"",
-				"app/Http/Controllers/Admin/CategoryController.php"
-			],
-			[
 				"ticket",
 				"app/Ticket.php"
-			],
-			[
-				"app.js",
-				"public/backend/app/app.js"
 			],
 			[
 				"adminc",
@@ -1610,14 +2294,6 @@
 			[
 				"table_d",
 				"resources/views/admin/table_detail.blade.php"
-			],
-			[
-				"index.h",
-				"public/backend/index.html"
-			],
-			[
-				"table_i",
-				"resources/views/admin/table_index.blade.php"
 			]
 		],
 		"width": 0.0

@@ -52,7 +52,7 @@ class APIController extends Controller {
             //generate new token!!!
             $token = array(
                 "iat" => time(),
-                "exp" => time()+3600*24*3,
+                "exp" => time()+3600*24*24,
                 "uid" => intVal(Auth::id())
                 );
             $jwt = \JWT::encode($token, env('JWT_KEY'));
@@ -202,8 +202,14 @@ class APIController extends Controller {
     * @return array
     */
     public function orderHistory(Request $request){
+        $token = $request->get('token');
+        if($token){
+            $decoded = \JWT::decode($token, env('JWT_KEY'));
+            \Auth::loginUsingId($decoded->uid);
+            $userID = Auth::id(); //set the payer to the user id of the token
+        }
         return User::with(['orders.item', 'orders' => function($query){ $query->orderBy('created_at', 'DESC'); }])
-        ->find($request->get('memberID'));
+        ->find($userID);
     }
 
     /**
@@ -243,7 +249,7 @@ class APIController extends Controller {
             $queue['waiting'] = Ticket::waitingPeople($queue->id);
             return $queue;
         }else{
-            $queues = QueueType::all();
+            $queues = QueueType::orderBy('capacity')->get();
             foreach ($queues as $queue) {
                 $queue['current'] = Ticket::currentTicket($queue->id);
                 $queue['waiting'] = Ticket::waitingPeople($queue->id);
