@@ -440,6 +440,70 @@
 			}
 		},
 		{
+			"file": "/Users/frmok26/Documents/iBeacon-restaurant/public/backend/index.html",
+			"settings":
+			{
+				"buffer_size": 2968,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/frmok26/Documents/iBeacon-restaurant/public/backend/partials/queue_list.html",
+			"settings":
+			{
+				"buffer_size": 855,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/frmok26/Documents/iBeacon-restaurant/public/backend/app/app.js",
+			"settings":
+			{
+				"buffer_size": 27344,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/frmok26/Documents/iBeacon-restaurant/app/QueueType.php",
+			"settings":
+			{
+				"buffer_size": 861,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "QueueTypeController.php",
+			"settings":
+			{
+				"buffer_size": 2244,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "ItemController.php",
+			"settings":
+			{
+				"buffer_size": 2075,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/frmok26/Documents/iBeacon-restaurant/public/backend/partials/queue_detail.html",
+			"settings":
+			{
+				"buffer_size": 1294,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/frmok26/Documents/iBeacon-restaurant/app/Http/routes.php",
+			"settings":
+			{
+				"buffer_size": 5667,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "/Users/frmok26/Documents/ik1401/api/controllers/LocationController.js",
 			"settings":
 			{
@@ -581,12 +645,22 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/frmok26/Documents/ik1401",
-		"/Users/frmok26/Documents/ik1401/api",
-		"/Users/frmok26/Documents/ik1401/api/controllers"
+		"/Users/frmok26/Documents/iBeacon-restaurant",
+		"/Users/frmok26/Documents/iBeacon-restaurant/config",
+		"/Users/frmok26/Documents/iBeacon-restaurant/public",
+		"/Users/frmok26/Documents/iBeacon-restaurant/public/backend",
+		"/Users/frmok26/Documents/iBeacon-restaurant/public/backend/partials"
 	],
 	"file_history":
 	[
+		"/Users/frmok26/Documents/iBeacon-restaurant/app/QueueType.php",
+		"/Users/frmok26/Downloads/payment.sql",
+		"/Users/frmok26/Documents/iBeacon-restaurant/.env",
+		"/Users/frmok26/Documents/iBeacon-restaurant/app/Http/Controllers/Admin/QueueTypeController.php",
+		"/Users/frmok26/Documents/iBeacon-restaurant/public/backend/app/app.js",
+		"/Users/frmok26/Downloads/shop48.sql",
+		"/Users/frmok26/Documents/iBeacon-restaurant/app/Http/Controllers/APIController.php",
+		"/Users/frmok26/Documents/iBeacon-restaurant/app/Providers/RouteServiceProvider.php",
 		"/Users/frmok26/Downloads/Dockerfile.jpg",
 		"/Users/frmok26/Documents/ik1401/app.js",
 		"/Users/frmok26/Documents/ik1401/config/myconf.js",
@@ -646,10 +720,7 @@
 		"/Users/frmok26/Desktop/key/mallcert.pem",
 		"/Users/frmok26/Documents/ik1401/node_modules/grunt-contrib-less/node_modules/less/test/browser/runner-browser-options.js",
 		"/Users/frmok26/Documents/iBeacon-restaurant/app/Ticket.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/app/Http/Controllers/APIController.php",
 		"/Users/frmok26/Documents/iBeacon-restaurant/app/Http/Controllers/Admin/TicketController.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/app/Http/Controllers/Admin/QueueTypeController.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/app/QueueType.php",
 		"/Users/frmok26/Documents/iBeacon-restaurant/config/queue.php",
 		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/symfony/yaml/Symfony/Component/Yaml/Tests/Fixtures/sfQuotes.yml",
 		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/laravel/framework/src/Illuminate/Database/QueryException.php",
@@ -664,7 +735,6 @@
 		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/swiftmailer/swiftmailer/tests/acceptance/Swift/Mime/SimpleMessageAcceptanceTest.php",
 		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/swiftmailer/swiftmailer/tests/SwiftMailerTestCase.php",
 		"/Users/frmok26/Documents/iBeacon-restaurant/public/backend/partials/item.html",
-		"/Users/frmok26/Documents/iBeacon-restaurant/app/Providers/RouteServiceProvider.php",
 		"/Users/frmok26/Documents/iBeacon-restaurant/public/backend/partials/category_detail.html",
 		"/Users/frmok26/Documents/iBeacon-restaurant/public/backend/partials/category.html",
 		"/Users/frmok26/Documents/iBeacon-restaurant/app/Item.php",
@@ -679,11 +749,9 @@
 		"/Users/frmok26/Documents/iBeacon-restaurant/app/Exceptions/Handler.php",
 		"/Users/frmok26/Documents/iBeacon-restaurant/app/Table.php",
 		"/Users/frmok26/Documents/iBeacon-restaurant/app/User.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/public/backend/app/app.js",
 		"/Users/frmok26/Documents/iBeacon-restaurant/app/Advertisement.php",
 		"/Users/frmok26/Documents/iBeacon-restaurant/public/backend/partials/bill.html",
 		"/Users/frmok26/Documents/iBeacon-restaurant/app/Http/Controllers/Admin/CategoryController.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/.env",
 		"/Users/frmok26/Documents/iBeacon-restaurant/app/Stat.php",
 		"/Users/frmok26/Documents/iBeacon-restaurant/app/Http/Middleware/CheckCred.php",
 		"/Users/frmok26/Documents/iBeacon-restaurant/app/Events/BillEventHandler.php",
@@ -712,9 +780,7 @@
 		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/symfony/finder/Symfony/Component/Finder/Tests/Iterator/RealIteratorTestCase.php",
 		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/phpspec/prophecy/src/Prophecy/Argument/Token/StringContainsToken.php",
 		"/Users/frmok26/Documents/iBeacon-restaurant/phpspec.yml",
-		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/monolog/monolog/src/Monolog/Handler/PsrHandler.php",
-		"/Users/frmok26/Documents/iBeacon-restaurant/package.json",
-		"/Users/frmok26/Documents/iBeacon-restaurant/config/view.php"
+		"/Users/frmok26/Documents/iBeacon-restaurant/vendor/monolog/monolog/src/Monolog/Handler/PsrHandler.php"
 	],
 	"find":
 	{
@@ -733,6 +799,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"delete",
+			"crud_action",
+			"currentAction",
+			"queuetype",
 			"mongodb",
 			"null",
 			"sails",
@@ -856,11 +926,7 @@
 			"db",
 			"view",
 			"send",
-			"value",
-			";\n",
-			"billId",
-			"';\n",
-			"billDetail"
+			"value"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -921,7 +987,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 8,
 			"sheets":
 			[
 				{
@@ -1011,7 +1077,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 16,
 					"type": "text"
 				},
 				{
@@ -1027,8 +1093,8 @@
 						"selection":
 						[
 							[
-								900,
-								739
+								53,
+								53
 							]
 						],
 						"settings":
@@ -1042,46 +1108,11 @@
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
@@ -1091,21 +1122,775 @@
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
-								"bh_unmatched_content"
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
 							],
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 146.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/Users/frmok26/Documents/iBeacon-restaurant/public/backend/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2968,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1793,
+								1793
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete": false,
+							"bh_regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/Users/frmok26/Documents/iBeacon-restaurant/public/backend/partials/queue_list.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 855,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								300,
+								300
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete": false,
+							"bh_regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/Users/frmok26/Documents/iBeacon-restaurant/public/backend/app/app.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 27344,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5963,
+								5963
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete": false,
+							"bh_regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2773.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/Users/frmok26/Documents/iBeacon-restaurant/app/QueueType.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 861,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								253,
+								253
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete": false,
+							"bh_regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "QueueTypeController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2244,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1369,
+								1369
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete": false,
+							"bh_regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1059.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "ItemController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2075,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2073,
+								1843
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 806.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/Users/frmok26/Documents/iBeacon-restaurant/public/backend/partials/queue_detail.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1294,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1294,
+								1294
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete": false,
+							"bh_regions":
+							[
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
+							],
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 9,
+					"file": "/Users/frmok26/Documents/iBeacon-restaurant/app/Http/routes.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5667,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3374,
+								3374
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete": false,
+							"bh_regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1955.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
 					"file": "/Users/frmok26/Documents/ik1401/api/controllers/LocationController.js",
 					"semi_transient": false,
 					"settings":
@@ -1191,11 +1976,11 @@
 						"translation.y": 1884.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 11,
 					"file": "/Users/frmok26/Documents/ik1401/assets/styles/style.css",
 					"semi_transient": false,
 					"settings":
@@ -1280,11 +2065,11 @@
 						"translation.y": 16378.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 12,
 					"file": "/Users/frmok26/Documents/ik1401/api/controllers/TransitionController.js",
 					"semi_transient": false,
 					"settings":
@@ -1370,11 +2155,11 @@
 						"translation.y": 5033.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 15,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 13,
 					"file": "/Users/frmok26/Documents/ik1401/assets/app/app.js",
 					"semi_transient": false,
 					"settings":
@@ -1460,11 +2245,11 @@
 						"translation.y": 6165.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 14,
 					"file": "/Users/frmok26/Documents/ik1401/assets/admin/index.html",
 					"semi_transient": false,
 					"settings":
@@ -1550,11 +2335,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 15,
 					"file": "/Users/frmok26/Documents/ik1401/assets/partials/location_monitor.html",
 					"semi_transient": false,
 					"settings":
@@ -1639,11 +2424,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 16,
 					"file": "/Users/frmok26/Documents/ik1401/config/routes.js",
 					"semi_transient": false,
 					"settings":
@@ -1729,7 +2514,7 @@
 						"translation.y": 506.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 12,
 					"type": "text"
 				}
 			]
@@ -1784,16 +2569,60 @@
 		"selected_items":
 		[
 			[
+				"queue_de",
+				"public/backend/partials/queue_detail.html"
+			],
+			[
+				"index",
+				"public/backend/index.html"
+			],
+			[
+				"rout",
+				"app/Http/routes.php"
+			],
+			[
+				"queue_l",
+				"public/backend/partials/queue_list.html"
+			],
+			[
+				"queuety",
+				"app/QueueType.php"
+			],
+			[
+				"itemc",
+				"app/Http/Controllers/Admin/ItemController.php"
+			],
+			[
+				"queuetypeco",
+				"app/Http/Controllers/Admin/QueueTypeController.php"
+			],
+			[
+				"app.",
+				"public/backend/app/app.js"
+			],
+			[
+				"routes",
+				"app/Providers/RouteServiceProvider.php"
+			],
+			[
+				"app.js",
+				"public/backend/app/app.js"
+			],
+			[
+				"apic",
+				"app/Http/Controllers/APIController.php"
+			],
+			[
+				"queuecont",
+				"app/Http/Controllers/Admin/QueueTypeController.php"
+			],
+			[
 				"style",
 				"assets/styles/style.css"
 			],
 			[
 				"",
 				"api/controllers/AgendaController.js"
-			],
-			[
-				"index",
-				"assets/admin/index.html"
 			],
 			[
 				"location_n",
@@ -1806,10 +2635,6 @@
 			[
 				"app",
 				"assets/app/app.js"
-			],
-			[
-				"app.js",
-				"app.js"
 			],
 			[
 				"myc",
@@ -1868,10 +2693,6 @@
 				"api/controllers/LocationController.js"
 			],
 			[
-				"routes",
-				"config/routes.js"
-			],
-			[
 				"location_m",
 				"assets/partials/location_monitor.html"
 			],
@@ -1905,10 +2726,6 @@
 			],
 			[
 				"app.j",
-				"assets/app/app.js"
-			],
-			[
-				"app.",
 				"assets/app/app.js"
 			],
 			[
@@ -1988,10 +2805,6 @@
 				"app/Http/Controllers/Admin/TicketController.php"
 			],
 			[
-				"apic",
-				"app/Http/Controllers/APIController.php"
-			],
-			[
 				"ticke",
 				"app/Ticket.php"
 			],
@@ -2006,10 +2819,6 @@
 			[
 				"index.",
 				"public/backend/index.html"
-			],
-			[
-				"rout",
-				"app/Http/routes.php"
 			],
 			[
 				"categor",
@@ -2188,10 +2997,6 @@
 				"public/backend/partials/queue.html"
 			],
 			[
-				"queuety",
-				"app/QueueType.php"
-			],
-			[
 				"order.h",
 				"public/backend/partials/order.html"
 			],
@@ -2274,26 +3079,6 @@
 			[
 				"bill_d",
 				"resources/views/admin/bill_detail.blade.php"
-			],
-			[
-				"bill.p",
-				"app/Bill.php"
-			],
-			[
-				"billcon",
-				"app/Http/Controllers/Admin/BillController.php"
-			],
-			[
-				"bill_",
-				"resources/views/admin/bill_index.blade.php"
-			],
-			[
-				"tablecon",
-				"app/Http/Controllers/Admin/TableController.php"
-			],
-			[
-				"table_d",
-				"resources/views/admin/table_detail.blade.php"
 			]
 		],
 		"width": 0.0

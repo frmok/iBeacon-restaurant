@@ -157,6 +157,7 @@ class APIController extends Controller {
         }
         if($request->get('billId') > 0){
             $order = new Order();
+            $order->order_status = 0;
             $order->user_id = $payer;
             $order->bill_id = $request->get('billId');
             $order->item_id = $request->get('itemId');

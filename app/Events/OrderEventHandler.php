@@ -13,6 +13,16 @@ class OrderEventHandler {
         $socket = $context->getSocket(\ZMQ::SOCKET_PUSH, 'new ticket');
         $socket->connect("tcp://127.0.0.1:".env('ZEROMQ_PORT'));
         $socket->send(json_encode($packet));
+
+        
+        //for mobile bill update
+        $packet = array();
+        $packet['action'] = 'wsorder.refresh';
+        $packet['billId'] = $order->bill->id;
+        $context = new \ZMQContext(1, false);
+        $socket = $context->getSocket(\ZMQ::SOCKET_PUSH, 'new ticket');
+        $socket->connect("tcp://127.0.0.1:".env('ZEROMQ_PORT'));
+        $socket->send(json_encode($packet));
     }
     
 
