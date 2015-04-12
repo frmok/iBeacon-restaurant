@@ -25,10 +25,11 @@ class APIController extends Controller {
     */
     public function createUser(Request $request){
         $user = User::where('email', $request->get('email'))->get();
+        //found duplicated email...
         if(count($user) > 0){
             $packet = array();
             $packet['status'] = 500;
-            $packet['debug'] = 'Duplicated username';
+            $packet['debug'] = 'Duplicated email';
             return \Response::json($packet, 401);
         }
         $user = new User();
@@ -58,7 +59,7 @@ class APIController extends Controller {
             $jwt = \JWT::encode($token, env('JWT_KEY'));
             $packet = array();
             $packet['status'] = 200;
-            $packet['debug'] = 'Login succeeed.';
+            $packet['debug'] = 'Login succeed.';
             $packet['user'] = Auth::user();
             $packet['token'] = $jwt;
             return \Response::json($packet);
@@ -89,6 +90,14 @@ class APIController extends Controller {
     * @return Bill
     */
     public function createBillByTable(Request $request){
+        $table = Table::find($request->get('id'));
+        //no table is found...
+        if(count($table) == 0){
+            $packet = array();
+            $packet['status'] = 500;
+            $packet['debug'] = 'No table found';
+            return \Response::json($packet, 500);
+        }
         $bill = Bill::where('table_id', $request->get('id'))->where('status', 0)->get();
         if(count($bill) === 0){
             //create bill
@@ -155,6 +164,20 @@ class APIController extends Controller {
             \Auth::loginUsingId($decoded->uid);
             $payer = Auth::id(); //set the payer to the user id of the token
         }
+        $bill = Bill::find($request->get('billId'));
+        if(count($bill) <= 0){
+            $packet = array();
+            $packet['status'] = 500;
+            $packet['debug'] = 'No bill found';
+            return \Response::json($packet, 500);
+        }
+        $item = Item::find($request->get('itemId'));
+        if(count($item) <= 0){
+            $packet = array();
+            $packet['status'] = 500;
+            $packet['debug'] = 'No item found';
+            return \Response::json($packet, 500);
+        }
         if($request->get('billId') > 0){
             $order = new Order();
             $order->order_status = 0;
@@ -163,6 +186,10 @@ class APIController extends Controller {
             $order->item_id = $request->get('itemId');
             $order->quantity = $request->get('quantity');
             $order->save();
+            $packet = array();
+            $packet['status'] = 200;
+            $packet['debug'] = 'Order succeeds';
+            return \Response::json($packet);
         }
     }
 
@@ -175,7 +202,6 @@ class APIController extends Controller {
     public function billDetail($id){
         $bill = Bill::with(array('table', 'orders' => function($query){
             $query->where('order_status', '!=' ,3);
-
         }, 'orders.item'))->find($id);
         $bill->amount = $bill->tempAmount();
         return $bill;
@@ -194,6 +220,10 @@ class APIController extends Controller {
             $order->order_status = 3;
             $order->save();
         }
+        $packet = array();
+        $packet['status'] = 200;
+        $packet['debug'] = 'Success payment';
+        return \Response::json($packet);
     }
 
     /**
@@ -246,6 +276,12 @@ class APIController extends Controller {
     public function queues($id = NULL){
         if($id){
             $queue = QueueType::find($id);
+            if(count($queue) == 0){
+                $response = [];
+                $response['status'] = 500;
+                $response['message'] = 'No queue type found';
+                return \Response::json($response);
+            }
             $queue['current'] = Ticket::currentTicket($queue->id);
             $queue['waiting'] = Ticket::waitingPeople($queue->id);
             return $queue;
@@ -281,6 +317,12 @@ class APIController extends Controller {
     */
     public function enqueue(Request $request){
         $type = QueueType::typeByPeople($request->get('people'));
+        if($type === 0){
+            $response = [];
+            $response['status'] = 500;
+            $response['debug'] = 'No suitable queue type';
+            return \Response::json($response);
+        }
         $identifier = str_replace(' ', '', $request->get('identifier'));
         $identifier = str_replace('<', '', $identifier);
         $identifier = str_replace('>', '', $identifier);
@@ -289,11 +331,6 @@ class APIController extends Controller {
     }
 
     public function test(){
-        $data = [];
-        $data['message'] = "sas";
-        $data['identifiers'] = ['bbe8a5c7d5418a6a25110dc7b159075d0f3c4ba3a13040317e9defa740231ce4'];
-        $data['type'] = 'xxx';
-        $data = json_encode($data);
-        \Push::sendNotification($data);
+        return QueueType::typeByPeople(5);
     }
 }

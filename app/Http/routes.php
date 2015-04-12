@@ -76,7 +76,7 @@ Route::any('mobile/enqueue', 'APIController@enqueue');
 
 Route::get('mobile/amountToPay/{id}', 'APIController@amountToPay');
 
-Route::post('mobile/ticket', 'APIController@ticketUpdate');
+Route::post('mobile/ticket', 'APIController@ticketUpdate'); //depreciated
 Route::get('mobile/orderHistory', 'APIController@orderHistory');
 
 //Advertisement API
@@ -85,7 +85,7 @@ Route::get('mobile/getAdvertisement', 'APIController@getAdvertisement');
 
 
 //backend api
-Route::group([], function()
+Route::group(['middleware'=> 'checkcred'], function()
 {  
     //Ticket API
     Route::post('api/ticket', 'Admin\TicketController@ticketUpdate');
@@ -115,14 +115,16 @@ Route::group([], function()
     Route::get('api/bill/{id}', 'Admin\BillController@detail');
 
     //Category API
-    Route::get('api/categories/', 'Admin\CategoryController@index');
+    Route::get('api/categories/', 'Admin\CategoryController@index'); //depreciated
+    Route::get('api/category/', 'Admin\CategoryController@index');
     Route::get('api/category/{id}', 'Admin\CategoryController@detail');
     Route::post('api/category/add', 'Admin\CategoryController@add');
     Route::post('api/category', 'Admin\CategoryController@update');
     Route::post('api/category/delete', 'Admin\CategoryController@delete');
 
     //Item API
-    Route::get('api/items/', 'Admin\ItemController@index');
+    Route::get('api/items/', 'Admin\ItemController@index'); //depreciated
+    Route::get('api/item/', 'Admin\ItemController@index');
     Route::get('api/item/{id}', 'Admin\ItemController@detail');
     Route::post('api/item', 'Admin\ItemController@update');
     Route::post('api/item/add', 'Admin\ItemController@add');

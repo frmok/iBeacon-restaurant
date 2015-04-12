@@ -75,5 +75,9 @@ class ItemController extends Controller {
     {
         $item = Item::find($request->get('id'));
         $item->delete();
+        $response = array();
+        $response['status'] = 200;
+        $response['debug'] = 'Item deleted';
+        return \Response::json($response);
     }
 }

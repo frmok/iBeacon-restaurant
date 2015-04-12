@@ -74,6 +74,10 @@ class QueueTypeController extends Controller {
         //we do a dirty way of updating here
         \DB::table('ticket')
         ->update(['cleared' => 1]);
+        $response = array();
+        $response['status'] = 200;
+        $response['debug'] = 'Queue cleared';
+        return \Response::json($response);
     }
 
     /**
@@ -86,5 +90,9 @@ class QueueTypeController extends Controller {
     {
         $queueType = QueueType::find($request->get('id'));
         $queueType->delete();
+        $response = array();
+        $response['status'] = 200;
+        $response['debug'] = 'Queue deleted';
+        return \Response::json($response);
     }
 }

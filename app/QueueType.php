@@ -32,6 +32,10 @@ class QueueType extends Model{
     * @return int
     */
     public static function typeByPeople($people){
-        return self::where('capacity', '>=', $people)->orderBy('capacity', 'ASC')->first()->id;
+        $type = self::where('capacity', '>=', $people)->orderBy('capacity', 'ASC')->get();
+        if(count($type) <= 0){
+            return 0;
+        }
+        return $type[0]->id;
     }
 }

@@ -47,7 +47,7 @@
                         window.location.replace("/backend");
                     },
                     error: function(data){
-                        alert('Wrong password.');
+                        alert('Unauthorized');
                     }
                 });
             });

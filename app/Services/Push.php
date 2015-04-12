@@ -22,7 +22,6 @@ class Push{
             $errstr, 60, STREAM_CLIENT_CONNECT | STREAM_CLIENT_PERSISTENT, $ctx);
         if (!$fp)
             exit("Failed to connect: $err $errstr" . PHP_EOL);
-        echo 'Connected to APNS' . PHP_EOL;
         $body['aps'] = array(
             'alert' => $message,
             'sound' => 'default',

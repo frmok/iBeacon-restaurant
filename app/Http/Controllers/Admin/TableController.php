@@ -63,5 +63,9 @@ class TableController extends Controller {
     public function delete(Request $request){
         $table = Table::find($request->get('id'));
         $table->delete();
+        $response = array();
+        $response['status'] = 200;
+        $response['debug'] = 'Table deleted';
+        return \Response::json($response);
     }
 }

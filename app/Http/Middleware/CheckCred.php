@@ -13,7 +13,13 @@ class CheckCred{
         if($token){
             $decoded = \JWT::decode($token, env('JWT_KEY'));
             \Auth::loginUsingId($decoded->uid);
-            return $next($request);
+            if(\Auth::user()->right == 1){
+                return $next($request);
+            }else{
+                $response['status'] = '401';
+                $response['debug'] = 'Not Authorized';
+                return \Response::json($response, 401);
+            }
         }else{
             $response['status'] = '401';
             $response['debug'] = 'Not Authorized';

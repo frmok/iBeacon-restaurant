@@ -37,11 +37,11 @@
                 </thead>
                 <tbody>
                     <tr ng-repeat="order in bill.orders">
-                        <td>{{order.item.item_name}}</td>
-                        <td>${{order.item.price}}</td>
-                        <td>{{order.quantity}}</td>
-                        <td>{{order.status}}</td>
-                        <td>{{order.item.price * order.quantity}}</td>
+                        <td>{{ order.item.item_name }}</td>
+                        <td>${{ order.item.price }}</td>
+                        <td>{{ order.quantity }}</td>
+                        <td>{{ order.order_status | orderStatus }}</td>
+                        <td>{{ order.item.price * order.quantity }}</td>
                     </tr>
                 </tbody>
             </table>

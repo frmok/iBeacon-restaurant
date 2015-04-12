@@ -77,5 +77,9 @@ class CategoryController extends Controller {
     {
         $category = Category::find($request->get('id'));
         $category->delete();
+        $response = array();
+        $response['status'] = 200;
+        $response['debug'] = 'Category deleted';
+        return \Response::json($response);
     }
 }
