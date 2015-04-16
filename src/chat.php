@@ -76,38 +76,72 @@ class Chat implements MessageComponentInterface {
 
             //for global order array
             $orderFound = 0;
+            $collision = 0;
             foreach($foundBill->orders as $order){
                 if($json['orderId'] == $order){
                     $orderFound = 1;
+                    //collision is found
+                    echo "SHITTTTT\n";
+                    //release the global array
+                    $ii = 0;
+                    foreach($foundBill->orders as $order){
+                        if($json['orderId'] == $order){
+                            unset($foundBill->orders[$ii]);
+                            echo 'Release Order ID:'.$json['orderId']."\n";
+                        }
+                        $ii++;
+                    }
+                    //release all local array
+                    foreach($foundBill->customersOrders as $key => $localOrder){
+                        foreach($localOrder as $key2 => $order){
+                            if($json['orderId'] == $order){
+                                unset($foundBill->customersOrders[$key][$key2]);
+                                echo "asasassa\n";
+                            }
+                        }
+                    }
+                    //send packet
+                    $collisonPacket = [];
+                    $collisonPacket['action'] = 'wsorder.collision';
+                    $collisonPacket['order'] = $json['orderId'];
+                    foreach ($foundBill->customers as $customer) {
+                        $customer->send(json_encode($collisonPacket));
+                    }
+                    $collision = 1;
                     break;
                 }
             }
-            if($orderFound == 0){
-                array_push($foundBill->orders, $json['orderId']);
-                echo 'Push Order ID:'.$json['orderId']."\n";
-            }
+            if($collision == 0){
+                if($orderFound == 0){
+                    array_push($foundBill->orders, $json['orderId']);
+                    echo 'Push Order ID:'.$json['orderId']."\n";
+                }
 
             //for local order array
-            $orderFound = 0;
-            foreach($foundBill->customersOrders[$from->resourceId] as $order){
-                if($json['orderId'] == $order){
-                    $orderFound = 1;
-                    break;
+                $orderFound = 0;
+                foreach($foundBill->customersOrders[$from->resourceId] as $order){
+                    if($json['orderId'] == $order){
+                        $orderFound = 1;
+                        break;
+                    }
                 }
-            }
-            if($orderFound == 0){
-                array_push($foundBill->customersOrders[$from->resourceId], $json['orderId']);
-                echo 'Push Order ID to '.$from->resourceId."\n";
-            }
+                if($orderFound == 0){
+                    array_push($foundBill->customersOrders[$from->resourceId], $json['orderId']);
+                    echo 'Push Order ID to '.$from->resourceId."\n";
+                }
 
-            $foundBill->orders = array_values($foundBill->orders);
-            $packet['action'] = 'wsorder.update';
-            $packet['orders'] = $foundBill->orders;
-            foreach ($foundBill->customers as $customer) {
-                if($customer !== $from){
-                    $customer->send(json_encode($packet));
+                $foundBill->orders = array_values($foundBill->orders);
+                $foundBill->customersOrders[$from->resourceId] = array_values($foundBill->customersOrders[$from->resourceId]);
+                $packet['action'] = 'wsorder.update';
+                $packet['orders'] = $foundBill->orders;
+                foreach ($foundBill->customers as $customer) {
+                    if($customer !== $from){
+                        $customer->send(json_encode($packet));
+                    }
                 }
             }
+            var_dump($foundBill->orders);
+            var_dump($foundBill->customersOrders);
         }
 
         if($json['action'] === 'releaseOrder'){
@@ -117,7 +151,7 @@ class Chat implements MessageComponentInterface {
                 if($json['orderId'] == $order){
                     unset($foundBill->orders[$ii]);
                     echo 'Release Order ID:'.$json['orderId']."\n";
-                    break;
+                    //break;
                 }
                 $ii++;
             }
@@ -128,12 +162,13 @@ class Chat implements MessageComponentInterface {
                 if($json['orderId'] == $order){
                     unset($foundBill->customersOrders[$from->resourceId][$ii]);
                     echo 'Release Order ID from '.$from->resourceId."\n";
-                    break;
+                    //break;
                 }
                 $ii++;
             }
 
             $foundBill->orders = array_values($foundBill->orders);
+            $foundBill->customersOrders[$from->resourceId] = array_values($foundBill->customersOrders[$from->resourceId]);
             $packet['action'] = 'wsorder.update';
             $packet['orders'] = $foundBill->orders;
             foreach ($foundBill->customers as $customer) {
@@ -150,6 +185,8 @@ class Chat implements MessageComponentInterface {
         //     // The sender is not the receiver, send to each client connected
         //     $client->send($msg);
         // }
+            var_dump($foundBill->orders);
+            var_dump($foundBill->customersOrders);
     }
 
     public function onClose(ConnectionInterface $conn) {
